@@ -1,0 +1,58 @@
+body {
+    font-size: 14px;
+    background: #f2f6f5;
+    color: #333;
+}
+footer {
+    height: 100px;
+    background: #1a479a;
+    border-top: 4px solid #ec131e;
+    color: #fff;
+    position: relative;
+}
+footer a {
+    color: #fff;
+}
+.twb-logo {
+    position: fixed;
+    left: 25px;
+    top: 25px;
+    z-index: 10;
+}
+.twb-logo img {
+    width: 150px;
+    height: 150px;
+}
+.twb-home-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+.twb-nav {
+    top: 40px;
+    right: 25px;
+    position: absolute;
+    z-index: 10;
+}
+footer .twb-nav {
+    top: 32px;
+}
+.twb-nav .uk-subnav > * > :first-child {
+    color: #fff;
+}
+.twb-socmed {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.twb-socmed li {
+    display: inline-flex;
+}
+.twb-socmed .uk-icon-button {
+    background: #fff;
+    color: #7cd2eb;
+}
+footer .twb-socmed .uk-icon-button {
+    color: #1a479a;
+}
