@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/home');
+Route::get('/', 'FrontendController@home');
+Route::get('/produk-kami', 'FrontendController@product');
+Route::get('/video', 'FrontendController@video');
+Route::get('/berita', 'FrontendController@berita');
+Route::get('/berita/detail', 'FrontendController@beritaDetail');
+
+Route::get('/admin', function () {
+    return view('admin/login');
 });
-Route::get('/home', 'FrontendController@home');
+
+Route::get('/admin/index', function () {
+    return view('admin/index');
+});

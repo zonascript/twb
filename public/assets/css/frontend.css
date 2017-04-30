@@ -1,7 +1,15 @@
+@import "fonts/asap/stylesheet.css";
+@import "color.css";
+
 body {
     font-size: 14px;
-    background: #f2f6f5;
+    font-family: 'Asap', Helvetica, Arial, sans-serif;
+    background: #F7F8F7;
     color: #333;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Asap', Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
 footer {
     height: 100px;
@@ -21,13 +29,7 @@ footer a {
 }
 .twb-logo img {
     width: 150px;
-    height: 150px;
-}
-.twb-home-section {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    z-index: 0;
+    height: auto;
 }
 .twb-nav {
     top: 40px;
@@ -35,11 +37,16 @@ footer a {
     position: absolute;
     z-index: 10;
 }
-footer .twb-nav {
-    top: 32px;
-}
 .twb-nav .uk-subnav > * > :first-child {
-    color: #fff;
+    color: #204998;
+}
+.twb-nav .uk-subnav a {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(235, 35, 39, 0);
+}
+.twb-nav .uk-subnav a:hover,
+.twb-nav .uk-subnav .uk-active a {
+    border-bottom: 1px solid #EA2327;
 }
 .twb-socmed {
     list-style: none;
@@ -50,9 +57,124 @@ footer .twb-nav {
     display: inline-flex;
 }
 .twb-socmed .uk-icon-button {
+    background: #1a479a;
+    color: #fff;
+}
+.home .twb-socmed .uk-icon-button {
     background: #fff;
     color: #7cd2eb;
 }
+.home .twb-nav .uk-subnav > * > :first-child {
+    color: #fff;
+}
+footer .twb-nav {
+    top: 32px;
+}
 footer .twb-socmed .uk-icon-button {
+    color: #1a479a !important;
+    background: #fff !important;
+}
+footer .twb-nav .uk-subnav > * > :first-child {
+    color: #fff;
+}
+
+.twb-home-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+#home4.twb-home-section {
+    background: #EEF3F2;
+}
+.twb-button-yellow {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+    background: #F9ED20;
     color: #1a479a;
+    text-decoration: none;
+    text-transform: none;
+}
+.twb-button-yellow:hover {
+    background: #1a479a;
+    color: #F9ED20;
+}
+.twb-homebanner {
+    border: 1px solid #D1D3D4;
+    display: inline-block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.twb-news-thumb img {
+    max-width: 215px;
+    border: 1px solid #D1D3D4;
+    padding: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.twb-calendar-thumb {
+    max-width: 215px;
+}
+.twb-news-excerpt {
+    padding-right: 50px;
+}
+.twb-news-img {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 1rem;
+}
+.twb-news-img img {
+    width: 100%;
+    height: auto;
+}
+.twb-btn-baca {
+    background: #27AAE1;
+    text-transform: none;
+    border: 1px solid #1B7AA2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.twb-btn-info {
+    background: #EA1D27;
+    text-transform: none;
+    border: 1px solid #A50E15;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.twb-content {
+    padding-top: 160px;
+    padding-bottom: 100px;
+    min-height: calc(100vh - 160px - 100px - 104px);
+}
+.twb-border-bottom {
+    border-bottom: 1px solid #D1D3D4;
+}
+.twb-btn-paging {
+    padding: 2px 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+#mobilenav .uk-offcanvas-bar {
+    background: #1a479a;
+}
+@media (max-width: 639px) {
+    .twb-logo {
+        width: 72px;
+        height: auto;
+    }
 }

@@ -1,0 +1,60 @@
+.k-login {
+    height: 100vh;
+}
+.k-footer {
+    font-size: .875rem;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 0;
+}
+.k-login .k-footer {
+    color: #fff;
+}
+.k-topnav,
+.k-topnav .uk-navbar-item,
+.k-topnav .uk-navbar-nav>li>a,
+.k-topnav .uk-navbar-toggle {
+    height: 50px;
+    text-transform: capitalize;
+    color: #fff;
+}
+.k-topnav {
+    background: #000 !important;
+}
+.k-sidenav {
+    height: calc(100vh - 80px);
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    width: 150px;
+}
+.k-sidenav .uk-nav-default .uk-nav-sub a {
+    color: #fff;
+}
+.k-sidenav .uk-nav-default a:hover {
+    color: #999;
+}
+.k-sidenav .uk-nav-default>li>a {
+    color: #fff;
+}
+.k-sidenav .uk-nav-default>li.uk-active>a {
+    color: #fff;
+}
+.k-sidenav ul.uk-nav-sub {
+    padding-left: 34px;
+}
+.k-container {
+    padding: 15px 15px 0 195px;
+    width: calc(100% - 210px);
+}
+.k-main {
+    min-height: calc(100vh - 105px);
+}
+.k-title-page {
+    font-size: 1em;
+    color: #fff;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+}
