@@ -7,7 +7,12 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "lavary/laravel-menu": "^1.6",
+        "mcamara/laravel-localization": "^1.2",
+        "spatie/laravel-permission": "^2.1",
+        "spatie/laravel-sitemap": "^2.2",
+        "yajra/laravel-datatables-oracle": "^7.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -19,8 +24,13 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
-        }
+            "App\\": "app/",
+            "App\\Model\\": "app/Models/",
+            "App\\Service\\": "app/Services/"
+        },
+        "files" : [
+            "app/Services/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

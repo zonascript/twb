@@ -177,6 +177,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+        'Lavary\Menu\ServiceProvider',
+
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+
+        Spatie\Permission\PermissionServiceProvider::class,
+
+
+
     ],
 
     /*
@@ -225,6 +235,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Menu'       => 'Lavary\Menu\Facade',
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],
 

@@ -17,7 +17,7 @@
                 <div class="uk-navbar-dropdown uk-width-medium" uk-drop="offset: 0">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: user"></span> My Profile</a></li>
-                        <li><a href="{!! url('/admin') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
+                        <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
                     </ul>
                 </div>
             </li>
