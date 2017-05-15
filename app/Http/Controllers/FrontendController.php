@@ -39,4 +39,11 @@ class FrontEndController extends Controller
         $data['navActiveNews'] = 'class="uk-active"';
         return view('frontend.berita-detail', $data);
     }
+    public function seru()
+    {
+        $data['pageTitle'] = 'Seru Mewarnai';
+        $data['pageClass'] = 'class="seru"';
+        $data['navActiveColoring'] = 'class="uk-active"';
+        return view('frontend.seru-mewarnai', $data);
+    }
 }

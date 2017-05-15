@@ -16,6 +16,7 @@ Route::get('/produk-kami', 'FrontendController@product');
 Route::get('/video', 'FrontendController@video');
 Route::get('/berita', 'FrontendController@berita');
 Route::get('/berita/detail', 'FrontendController@beritaDetail');
+Route::get('/seru-mewarnai', 'FrontendController@seru');
 
 Auth::routes();
 
