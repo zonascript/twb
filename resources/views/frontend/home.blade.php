@@ -12,8 +12,43 @@
         <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <div class="uk-background-cover uk-background-bottom uk-height-viewport uk-width-1-1 uk-flex uk-flex-center uk-flex-middle" style="background-image: url({!! asset('assets/img/bg-home.png') !!});">
-                        <div class="slides-text">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    <div class="uk-background-cover uk-background-bottom uk-height-viewport uk-width-1-1 uk-flex uk-flex-center uk-flex-middle" style="background-image: url({!! asset('assets/img/home/bg.png') !!});">
+                        {{-- <div class="slides-text">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div> --}}
+                        {{-- <img class="uk-position-absolute uk-position-bottom-center" src="{!! asset('assets/img/home/bg.png') !!}" alt="Tini Wini Biti"> --}}
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-bottom" src="{!! asset('assets/img/home/sun.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:-455px;width:86px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom:27%;margin-left:-345px;width:21px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 28.5%;margin-left: -355px;width: 15px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 28.5%;margin-left: -332px;width: 10px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 30.5%;margin-left: 395px;width:21px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 32%;margin-left: 390px;width: 15px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 32%;margin-left: 415px;width: 10px;height:auto;">
+
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-right" src="{!! asset('assets/img/home/cloud2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:26%;margin-left:-255px;width:37px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-left" src="{!! asset('assets/img/home/cloud2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:27%;margin-left:350px;width:22px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-left" src="{!! asset('assets/img/home/cloud1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:-500px;width:68px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-right" src="{!! asset('assets/img/home/cloud1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:450px;width:58px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/mountain2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:210px;">
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/mountain1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:170px;">
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/jungle.png') !!}" alt="Tini Wini Biti" style="margin-bottom:175px;">
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom-small" src="{!! asset('assets/img/home/ground2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:-15px;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree3.png') !!}" alt="Tini Wini Biti" style="margin-bottom:195px;margin-left:-285px;width:66px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:-65px;width:76px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:365px;width:73px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:-345px;width:73px;height:auto;">
+
+                        <a href="{!! url('/seru-mewarnai') !!}" title="Seru Mewarnai"><img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/house.png') !!}" alt="Tini Wini Biti" style="margin-bottom:170px;margin-left:120px;width:156px;height:auto;"></a>
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom-small" src="{!! asset('assets/img/home/ground1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:-55px;">
                     </div>
                 </li>
                 {{-- <li>

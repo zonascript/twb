@@ -1,3 +1,12 @@
+@import "fonts/asap/stylesheet.css";
+@import "color.css";
+body {
+    font-size: 14px;
+    font-family: 'Asap', Helvetica, Arial, sans-serif;
+    background: #F7F8F7;
+    color: #333;
+}
+
 .k-login {
     height: 100vh;
 }
