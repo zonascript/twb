@@ -15,6 +15,7 @@
             <thead>
             <tr>
                 <th>Id</th>
+                <th>Show Name</th>
                 <th>Name</th>
                 <th class="text-center">Action</th>
             </tr>
@@ -36,6 +37,7 @@
             ajax: '{!! url('/setting/permission-datatable-list') !!}',
             columns: [
                 {data: 'id', name: 'id', 'width': '80px'},
+                {data: 'show_name', name: 'show_name'},
                 {data: 'name', name: 'name'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, "width": "100px"}
             ]

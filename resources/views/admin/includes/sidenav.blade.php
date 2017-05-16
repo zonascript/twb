@@ -22,6 +22,7 @@
             <ul class="uk-nav-sub">
                 <li><a href="{!! url('setting/permission') !!}">Permission</a></li>
                 <li><a href="{!! url('setting/role') !!}">Role</a></li>
+                <li><a href="{!! url('setting/user') !!}">User</a></li>
             </ul>
         </li>
     </ul>

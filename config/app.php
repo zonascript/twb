@@ -178,12 +178,12 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Yajra\Datatables\DatatablesServiceProvider::class,
-
         'Lavary\Menu\ServiceProvider',
-
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-
         Spatie\Permission\PermissionServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        JildertMiedema\LaravelPlupload\LaravelPluploadServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
 
@@ -238,6 +238,10 @@ return [
 
         'Menu'       => 'Lavary\Menu\Facade',
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Plupload' => JildertMiedema\LaravelPlupload\Facades\Plupload::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

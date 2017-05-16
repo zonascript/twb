@@ -1,0 +1,3 @@
+- Create custom field
+-- Check custom field when add all/specific post/page, click category
+

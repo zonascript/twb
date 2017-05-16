@@ -30,7 +30,7 @@ class Permission
     {
         return PermissionModel::create([
             'name' => $request->input('name'),
-            'guard_name' => $request->input('code')
+            'show_name' => $request->input('show_name'),
         ]);
     }
 
@@ -43,7 +43,12 @@ class Permission
     {
         $permission = $this->getById($id);
         $permission->name = $request->input('name');
-        $permission->guard_name = $request->input('code');
+        $permission->show_name = $request->input('show_name');
         return $permission->save();
+    }
+
+    public function destroy($id)
+    {
+        return PermissionModel::destroy($id);
     }
 }
