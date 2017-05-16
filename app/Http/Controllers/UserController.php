@@ -70,7 +70,7 @@ class UserController extends Controller
     {
         $data['id'] = $id;
         $data['user'] = $this->user->getById($id);
-        $data['permissions'] = $this->user->permission()->getList();
+        $data['roles'] = $this->user->role()->getList();
         return view('admin.users.edit', $data);
     }
 
