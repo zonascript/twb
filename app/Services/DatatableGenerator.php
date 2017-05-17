@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-
-use Illuminate\Database\Eloquent\Collection;
 use Datatables;
+use Illuminate\Support\Collection;
 
 class DatatableGenerator
 {

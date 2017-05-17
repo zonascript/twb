@@ -60,6 +60,20 @@ Route::group([
     Route::get('/setting/user/{id}/edit', 'UserController@edit')->name('setting.user.edit');
     Route::post('/setting/user/{id}/update', 'UserController@update')->name('setting.user.edit');
     Route::get('/setting/user/{id}/destroy', 'UserController@destroy')->name('setting.user.delete');
+
+    Route::get('/news', 'NewsController@index')->name('setting.user');
+    Route::get('/news/create', 'NewsController@create')->name('setting.user.add');
+    Route::post('/news/store', 'NewsController@store')->name('setting.user.add');
+    Route::get('/news/{id}/edit', 'NewsController@edit')->name('setting.user.edit');
+    Route::post('/news/{id}/update', 'NewsController@update')->name('setting.user.edit');
+    Route::get('/news/{id}/destroy', 'NewsController@destroy')->name('setting.user.delete');
+
+    Route::get('/event', 'EventController@index')->name('setting.user');
+    Route::get('/event/create', 'EventController@create')->name('setting.user.add');
+    Route::post('/event/store', 'EventController@store')->name('setting.user.add');
+    Route::get('/event/{id}/edit', 'EventController@edit')->name('setting.user.edit');
+    Route::post('/event/{id}/update', 'EventController@update')->name('setting.user.edit');
+    Route::get('/event/{id}/destroy', 'EventController@destroy')->name('setting.user.delete');
 });
 
 // without menu generator
@@ -67,7 +81,9 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/setting/permission-datatable-list', 'PermissionController@datatableList')->name('setting.permission');
     Route::get('/setting/role-datatable-list', 'RoleController@datatableList')->name('setting.role');
     Route::get('/setting/user-datatable-list', 'UserController@datatableList')->name('setting.user');
+    Route::get('/news-datatable-list', 'NewsController@datatableList')->name('setting.user');
 });
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/form', 'TestController@form');

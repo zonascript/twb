@@ -19,6 +19,11 @@ class Post extends Model
         return $this->hasMany(PostMeta::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'post_has_categories');
@@ -29,8 +34,8 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_has_tags');
     }
 
-    public function user()
+    public function medias()
     {
-        return $this->belongsTo(User::class, 'created_by', 'id');
+        return $this->belongsToMany(Media::class, 'post_has_medias');
     }
 }

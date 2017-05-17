@@ -10,11 +10,9 @@ class Permission
     use DatatableParameters;
 
     protected $baseUrl = 'setting/permission';
-    protected $prefixUrl;
 
     public function datatable()
     {
-        $this->prefixUrl = config('misc.admin-prefix');
         $data = $this->getList();
         $actions = $this->actionParameters(['edit', 'delete']);
 
