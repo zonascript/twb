@@ -12,13 +12,43 @@
         <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <div id="animation_container" class="uk-position-top-center">
-                		<canvas id="canvas" class="uk-position-center"></canvas>
-                		<div id="dom_overlay_container"></div>
-                	</div>
-                    <div id='_preload_div_'>
-                        <span style='display: inline-block; height: 100%; vertical-align: middle;'></span>
-                        <img src="{!! asset('images/_preloader.gif') !!}" style='vertical-align: middle; max-height: 100%'/>
+                    <div class="uk-background-cover uk-background-bottom uk-height-viewport uk-width-1-1 uk-flex uk-flex-center uk-flex-middle" style="background-image: url({!! asset('assets/img/home/bg.png') !!});">
+                        {{-- <div class="slides-text">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div> --}}
+                        {{-- <img class="uk-position-absolute uk-position-bottom-center" src="{!! asset('assets/img/home/bg.png') !!}" alt="Tini Wini Biti"> --}}
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-bottom" src="{!! asset('assets/img/home/sun.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:-455px;width:86px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom:27%;margin-left:-345px;width:21px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 28.5%;margin-left: -355px;width: 15px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 28.5%;margin-left: -332px;width: 10px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 30.5%;margin-left: 395px;width:21px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 32%;margin-left: 390px;width: 15px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-top" src="{!! asset('assets/img/home/bird.png') !!}" alt="Tini Wini Biti" style="margin-bottom: 32%;margin-left: 415px;width: 10px;height:auto;">
+
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-right" src="{!! asset('assets/img/home/cloud2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:26%;margin-left:-255px;width:37px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-left" src="{!! asset('assets/img/home/cloud2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:27%;margin-left:350px;width:22px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-left" src="{!! asset('assets/img/home/cloud1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:-500px;width:68px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-slide-right" src="{!! asset('assets/img/home/cloud1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:29%;margin-left:450px;width:58px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/mountain2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:210px;">
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/mountain1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:170px;">
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom" src="{!! asset('assets/img/home/jungle.png') !!}" alt="Tini Wini Biti" style="margin-bottom:175px;">
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom-small" src="{!! asset('assets/img/home/ground2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:-15px;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree3.png') !!}" alt="Tini Wini Biti" style="margin-bottom:195px;margin-left:-285px;width:66px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree2.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:-65px;width:76px;height:auto;">
+
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:365px;width:73px;height:auto;">
+                        <img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/tree1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:190px;margin-left:-345px;width:73px;height:auto;">
+
+                        <a href="{!! url('/seru-mewarnai') !!}" title="Seru Mewarnai"><img class="uk-position-absolute uk-position-bottom-center uk-animation-fade" src="{!! asset('assets/img/home/house.png') !!}" alt="Tini Wini Biti" style="margin-bottom:170px;margin-left:120px;width:156px;height:auto;"></a>
+
+                        <img class="uk-position-absolute uk-position-bottom uk-animation-slide-bottom-small" src="{!! asset('assets/img/home/ground1.png') !!}" alt="Tini Wini Biti" style="margin-bottom:-55px;">
                     </div>
                 </li>
                 {{-- <li>
@@ -120,83 +150,5 @@
                 smoothHeight: true
             });
         });
-    </script>
-
-    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
-    <script src="{!! asset('assets/js/twb.js') !!}"></script>
-    <script>
-        // Global Scripts
-        // stop();
-    </script>
-    <script>
-        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-        function init() {
-        	canvas = document.getElementById("canvas");
-        	anim_container = document.getElementById("animation_container");
-        	dom_overlay_container = document.getElementById("dom_overlay_container");
-        	images = images||{};
-        	ss = ss||{};
-        	var loader = new createjs.LoadQueue(false);
-        	loader.addEventListener("fileload", handleFileLoad);
-        	loader.addEventListener("complete", handleComplete);
-        	loader.loadManifest(lib.properties.manifest);
-        }
-        function handleFileLoad(evt) {
-        	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-        }
-        function handleComplete(evt) {
-        	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-        	var queue = evt.target;
-        	var ssMetadata = lib.ssMetadata;
-        	for(i=0; i<ssMetadata.length; i++) {
-        		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-        	}
-        	var preloaderDiv = document.getElementById("_preload_div_");
-        	preloaderDiv.style.display = 'none';
-        	canvas.style.display = 'block';
-        	exportRoot = new lib.twb();
-        	stage = new createjs.Stage(canvas);
-        	stage.addChild(exportRoot);
-        	//Registers the "tick" event listener.
-        	fnStartAnimation = function() {
-        		createjs.Ticker.setFPS(lib.properties.fps);
-        		createjs.Ticker.addEventListener("tick", stage);
-        	}
-        	//Code to support hidpi screens and responsive scaling.
-        	function makeResponsive(isResp, respDim, isScale, scaleType) {
-        		var lastW, lastH, lastS=1;
-        		window.addEventListener('resize', resizeCanvas);
-        		resizeCanvas();
-        		function resizeCanvas() {
-        			var w = lib.properties.width, h = lib.properties.height;
-        			var iw = window.innerWidth, ih=window.innerHeight;
-        			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-        			if(isResp) {
-        				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-        					sRatio = lastS;
-        				}
-        				else if(!isScale) {
-        					if(iw<w || ih<h)
-        						sRatio = Math.min(xRatio, yRatio);
-        				}
-        				else if(scaleType==1) {
-        					sRatio = Math.min(xRatio, yRatio);
-        				}
-        				else if(scaleType==2) {
-        					sRatio = Math.max(xRatio, yRatio);
-        				}
-        			}
-        			canvas.width = w*pRatio*sRatio;
-        			canvas.height = h*pRatio*sRatio;
-        			canvas.style.width = anim_container.style.width = dom_overlay_container.style.width = preloaderDiv.style.width = w*sRatio+'px';
-        			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = preloaderDiv.style.height = h*sRatio+'px';
-        			stage.scaleX = pRatio*sRatio;
-        			stage.scaleY = pRatio*sRatio;
-        			lastW = iw; lastH = ih; lastS = sRatio;
-        		}
-        	}
-        	makeResponsive(true,'both',true,1);
-        	fnStartAnimation();
-        }
     </script>
 @endsection
