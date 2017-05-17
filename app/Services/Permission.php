@@ -9,11 +9,12 @@ class Permission
 {
     use DatatableParameters;
 
-    protected $baseUrl;
+    protected $baseUrl = 'setting/permission';
+    protected $prefixUrl;
 
     public function datatable()
     {
-        $this->baseUrl = config('misc.admin-prefix') . '/setting/permission';
+        $this->prefixUrl = config('misc.admin-prefix');
         $data = $this->getList();
         $actions = $this->actionParameters(['edit', 'delete']);
 
@@ -44,7 +45,7 @@ class Permission
     {
         $permission = $this->getById($id);
         $permission->name = $request->input('name');
-        $permission->name = $request->input('name');
+        $permission->show_name = $request->input('show_name');
         return $permission->save();
     }
 

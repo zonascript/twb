@@ -9,6 +9,17 @@
         <div class="uk-width-1-1">
             <form class="uk-form uk-form-stacked" action="{!! action('PermissionController@update', $id) !!}" method="POST">
                 {!! csrf_field() !!}
+
+                @if (count($errors) > 0)
+                    <div class="uk-alert uk-alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="uk-margin">
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="">Show Name</label>

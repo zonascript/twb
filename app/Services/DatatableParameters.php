@@ -18,9 +18,10 @@ trait DatatableParameters
 
     protected function editParameter()
     {
+        $url = $this->baseUrl . '/%s/edit';
         $edit = [
             'title'     => 'Edit',
-            'link'      => url($this->baseUrl . '/%s' . '/edit'),
+            'link'      => backendUrl($url),
             'class'     => 'btn btn-xs btn-default',
             'icon'      => 'fa fa-edit'
         ];
@@ -29,9 +30,10 @@ trait DatatableParameters
 
     protected function detailParameter()
     {
+        $url = $this->baseUrl . '/%s/detail';
         $detail = [
             'title'     => 'Detail',
-            'link'      => url($this->baseUrl . '/%s' . '/detail'),
+            'link'      => backendUrl($url),
             'class'     => 'btn btn-xs btn-default',
             'icon'      => 'fa fa-location-arrow'
         ];
@@ -40,9 +42,10 @@ trait DatatableParameters
 
     protected function deleteParameter()
     {
+        $url = $this->baseUrl . '/%s/destroy';
         $delete = [
             'title'     => 'Delete',
-            'link'      => url($this->baseUrl . '/%s' . '/destroy'),
+            'link'      => backendUrl($url),
             'class'     => 'btn btn-xs btn-default btn-delete',
             'icon'      => 'fa fa-times',
         ];

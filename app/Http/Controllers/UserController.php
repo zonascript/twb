@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUser;
+use App\Http\Requests\UpdateUser;
 use App\Service\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -52,12 +53,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUser $request)
     {
         if ($this->user->store($request)) {
-            return redirect('setting/user');
+            return backendRedirect('setting/user');
         }
-        return redirect('setting/user/create')->withInput();
+        return backendRedirect('setting/user/create')->withInput();
     }
 
     /**
@@ -81,12 +82,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUser $request, $id)
     {
         if ($this->user->update($request, $id)) {
-            return redirect('setting/user');
+            return backendRedirect('setting/user');
         }
-        return redirect('setting/user/' . $id . '/edit');
+        return backendRedirect('setting/user/' . $id . '/edit');
     }
 
     /**
@@ -98,8 +99,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         if ($this->user->destroy($id)) {
-            return redirect('setting/user');
+            return backendRedirect('setting/user');
         }
-        return redirect('setting/user');
+        return backendRedirect('setting/user');
     }
 }

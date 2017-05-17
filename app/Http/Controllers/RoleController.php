@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRole;
+use App\Http\Requests\UpdateRole;
 use App\Service\Role;
-use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
@@ -52,12 +53,12 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRole $request)
     {
         if ($this->role->store($request)) {
-            return redirect('setting/role');
+            return backendRedirect('setting/role');
         }
-        return redirect('setting/role/create')->withInput();
+        return backendRedirect('setting/role/create')->withInput();
     }
 
     /**
@@ -81,12 +82,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRole $request, $id)
     {
         if ($this->role->update($request, $id)) {
-            return redirect('setting/role');
+            return backendRedirect('setting/role');
         }
-        return redirect('setting/role/' . $id . '/edit');
+        return backendRedirect('setting/role/' . $id . '/edit');
     }
 
     /**
@@ -98,8 +99,8 @@ class RoleController extends Controller
     public function destroy($id)
     {
         if ($this->role->destroy($id)) {
-            return redirect('setting/role');
+            return backendRedirect('setting/role');
         }
-        return redirect('setting/role');
+        return backendRedirect('setting/role');
     }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePermission;
+use App\Http\Requests\UpdatePermission;
 use App\Service\Permission;
-use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
@@ -48,15 +49,15 @@ class PermissionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StorePermission $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePermission $request)
     {
         if ($this->permission->store($request)) {
-            return redirect('setting/permission');
+            return backendRedirect('setting/permission');
         }
-        return redirect('setting/permission/create')->withInput();
+        return backendRedirect('setting/permission/create')->withInput();
     }
 
     /**
@@ -75,16 +76,16 @@ class PermissionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param UpdatePermission $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePermission $request, $id)
     {
         if ($this->permission->update($request, $id)) {
-            return redirect('setting/permission');
+            return backendRedirect('setting/permission');
         }
-        return redirect('setting/permission/' . $id . '/edit');
+        return backendRedirect('setting/permission/' . $id . '/edit');
     }
 
     /**
@@ -96,8 +97,8 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         if ($this->permission->destroy($id)) {
-            return redirect('setting/permission');
+            return backendRedirect('setting/permission');
         }
-        return redirect('setting/permission');
+        return backendRedirect('setting/permission');
     }
 }
