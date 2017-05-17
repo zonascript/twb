@@ -1,6 +1,6 @@
 <div class="k-sidenav uk-overflow-auto">
     <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-        <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
+        <li class="uk-active"><a href="{!! route('admin') !!}"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: file-edit"></span> Posts</a>
             <ul class="uk-nav-sub">
@@ -20,9 +20,9 @@
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: settings"></span> Setting</a>
             <ul class="uk-nav-sub">
-                <li><a href="{!! url('setting/permission') !!}">Permission</a></li>
-                <li><a href="{!! url('setting/role') !!}">Role</a></li>
-                <li><a href="{!! url('setting/user') !!}">User</a></li>
+                <li><a href="{!! action('PermissionController@index') !!}">Permission</a></li>
+                <li><a href="{!! action('RoleController@index') !!}">Role</a></li>
+                <li><a href="{!! action('UserController@index') !!}">User</a></li>
             </ul>
         </li>
     </ul>

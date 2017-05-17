@@ -9,7 +9,7 @@
     <div class="uk-width-1-1">
         <h4>Permission</h4>
         <div>
-            <a href="{!! url('setting/permission/create') !!}"/>Add</a>
+            <a href="{!! action('PermissionController@create') !!}"/>Add</a>
         </div>
         <table class="uk-table" id="thetable">
             <thead>
@@ -34,7 +34,7 @@
         $('#thetable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! url('/setting/permission-datatable-list') !!}',
+            ajax: '{!! action('PermissionController@datatableList') !!}',
             columns: [
                 {data: 'id', name: 'id', 'width': '80px'},
                 {data: 'show_name', name: 'show_name'},

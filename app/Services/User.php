@@ -68,7 +68,7 @@ class User
             $user->name = $request->input('name');
             $user->email = $request->input('email');
             $user->save();
-            $user->syncRoles($this->input('roles'));
+            $user->syncRoles($request->input('roles'));
             return true;
         } catch (\Exception $e) {
             return false;

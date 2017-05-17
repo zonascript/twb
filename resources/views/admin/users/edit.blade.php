@@ -28,7 +28,7 @@
                         <label class="uk-form-label">Roles</label>
                         <div class="uk-form-controls">
                             @foreach($roles as $role)
-                                <input type="checkbox" class="uk-checkbox" name="permissions[]"
+                                <input type="checkbox" class="uk-checkbox" name="roles[]"
                                        value="{!! $role->name !!}"
                                         @if($user->hasRole($role)) checked @endif/> {!! $role->name !!}
                             @endforeach

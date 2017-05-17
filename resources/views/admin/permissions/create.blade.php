@@ -7,7 +7,7 @@
 @section('content')
 <div class="uk-grid">
     <div class="uk-width-1-1">
-        <form class="uk-form uk-form-stacked" action="{!! url('setting/permission/store') !!}" method="POST">
+        <form class="uk-form uk-form-stacked" action="{!! action('PermissionController@store') !!}" method="POST">
             {!! csrf_field() !!}
             <div class="uk-margin">
                 <div class="uk-form-row">
@@ -25,7 +25,7 @@
             </div>
             <div class="uk-margin">
                 <div class="uk-form-row">
-                    <a href="{!! url('setting/permission') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
+                    <a href="{!! action('PermissionController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
                     <button type="submit" class="uk-button uk-button-default uk-button-small">Save</button>
                 </div>
             </div>

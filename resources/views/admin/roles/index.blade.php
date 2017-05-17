@@ -7,9 +7,9 @@
 @section('content')
 <div class="uk-grid">
     <div class="uk-width-1-1">
-        <h4>Permission</h4>
+        <h4>Role</h4>
         <div>
-            <a href="{!! url('setting/role/create') !!}"/>Add</a>
+            <a href="{!! action('RoleController@create') !!}"/>Add</a>
         </div>
         <table class="uk-table" id="thetable">
             <thead>
@@ -33,7 +33,7 @@
         $('#thetable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! url('/setting/role-datatable-list') !!}',
+            ajax: '{!! action('RoleController@datatableList') !!}',
             columns: [
                 {data: 'id', name: 'id', 'width': '80px'},
                 {data: 'name', name: 'name'},

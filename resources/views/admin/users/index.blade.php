@@ -7,9 +7,9 @@
 @section('content')
 <div class="uk-grid">
     <div class="uk-width-1-1">
-        <h4>Permission</h4>
+        <h4>User</h4>
         <div>
-            <a href="{!! url('setting/user/create') !!}"/>Add</a>
+            <a href="{!! action('UserController@create') !!}"/>Add</a>
         </div>
         <table class="uk-table" id="thetable">
             <thead>
@@ -34,7 +34,7 @@
         $('#thetable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! url('/setting/user-datatable-list') !!}',
+            ajax: '{!! action('UserController@datatableList') !!}',
             columns: [
                 {data: 'id', name: 'id', 'width': '80px'},
                 {data: 'name', name: 'name'},
