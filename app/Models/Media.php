@@ -10,5 +10,6 @@ class Media extends Model
 
     protected $guarded = ['id'];
     public $timestamps = false;
+    protected $table = 'medias';
 
 }

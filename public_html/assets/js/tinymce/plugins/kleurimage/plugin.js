@@ -9,8 +9,8 @@ tinymce.PluginManager.add('kleurimage', function(editor, url) {
             editor.windowManager.open({
                     title: 'Form',
                     url: baseUrl + '/form',
-                    width : 640,
-                    height : 480
+                    width : 800,
+                    height : 600
                 },
                 {
                     jquery: $

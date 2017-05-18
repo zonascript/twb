@@ -87,3 +87,5 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/form', 'TestController@form');
+Route::post('/upload-image-handler', 'TestController@uploadImageHandler');
+Route::post('/get-images-for-uploader', 'TestController@getImageForUploader');
