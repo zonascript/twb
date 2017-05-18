@@ -8,9 +8,9 @@
 <body>
 <div >
     <div class="uk-margin">
-        <ul class="image-tab" uk-tab>
+        <ul class="image-tab" uk-tab="animation: uk-animation-scale-up">
             <li><a href="#">Upload</a></li>
-            <li><a href="#">Select Images</a></li>
+            <li class="uk-active"><a href="#">Select Images</a></li>
         </ul>
 
         <ul class="uk-switcher uk-margin">
@@ -29,9 +29,9 @@
                     <div class="image-modifier-container">
                         <form class="uk-form uk-form-stacked" action="#">
                             <div class="uk-form-row">
-                                <label class="uk-form-label" for="">Description</label>
+                                <label class="uk-form-label" for="">Alternative Text</label>
                                 <div class="uk-form-controls">
-                                    <textarea class="uk-textarea" name="description" class="image_description" rows="2"></textarea>
+                                    <input class="uk-input" name="alt" class="image_alt" />
                                 </div>
                             </div>
                             {{--<div class="uk-form-row">--}}
@@ -62,7 +62,7 @@
     var uploader = new plupload.Uploader({
         browse_button : document.getElementById('browse'), // you can pass in id...
         //container: document.getElementById('tab_images_uploader_container'), // ... or DOM Element itself
-        url: '{!! url('upload-image-handler') !!}',
+        url: $baseUrl + '/upload-image-handler',
         headers: {
             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
         },
@@ -144,7 +144,7 @@
         reloadImageList();
         jQuery('#submitButton').on('click', function(e) {
             var imageUrl = $('.image-view-container > img').attr('src');
-            var content = '<img style="margin: 5px;" src="'+imageUrl+'" />';
+            var content = '<img style="margin: 5px;" src="'+imageUrl+'" alt="" />';
             top.tinymce.activeEditor.insertContent(content);
             top.tinymce.activeEditor.windowManager.close();
         });
