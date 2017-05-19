@@ -23,7 +23,7 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body @if(isset($pageClass)) {!! $pageClass !!} @endif onload="init();">
+    <body @if(isset($pageClass)) {!! $pageClass !!} @endif>
         <a href="{{ url('/') }}" title="Tini Wini Biti" class="twb-logo">
             <img src="{!! asset('assets/img/logo.svg') !!}" alt="Tini Wini Biti">
         </a>

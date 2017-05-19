@@ -2,6 +2,7 @@
 
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/flexslider.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/homeslide.css') !!}" />
 @endsection
 
 @section('page-level-nav')
@@ -9,26 +10,40 @@
 
 @section('content')
     <section id="home1" class="twb-home-section">
-        <div class="flexslider">
+
+        <div class="homeslide htmlNoPages">
+
+            <img src="{!! asset('images/homeslide/bg.png') !!}" class="gwd-img-1u7v">
+            <img src="{!! asset('images/homeslide/mountain2.png') !!}" class="gwd-img-13ie gwd-gen-b63vgwdanimation">
+            <img src="{!! asset('images/homeslide/mountain1.png') !!}" class="gwd-img-1952 gwd-gen-1vbrgwdanimation">
+            <img src="{!! asset('images/homeslide/jungle.png') !!}" class="gwd-img-1wzq gwd-gen-10d6gwdanimation">
+            <img src="{!! asset('images/homeslide/ground2.png') !!}" class="gwd-img-x9n3 gwd-gen-e3zbgwdanimation">
+            <img src="{!! asset('images/homeslide/ground1.png') !!}" class="gwd-img-15sg gwd-gen-arkugwdanimation">
+            <img src="{!! asset('images/homeslide/tree3.png') !!}" class="gwd-img-l3qa gwd-gen-1yv1gwdanimation">
+            <img src="{!! asset('images/homeslide/tree1.png') !!}" class="gwd-img-zgj3 gwd-gen-1562gwdanimation">
+            <img src="{!! asset('images/homeslide/tree2.png') !!}" class="gwd-img-1vix gwd-gen-1a9pgwdanimation">
+            <img src="{!! asset('images/homeslide/tree1.png') !!}" class="gwd-img-m246 gwd-gen-1tl3gwdanimation">
+            <a href="{!! url('/seru-mewarnai') !!}" title="Seru Mewarnai"><img src="{!! asset('images/homeslide/house.png') !!}" class="gwd-img-jhwp gwd-gen-1t2zgwdanimation"></a>
+            <img src="{!! asset('images/homeslide/sun.png') !!}" class="gwd-img-11ze gwd-gen-6xzmgwdanimation">
+            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-1tow gwd-gen-1b4wgwdanimation">
+            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-qmdo gwd-gen-uhfugwdanimation">
+            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-1183 gwd-gen-noc2gwdanimation">
+            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-1isj gwd-gen-174sgwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-1090 gwd-gen-196jgwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-8c6t gwd-gen-mm0zgwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-gncm gwd-gen-6bfpgwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-1x45 gwd-gen-11a8gwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-u43i gwd-gen-pxmqgwdanimation">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-6s89 gwd-gen-o3jkgwdanimation">
+            <div class="slides-text uk-position-center">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+        {{-- <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <div id="animation_container" class="uk-position-top-center">
-                		<canvas id="canvas" class="uk-position-center"></canvas>
-                		<div id="dom_overlay_container"></div>
-                	</div>
-                    <div id='_preload_div_'>
-                        <span style='display: inline-block; height: 100%; vertical-align: middle;'></span>
-                        <img src="{!! asset('images/_preloader.gif') !!}" style='vertical-align: middle; max-height: 100%'/>
-                    </div>
+
                 </li>
-                {{-- <li>
-                    <img src="{!! asset('assets/img/bg-home-2.png') !!}"/>
-                </li>
-                <li>
-                    <img src="{!! asset('assets/img/home-2.png') !!}"/>
-                </li> --}}
             </ul>
-        </div>
+        </div> --}}
     </section>
     <section id="home2" class="twb-home-section uk-background-cover uk-background-top uk-flex uk-flex-middle" style="background-image: url({!! asset('assets/img/bg-home-2.png') !!});">
         <div class="uk-container uk-container-small">
@@ -122,81 +137,9 @@
         });
     </script>
 
-    <script src="//code.createjs.com/createjs-2015.11.26.min.js"></script>
-    <script src="{!! asset('assets/js/twb.js') !!}"></script>
-    <script>
-        // Global Scripts
-        // stop();
-    </script>
-    <script>
-        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-        function init() {
-        	canvas = document.getElementById("canvas");
-        	anim_container = document.getElementById("animation_container");
-        	dom_overlay_container = document.getElementById("dom_overlay_container");
-        	images = images||{};
-        	ss = ss||{};
-        	var loader = new createjs.LoadQueue(false);
-        	loader.addEventListener("fileload", handleFileLoad);
-        	loader.addEventListener("complete", handleComplete);
-        	loader.loadManifest(lib.properties.manifest);
-        }
-        function handleFileLoad(evt) {
-        	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-        }
-        function handleComplete(evt) {
-        	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-        	var queue = evt.target;
-        	var ssMetadata = lib.ssMetadata;
-        	for(i=0; i<ssMetadata.length; i++) {
-        		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-        	}
-        	var preloaderDiv = document.getElementById("_preload_div_");
-        	preloaderDiv.style.display = 'none';
-        	canvas.style.display = 'block';
-        	exportRoot = new lib.twb();
-        	stage = new createjs.Stage(canvas);
-        	stage.addChild(exportRoot);
-        	//Registers the "tick" event listener.
-        	fnStartAnimation = function() {
-        		createjs.Ticker.setFPS(lib.properties.fps);
-        		createjs.Ticker.addEventListener("tick", stage);
-        	}
-        	//Code to support hidpi screens and responsive scaling.
-        	function makeResponsive(isResp, respDim, isScale, scaleType) {
-        		var lastW, lastH, lastS=1;
-        		window.addEventListener('resize', resizeCanvas);
-        		resizeCanvas();
-        		function resizeCanvas() {
-        			var w = lib.properties.width, h = lib.properties.height;
-        			var iw = window.innerWidth, ih=window.innerHeight;
-        			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-        			if(isResp) {
-        				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-        					sRatio = lastS;
-        				}
-        				else if(!isScale) {
-        					if(iw<w || ih<h)
-        						sRatio = Math.min(xRatio, yRatio);
-        				}
-        				else if(scaleType==1) {
-        					sRatio = Math.min(xRatio, yRatio);
-        				}
-        				else if(scaleType==2) {
-        					sRatio = Math.max(xRatio, yRatio);
-        				}
-        			}
-        			canvas.width = w*pRatio*sRatio;
-        			canvas.height = h*pRatio*sRatio;
-        			canvas.style.width = anim_container.style.width = dom_overlay_container.style.width = preloaderDiv.style.width = w*sRatio+'px';
-        			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = preloaderDiv.style.height = h*sRatio+'px';
-        			stage.scaleX = pRatio*sRatio;
-        			stage.scaleY = pRatio*sRatio;
-        			lastW = iw; lastH = ih; lastS = sRatio;
-        		}
-        	}
-        	makeResponsive(true,'both',true,1);
-        	fnStartAnimation();
-        }
+    <script type="text/javascript" gwd-events="support" src="{!! asset('assets/js/gwd-events-support.1.0.js') !!}"></script>
+    <script type="text/javascript" gwd-events="registration">
+        document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
+        document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
     </script>
 @endsection
