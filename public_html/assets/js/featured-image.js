@@ -98,16 +98,15 @@ $(document).ready(function() {
 
     $('.featured-submit').click(function() {
         imageUrl = $('.image-view-container > img').attr('src');
-        console.log(imageUrl);
         if (imageUrl) {
             var imageId = $('.image-view-container > img').attr('data-img-id');
             var content = '<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="'+imageUrl+'" alt="" /></a>';
             $('.featured-image-id').val(imageId);
             $('.featured-image-viewer').empty();
             $('.featured-image-viewer').append(content);
-            UIkit.modal('#featured-image-modal').hide();
             $('.featured-image-add-button').hide();
             $('.featured-image-remove-button').show();
+            UIkit.modal('#featured-image-modal').hide();
         } else {
             alert('Please choose the image first..!');
         }

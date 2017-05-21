@@ -52,8 +52,9 @@ class NewsController extends Controller
      * @param StorePermission $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePermission $request)
+    public function store(Request $request)
     {
+        dd($request->all());
         if ($this->news->store($request)) {
             return backendRedirect('setting/new');
         }
