@@ -2,7 +2,7 @@
 
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/flexslider.css') !!}" />
-    <link rel="stylesheet" href="{!! asset('assets/css/homeslide.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/homeslider.css') !!}" />
 @endsection
 
 @section('page-level-nav')
@@ -10,9 +10,7 @@
 
 @section('content')
     <section id="home1" class="twb-home-section">
-
         <div class="homeslide htmlNoPages">
-
             <img src="{!! asset('images/homeslide/bg.png') !!}" class="gwd-img-1u7v">
             <img src="{!! asset('images/homeslide/mountain2.png') !!}" class="gwd-img-13ie gwd-gen-b63vgwdanimation">
             <img src="{!! asset('images/homeslide/mountain1.png') !!}" class="gwd-img-1952 gwd-gen-1vbrgwdanimation">

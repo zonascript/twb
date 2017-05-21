@@ -664,3 +664,14 @@
     -webkit-animation: fadeinslidetext 4s;
     -webkit-animation-fill-mode: both;
 }
+@media (max-width: 639px) {
+    #home1,
+    .htmlNoPages {
+        width: 100vw !important;
+        height: 62.5vw !important;
+    }
+    .slides-text {
+        max-width: 300px;
+        margin-top: 0;
+    }
+}
