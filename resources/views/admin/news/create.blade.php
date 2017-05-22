@@ -26,7 +26,7 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                        @if(old('title') != '') value="{!! old('title') !!}" @endif/>
+                        @if(old('title') != '') value="{!! old('title') !!}" @endif autofocus/>
                     </div>
                 </div>
             </div>

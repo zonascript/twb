@@ -32,7 +32,7 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $event->title !!} @endif"/>
+                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $event->title !!} @endif" autofocus/>
                     </div>
                 </div>
             </div>

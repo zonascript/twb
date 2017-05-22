@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNews extends FormRequest
+class UpdateTemplate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,8 @@ class StoreNews extends FormRequest
     {
         return [
             'title' => 'required',
-            'publish_date' => 'required|date_format:Y-m-d'
+            'publish_date' => 'required|date_format:Y-m-d',
+            'featured_image_id' => 'required',
         ];
     }
 
@@ -34,6 +35,7 @@ class StoreNews extends FormRequest
         return [
             'title.required' => 'Title is required',
             'publish_date.required'  => 'Publish Date is required',
+            'featured_image_id.required'  => 'The Image is required',
         ];
     }
 }

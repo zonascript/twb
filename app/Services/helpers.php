@@ -60,3 +60,15 @@ if (! function_exists('getMetaValue')) {
         return '';
     }
 }
+
+if (! function_exists('getMedia')) {
+    function getMedia($postId, $type) {
+        $media = \App\Models\Media::whereHas('posts', function ($query) use ($postId) {
+            $query->where('posts.id', $postId);
+        })->where('type', $type);
+        if ($media->exists()) {
+            return $media->first();
+        }
+        return '';
+    }
+}
