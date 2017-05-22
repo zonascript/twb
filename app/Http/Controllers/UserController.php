@@ -28,7 +28,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $data['pageTitle'] = 'User List';
+        return view('admin.users.index', $data);
     }
 
     public function datatableList()
@@ -44,6 +45,7 @@ class UserController extends Controller
     public function create()
     {
         $data['roles'] = $this->user->role()->getList();
+        $data['pageTitle'] = 'Add User';
         return view('admin.users.create', $data);
     }
 
@@ -72,9 +74,15 @@ class UserController extends Controller
         $data['id'] = $id;
         $data['user'] = $this->user->getById($id);
         $data['roles'] = $this->user->role()->getList();
+        $data['pageTitle'] = 'Edit User';
         return view('admin.users.edit', $data);
     }
 
+    public function profile()
+    {
+        $data['pageTitle'] = 'My Profile';
+        return view('admin.users.profile', $data);
+    }
     /**
      * Update the specified resource in storage.
      *

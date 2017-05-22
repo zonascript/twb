@@ -1,43 +1,45 @@
 <div id="featured-image-modal" class="uk-modal-container" uk-modal="center: true">
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-dialog" style="max-width:1020px;">
+        <form class="uk-form" action="#">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h6 class="uk-text-bold uk-width-1-1 uk-padding-small uk-margin-remove k-card-title">Featured Image</h6>
+            <div class="uk-modal-body uk-padding-small featured-image-body uk-margin-remove" uk-overflow-auto style="height:60vh;">
+                <ul class="image-tab uk-margin-remove-top" uk-tab="animation: uk-animation-fade">
+                    <li><a href="#">Upload</a></li>
+                    <li class="uk-active"><a href="#">Select Images</a></li>
+                </ul>
 
-        <div class="uk-modal-body featured-image-body">
-            <ul class="image-tab" uk-tab="animation: uk-animation-scale-up">
-                <li><a href="#">Upload</a></li>
-                <li class="uk-active"><a href="#">Select Images</a></li>
-            </ul>
-
-            <ul class="uk-switcher uk-margin">
-                <li>
-                    <button type="button" id="browse">Upload</button>
-                </li>
-                <li class="uk-grid">
-                    <div class="uk-width-2-3">
-                        <div class="uk-child-width-1-4@s uk-grid-collapse uk-text-center image-list-container" uk-grid >
-                        </div>
-                    </div>
-                    <div class="uk-width-1-3">
-                        <div class="image-view-container">
-
-                        </div>
-                        <div class="image-modifier-container">
-                            <form class="uk-form uk-form-stacked" action="#">
-                                <div class="uk-form-row">
-                                    <label class="uk-form-label" for="">Alternative Text</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input image_alt" name="alt" type="text" />
-                                    </div>
+                <ul class="uk-switcher uk-margin">
+                    <li>
+                        <button type="button" id="browse">Upload</button>
+                    </li>
+                    <li>
+                        <div uk-grid>
+                            <div class="uk-width-2-3">
+                                <div class="uk-child-width-1-4 uk-grid-small uk-text-center image-list-container" uk-grid >
                                 </div>
-                            </form>
+                            </div>
+                            <div class="uk-width-1-3">
+                                <div class="image-view-container uk-margin">
+
+                                </div>
+                                <div class="image-modifier-container">
+
+                                        <div class="uk-form-row">
+                                            <label class="uk-form-label" for="">Alternative Text</label>
+                                            <input class="uk-input image_alt" name="alt" type="text" />
+                                        </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary featured-submit" type="button">Submit</button>
-        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary featured-submit" type="button">Submit</button>
+            </div>
+        </form>
     </div>
 </div>

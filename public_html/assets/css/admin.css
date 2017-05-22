@@ -1,10 +1,15 @@
 @import "fonts/asap/stylesheet.css";
+@import "fonts/FontAwesome/font-awesome.css";
 @import "color.css";
+
 body {
     font-size: 14px;
-    font-family: 'Asap', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: #F7F8F7;
     color: #333;
+}
+.k-border  {
+    border: 1px solid #e5e5e5 !important;
 }
 
 .k-login {
@@ -54,11 +59,11 @@ body {
     padding-left: 34px;
 }
 .k-container {
-    padding: 15px 15px 0 195px;
-    width: calc(100% - 210px);
+    padding: 20px 20px 0 200px;
+    width: calc(100% - 220px);
 }
 .k-main {
-    min-height: calc(100vh - 105px);
+    min-height: calc(100vh - 110px);
 }
 .k-title-page {
     font-size: 1em;
@@ -66,4 +71,22 @@ body {
     line-height: 50px;
     margin: 0;
     padding: 0;
+}
+
+
+/**/
+.mce-branding-powered-by {
+    display: none;
+}
+.mce-window-head,
+.mce-panel {
+    border: none !important;
+}
+.k-card-title,
+.mce-window-head .mce-title {
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-rendering: optimizelegibility;
+    padding-right: 20px
 }

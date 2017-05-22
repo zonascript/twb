@@ -60,6 +60,7 @@ Route::group([
     Route::get('/setting/user/{id}/edit', 'UserController@edit')->name('setting.user.edit');
     Route::post('/setting/user/{id}/update', 'UserController@update')->name('setting.user.edit');
     Route::get('/setting/user/{id}/destroy', 'UserController@destroy')->name('setting.user.delete');
+    Route::get('/setting/user/profile', 'UserController@profile')->name('setting.user');
 
     Route::get('/news', 'NewsController@index')->name('setting.user');
     Route::get('/news/create', 'NewsController@create')->name('setting.user.add');
