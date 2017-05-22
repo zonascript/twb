@@ -22,8 +22,8 @@ trait DatatableParameters
         $edit = [
             'title'     => 'Edit',
             'link'      => backendUrl($url),
-            'class'     => 'btn btn-xs btn-default',
-            'icon'      => 'fa fa-edit'
+            'class'     => 'uk-label uk-text-capitalize green',
+            'icon'      => 'fa fa-fw fa-pencil'
         ];
         return $edit;
     }
@@ -34,8 +34,8 @@ trait DatatableParameters
         $detail = [
             'title'     => 'Detail',
             'link'      => backendUrl($url),
-            'class'     => 'btn btn-xs btn-default',
-            'icon'      => 'fa fa-location-arrow'
+            'class'     => 'uk-label uk-text-capitalize blue',
+            'icon'      => 'fa fa-fw fa-eye'
         ];
         return $detail;
     }
@@ -46,8 +46,8 @@ trait DatatableParameters
         $delete = [
             'title'     => 'Delete',
             'link'      => backendUrl($url),
-            'class'     => 'btn btn-xs btn-default btn-delete',
-            'icon'      => 'fa fa-times',
+            'class'     => 'uk-label uk-text-capitalize red',
+            'icon'      => 'fa fa-fw fa-times-circle',
         ];
         return $delete;
     }

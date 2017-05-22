@@ -36,7 +36,7 @@ class DatatableGenerator
                 if ($link != '') {
                     $class = ( $act['class'] ? $act['class'] : '' );
                     $icon = ( $act['icon'] ? '<i class="' . $act['icon'] . '"></i>' : '' );
-                    $action .= '<a href="' .$link. '" class="' . $class . '">' . $icon . '&nbsp;<span>' . $act['title'] . '</span></a> ';
+                    $action .= '<a href="' .$link. '" class="' . $class . '" title="' . $act['title'] . '" uk-tooltip>' . $icon . ' ' . $act['title'] . '</a> ';
                     $hasLink = true;
                 }
             }
