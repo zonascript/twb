@@ -22,9 +22,7 @@
             <div class="uk-width-2-3">
                 <div class="uk-margin">
                     <input class="uk-input uk-form-large uk-width-1-1" type="text" name="title" placeholder="Enter title here"
-                    @if(old('title') != '')
-                        value="{!! old('title') !!}"
-                    @endif >
+                    @if(old('title') != '')value="{!! old('title') !!}"@endif >
                 </div>
                 <div class="uk-card k-border">
                     <textarea class="uk-input textarea uk-width-1-1" name="content"></textarea>

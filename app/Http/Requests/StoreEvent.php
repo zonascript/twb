@@ -29,4 +29,13 @@ class StoreEvent extends FormRequest
             'event_date' => 'required|date_format:Y-m-d',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Title is required',
+            'publish_date.required'  => 'Publish Date is required',
+            'event_date.required'  => 'Event Date is required',
+        ];
+    }
 }

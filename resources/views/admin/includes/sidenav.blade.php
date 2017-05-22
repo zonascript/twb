@@ -25,8 +25,8 @@
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: paint-bucket"></span> Templates</a>
             <ul class="uk-nav-sub">
-                <li><a href="#">All Template</a></li>
-                <li><a href="#">Upload</a></li>
+                <li><a href="{!! action('TemplateController@index') !!}">All Template</a></li>
+                <li><a href="{!! action('TemplateController@create') !!}">Upload</a></li>
             </ul>
         </li>
         <li class="uk-parent">

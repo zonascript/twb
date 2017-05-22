@@ -3,15 +3,17 @@
 namespace App\Service;
 
 use File;
+use Illuminate\Support\Facades\DB;
 
 class Media
 {
-    public function saveMedia($name, $path, $fullPath, $description = '')
+    public function saveMedia($name, $path, $fullPath, $type = 'featured', $description = '')
     {
         $media = \App\Models\Media::create([
             'filename' => $name,
             'path' => $path,
             'fullpath' => $fullPath,
+            'type' => $type,
             'description' => $description
         ]);
         return $media;
@@ -33,6 +35,6 @@ class Media
 
     public function getMedias()
     {
-        return \App\Models\Media::all();
+        return \App\Models\Media::where('type', 'featured')->get();
     }
 }

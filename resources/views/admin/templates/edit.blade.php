@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('VideoController@update', $video->id) !!}" method="POST">
+    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('TemplateController@update', $template->id) !!}" method="POST" enctype="multipart/form-data">
         <div class="uk-width-2-3">
 
             {!! csrf_field() !!}
@@ -32,14 +32,14 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $video->title !!} @endif" autofocus/>
+                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $template->title !!} @endif" autofocus/>
                     </div>
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label" for="">Content</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-input textarea" name="content">@if(old('content') != ''){!! old('content') !!}@else{!! $video->content !!}@endif</textarea>
+                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $template->content !!} @endif</textarea>
                 </div>
             </div>
         </div>
@@ -47,14 +47,14 @@
             <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
                 <div class="uk-margin">
                     <div class="uk-form-row">
-                        <div class="uk-form-row uk-margin">
+                        <div class="uk-form-row">
                             <label class="uk-form-label" for="">Publish Date</label>
                             <div class="uk-form-controls">
-                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $video->publish_at)->format('Y-m-d') !!} @endif" />
+                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $template->publish_at)->format('Y-m-d') !!} @endif" />
                             </div>
                         </div>
                         <div class="uk-form-row uk-margin">
-                            <a href="{!! action('VideoController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
+                            <a href="{!! action('TemplateController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
                             <button type="submit" class="uk-button uk-button-default uk-button-small" name="status" value="publish">Publish</button>
                         </div>
                     </div>
@@ -62,26 +62,33 @@
             </div>
             <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="">Video Link (Youtube)</label>
-                    <div class="uk-form-controls">
-                        <input type="text" name="video_link" class="uk-input video-link"
-                            value="@if(old('video_link') != ''){!! old('video_link') !!}@else{!! $videoLink !!}@endif" />
+                    <label class="uk-form-label" for="">Template Image</label>
+                    <div class="featured-image-viewer">
+                        @if ($template->path != '')<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$template->path) !!}" alt="" /></a>@endif
                     </div>
+                    <input type="hidden" name="featured_image_id" value="{!! $template->media_id !!}" class="featured-image-id"/>
+                    <a class="uk-button uk-button-default featured-image-add-button" href="#featured-image-modal" uk-toggle>Add Image</a>
+                    <a class="uk-button uk-button-default featured-image-remove-button" href="javascript:;">Remove Image</a>
                 </div>
-                <div class="youtube-viewer uk-margin">
-
+                <div class="uk-form-row uk-margin">
+                    <label class="uk-form-label" for="">Template File</label>
+                    <div class="uk-form-controls">
+                        <input type="hidden" name="template_file_old" value="{!! $templateFile->id !!}" />
+                        <label class="uk-label">{!! $templateFile->path !!}</label>
+                        <input type="file" class="uk-input uk-margin-top" name="template_file" />
+                    </div>
                 </div>
             </div>
         </div>
     </form>
 
 
-    {{--@include('admin.includes.featured-modal')--}}
+    @include('admin.includes.featured-modal')
 @endsection
 
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/tinymce/tinymce.min.js') !!}"></script>
     <script src="{!! asset('assets/js/plupload/plupload.full.min.js') !!}"></script>
     <script src="{!! asset('assets/js/editor.js') !!}"></script>
-    <script src="{!! asset('assets/js/video-link.js') !!}"></script>
+    <script src="{!! asset('assets/js/featured-image.js') !!}"></script>
 @endsection

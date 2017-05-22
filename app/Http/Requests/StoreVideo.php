@@ -29,4 +29,13 @@ class StoreVideo extends FormRequest
             'video_link' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Title is required',
+            'publish_date.required'  => 'Publish Date is required',
+            'video_link.required'  => 'Video Link is required',
+        ];
+    }
 }

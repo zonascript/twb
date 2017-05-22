@@ -41,7 +41,6 @@ class Post
 
     public function store($postType, $publishDate, $status, $details, $metas = [], $lang = '', $order = 0, $parent = 0)
     {
-        //slug, posttype, status, parent, order, publisdate, createdby, createdname
         $user = \Auth::user();
         $createdBy = $user->id;
         $createdByName = $user->name;
@@ -70,7 +69,6 @@ class Post
 
     public function update($id, $publishDate, $status, $details, $metas = [], $lang = '', $order = 0, $parent = 0)
     {
-        //$slug = isset($details['slug']) ? $details['slug'] : $this->generateSlug($details['title']);
         $lang = $lang == '' ? config('app.locale') : $lang;
         $post = PostModel::find($id);
         $post->status = $status;
@@ -99,7 +97,7 @@ class Post
         $metaDescription = isset($details['metaDescription']) ? $details['metaDescription'] : '';
 
         if ($mediaId != '') {
-            $post->medias()->sync([$mediaId]);
+            $post->medias()->sync($mediaId);
         }
 
         $post->translations()->create([
