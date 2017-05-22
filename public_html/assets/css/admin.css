@@ -8,6 +8,11 @@ body {
     background: #F7F8F7;
     color: #333;
 }
+.uk-button {
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
 .k-border  {
     border: 1px solid #e5e5e5 !important;
 }
@@ -19,7 +24,8 @@ body {
     font-size: .875rem;
     height: 20px;
     line-height: 20px;
-    padding: 10px 0;
+    padding: 0;
+    margin-top: 20px;
 }
 .k-login .k-footer {
     color: #fff;
@@ -59,11 +65,11 @@ body {
     padding-left: 34px;
 }
 .k-container {
-    padding: 20px 20px 0 200px;
+    padding: 20px 20px 20px 200px;
     width: calc(100% - 220px);
 }
 .k-main {
-    min-height: calc(100vh - 110px);
+    min-height: calc(100vh - 130px);
 }
 .k-title-page {
     font-size: 1em;
@@ -72,7 +78,17 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.k-modal-h {
+    height: calc(100vh - 165px);
+    overflow: auto;
+}
+.k-modal-h2 {
+    height: calc(100vh - 350px);
+    overflow: auto;
+}
+.k-modal-w {
+    max-width: calc(80% - 65px) !important;
+}
 
 /**/
 .mce-branding-powered-by {

@@ -1,7 +1,7 @@
 <nav class="uk-navbar-container k-topnav" uk-navbar uk-sticky>
 
     <div class="uk-navbar-left">
-        <a class="uk-navbar-item uk-logo" href="{!! url('/admin') !!}">
+        <a class="uk-navbar-item uk-logo" href="{!! route('admin') !!}">
             <img class="uk-border-circle" src="{!! asset('assets/img/admin/favicon.png') !!}" width="30" height="30" alt="Sitename">
         </a>
         <h1 class="k-title-page uk-text-uppercase">@if(isset($pageTitle)) {!! $pageTitle !!}@endif</h1>

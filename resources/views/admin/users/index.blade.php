@@ -27,7 +27,7 @@
 
 @section('page-level-scripts')
 <!-- DataTables -->
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="{!! asset('assets/js/jquery.dataTables.min.js') !!}"></script>
 <script src="{!! asset('assets/js/dataTables.uikit.js') !!}"></script>
 
 <script type="text/javascript">
