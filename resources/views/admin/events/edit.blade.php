@@ -48,6 +48,12 @@
                 <div class="uk-margin">
                     <div class="uk-form-row">
                         <div class="uk-form-row">
+                            <label class="uk-form-label" for="">Event Date</label>
+                            <div class="uk-form-controls">
+                                <input type="text" class="uk-input" name="event_date" value="@if(old('event_date') != '') {!! old('event_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d', $event->event_date)->format('Y-m-d') !!} @endif" />
+                            </div>
+                        </div>
+                        <div class="uk-form-row uk-margin">
                             <label class="uk-form-label" for="">Publish Date</label>
                             <div class="uk-form-controls">
                                 <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $event->publish_at)->format('Y-m-d') !!} @endif" />

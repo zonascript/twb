@@ -29,6 +29,11 @@ class CreatePostMetasTable extends Migration
             $table->bigInteger('post_meta_id')->unsigned();
             $table->string('locale');
             $table->text('value')->nullable();
+
+            $table->foreign('post_meta_id')
+                ->references('id')
+                ->on('post_metas')
+                ->onDelete('cascade');
         });
     }
 

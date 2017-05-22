@@ -42,6 +42,12 @@
                 <div class="uk-margin">
                     <div class="uk-form-row">
                         <div class="uk-form-row">
+                            <label class="uk-form-label" for="">Event Date</label>
+                            <div class="uk-form-controls">
+                                <input type="text" class="uk-input" name="event_date" />
+                            </div>
+                        </div>
+                        <div class="uk-form-row uk-margin">
                             <label class="uk-form-label" for="">Publish Date</label>
                             <div class="uk-form-controls">
                                 <input type="text" class="uk-input" name="publish_date" />

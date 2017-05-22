@@ -71,6 +71,7 @@ class EventController extends Controller
     {
         $data['id'] = $id;
         $data['event'] = $this->event->getById($id);
+        //dd($data);
         return view('admin.events.edit', $data);
     }
 

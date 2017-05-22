@@ -39,7 +39,7 @@ class Post
         return $query;
     }
 
-    public function store($postType, $publishDate, $status, $details, $lang = '', $order = 0, $parent = 0)
+    public function store($postType, $publishDate, $status, $details, $metas = [], $lang = '', $order = 0, $parent = 0)
     {
         //slug, posttype, status, parent, order, publisdate, createdby, createdname
         $user = \Auth::user();
@@ -59,13 +59,16 @@ class Post
                 'created_by_name' => $createdByName
             ]);
             $this->storeDetail($post, $lang, $details);
+            if (count($metas) > 0) {
+                $this->storeMeta($post, $lang, $metas);
+            }
             return $post;
         } catch (\Exception $e) {
             return $e;
         }
     }
 
-    public function update($id, $publishDate, $status, $details, $lang = '', $order = 0, $parent = 0)
+    public function update($id, $publishDate, $status, $details, $metas = [], $lang = '', $order = 0, $parent = 0)
     {
         //$slug = isset($details['slug']) ? $details['slug'] : $this->generateSlug($details['title']);
         $lang = $lang == '' ? config('app.locale') : $lang;
@@ -77,6 +80,9 @@ class Post
             // destroy the old data
             $post->translations()->delete();
             $this->storeDetail($post, $lang, $details);
+            if (count($metas) > 0) {
+                $this->storeMeta($post, $lang, $metas);
+            }
             return $post;
         } catch (\Exception $e) {
             return $e;
@@ -115,6 +121,23 @@ class Post
             return $this->generateSlug($title, ++$loopNumber);
         }
         return $sluggedName;
+    }
+
+    private function storeMeta($post, $lang, $metas)
+    {
+        foreach ($metas as $key => $val) {
+            // delete the old meta
+            $post->metas()->where('meta_key', $key)->delete();
+
+            $meta = $post->metas()->create([
+                'meta_key' => $key
+            ]);
+
+            $meta->translations()->create([
+                'locale' => $lang,
+                'value' => $val
+            ]);
+        }
     }
 
 
