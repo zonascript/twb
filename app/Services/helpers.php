@@ -43,3 +43,20 @@ if (! function_exists('backendUrl')) {
         return app(UrlGenerator::class)->to($path, $parameters, $secure);
     }
 }
+
+if (! function_exists('getMetaValue')) {
+    function getMetaValue($postId, $metaKey, $lang = '') {
+        $lang = $lang != '' ? $lang : config('app.locale');
+        $postMeta = \DB::table('post_metas AS pm')
+            ->join('post_meta_translations AS pmt', 'pm.id', '=', 'pmt.post_meta_id')
+            ->where('pm.post_id', $postId)
+            ->where('pm.meta_key', $metaKey)
+            ->where('pmt.locale', $lang)
+            ->select('pmt.value AS meta_value')
+            ->first();
+        if ($postMeta->meta_value) {
+            return $postMeta->meta_value;
+        }
+        return '';
+    }
+}

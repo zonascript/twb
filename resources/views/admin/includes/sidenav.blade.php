@@ -18,8 +18,8 @@
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: video-camera"></span> Videos</a>
             <ul class="uk-nav-sub">
-                <li><a href="#">All Videos</a></li>
-                <li><a href="#">Upload</a></li>
+                <li><a href="{!! action('VideoController@index') !!}">All Videos</a></li>
+                <li><a href="{!! action('VideoController@create') !!}">Create New</a></li>
             </ul>
         </li>
         <li class="uk-parent">

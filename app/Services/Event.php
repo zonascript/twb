@@ -2,17 +2,16 @@
 
 namespace App\Service;
 
-
 use Illuminate\Http\Request;
 
-class News
+class Event
 {
     use DatatableParameters;
 
     // News Post Type
-    protected $postTypeId = 1;
+    protected $postTypeId = 2;
 
-    protected $baseUrl = 'news';
+    protected $baseUrl = 'event';
 
     /**
      * @var Post
@@ -37,9 +36,9 @@ class News
             ->generate();
     }
 
-    public function getNewsById($newsId)
+    public function getEventById($eventId)
     {
-        return $this->post->getPostById($newsId);
+        return $this->post->getPostById($eventId);
     }
 
     private function getList()
@@ -47,24 +46,40 @@ class News
         $params = [
             'post_type_id' => $this->postTypeId
         ];
-        $news = $this->post->getPostQuery($params)->get();
+        $news = $this->post->getPostQuery($params)
+            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
+            ->leftJoin('post_meta_translations AS pmt', function ($join) {
+                $join->on('pm.id', '=', 'pmt.post_meta_id')
+                    ->where('pm.meta_key', 'event_date');
+            })
+            ->addSelect('pm.meta_key', 'pmt.value AS event_date')
+            ->get();
         return $news;
     }
 
     public function getById($id)
     {
-        return $this->post->getPostQuery(['id' => $id])->first();
+        return $this->post->getPostQuery(['id' => $id])
+            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
+            ->leftJoin('post_meta_translations AS pmt', function ($join) {
+                $join->on('pm.id', '=', 'pmt.post_meta_id')
+                    ->where('pm.meta_key', 'event_date');
+            })
+            ->addSelect('pm.meta_key', 'pmt.value AS event_date')
+            ->first();
     }
 
     public function store(Request $request)
     {
         $publishDate = $request->input('publish_date');
+        $eventDate = $request->input('event_date');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        $metas['event_date']= $eventDate;
         try {
-            $this->post->store($this->postTypeId, $publishDate, $status, $details);
+            $this->post->store($this->postTypeId, $publishDate, $status, $details, $metas);
             return true;
         } catch (\Exception $e) {
             return false;
@@ -74,12 +89,15 @@ class News
     public function update($request, $id)
     {
         $publishDate = $request->input('publish_date');
+        $eventDate = $request->input('event_date');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        // use the key for the meta
+        $metas['event_date']= $eventDate;
         try {
-            $this->post->update($id, $publishDate, $status, $details);
+            $this->post->update($id, $publishDate, $status, $details, $metas);
             return true;
         } catch (\Exception $e) {
             return false;
@@ -90,5 +108,4 @@ class News
     {
         return $this->post->destroy($id);
     }
-
 }

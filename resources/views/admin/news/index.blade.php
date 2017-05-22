@@ -17,7 +17,7 @@
             <th>Id</th>
             <th>Title</th>
             <th>Excerpt</th>
-            <th class="text-center">Action</th>
+            <th>Action</th>
         </tr>
         </thead>
     </table>
