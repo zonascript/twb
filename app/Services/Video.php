@@ -4,14 +4,14 @@ namespace App\Service;
 
 use Illuminate\Http\Request;
 
-class Event
+class Video
 {
     use DatatableParameters;
 
     // News Post Type
-    protected $postTypeId = 2;
+    protected $postTypeId = 3;
 
-    protected $baseUrl = 'event';
+    protected $baseUrl = 'video';
 
     /**
      * @var Post
@@ -36,9 +36,9 @@ class Event
             ->generate();
     }
 
-    public function getEventById($eventId)
+    public function getVideoById($videoId)
     {
-        return $this->post->getPostById($eventId);
+        return $this->post->getPostById($videoId);
     }
 
     private function getList()
@@ -46,38 +46,28 @@ class Event
         $params = [
             'post_type_id' => $this->postTypeId
         ];
-        $news = $this->post->getPostQuery($params)
-            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
-            ->leftJoin('post_meta_translations AS pmt', function ($join) {
-                $join->on('pm.id', '=', 'pmt.post_meta_id')
-                    ->where('pm.meta_key', 'event_date');
-            })
-            ->addSelect('pm.meta_key', 'pmt.value AS event_date')
-            ->get();
+        $news = $this->post->getPostQuery($params)->get();
         return $news;
     }
 
     public function getById($id)
     {
-        return $this->post->getPostQuery(['id' => $id])
-            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
-            ->leftJoin('post_meta_translations AS pmt', function ($join) {
-                $join->on('pm.id', '=', 'pmt.post_meta_id')
-                    ->where('pm.meta_key', 'event_date');
-            })
-            ->addSelect('pm.meta_key', 'pmt.value AS event_date')
-            ->first();
+        return $this->post->getPostQuery(['id' => $id])->first();
     }
 
     public function store(Request $request)
     {
         $publishDate = $request->input('publish_date');
-        $eventDate = $request->input('event_date');
+        $videoLink = $request->has('video_link') ? $request->input('video_link') : '';
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
-        $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
-        $metas['event_date']= $eventDate;
+        // $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        if ($videoLink != '') {
+            $videoId = $this->getVideoIdByLink($videoLink);
+            $metas['video_link'] = $videoLink;
+            $metas['video_id'] = $videoId;
+        }
         try {
             $this->post->store($this->postTypeId, $publishDate, $status, $details, $metas);
             return true;
@@ -89,13 +79,17 @@ class Event
     public function update($request, $id)
     {
         $publishDate = $request->input('publish_date');
-        $eventDate = $request->input('event_date');
+        $videoLink = $request->input('video_link');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         // use the key for the meta
-        $metas['event_date']= $eventDate;
+        if ($videoLink != '') {
+            $videoId = $this->getVideoIdByLink($videoLink);
+            $metas['video_link'] = $videoLink;
+            $metas['video_id'] = $videoId;
+        }
         try {
             $this->post->update($id, $publishDate, $status, $details, $metas);
             return true;
@@ -107,5 +101,12 @@ class Event
     public function destroy($id)
     {
         return $this->post->destroy($id);
+    }
+
+    private function getVideoIdByLink($videoLink)
+    {
+        $xplodedLink = explode('v=', $videoLink);
+        $queryVar = explode('&',$xplodedLink[1]);
+        return isset($queryVar[0]) ? $queryVar[0] : '';
     }
 }

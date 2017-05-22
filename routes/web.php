@@ -74,6 +74,13 @@ Route::group([
     Route::get('/event/{id}/edit', 'EventController@edit')->name('setting.user.edit');
     Route::post('/event/{id}/update', 'EventController@update')->name('setting.user.edit');
     Route::get('/event/{id}/destroy', 'EventController@destroy')->name('setting.user.delete');
+
+    Route::get('/video', 'VideoController@index')->name('setting.user');
+    Route::get('/video/create', 'VideoController@create')->name('setting.user.add');
+    Route::post('/video/store', 'VideoController@store')->name('setting.user.add');
+    Route::get('/video/{id}/edit', 'VideoController@edit')->name('setting.user.edit');
+    Route::post('/video/{id}/update', 'VideoController@update')->name('setting.user.edit');
+    Route::get('/video/{id}/destroy', 'VideoController@destroy')->name('setting.user.delete');
 });
 
 // without menu generator
@@ -83,6 +90,7 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/setting/user-datatable-list', 'UserController@datatableList')->name('setting.user');
     Route::get('/news-datatable-list', 'NewsController@datatableList')->name('setting.user');
     Route::get('/event-datatable-list', 'EventController@datatableList')->name('setting.user');
+    Route::get('/video-datatable-list', 'VideoController@datatableList')->name('setting.user');
 });
 
 

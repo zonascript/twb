@@ -88,8 +88,7 @@ class News
 
     public function destroy($id)
     {
-        $post = $this->post->getPostById($id);
-        return $post->delete();
+        return $this->post->destroy($id);
     }
 
 }

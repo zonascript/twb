@@ -140,5 +140,10 @@ class Post
         }
     }
 
+    public function destroy($id)
+    {
+        return PostModel::destroy($id);
+    }
+
 
 }
