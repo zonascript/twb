@@ -18,7 +18,8 @@
                 </li>
                 <li class="uk-grid">
                     <div class="uk-width-2-3">
-                        <div class="uk-child-width-1-4 uk-grid-small uk-text-center image-list-container" uk-grid >
+                        <div class="uk-overflow-auto">
+                            <div class="uk-child-width-1-4 uk-grid-small uk-text-center image-list-container" uk-grid ></div>
                         </div>
                     </div>
                     <div class="uk-width-1-3">
