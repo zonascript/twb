@@ -37,9 +37,9 @@
             ajax: '{!! action('PermissionController@datatableList') !!}',
             columns: [
                 {data: 'id', name: 'id', width: '10%'},
-                {data: 'show_name', name: 'show_name', width: '30%'},
-                {data: 'name', name: 'name', width: '30%'},
-                {data: 'action', name: 'action', orderable: false, searchable: false, width: '30%'}
+                {data: 'show_name', name: 'show_name', width: '35%'},
+                {data: 'name', name: 'name', width: '40%'},
+                {data: 'action', name: 'action', orderable: false, searchable: false, width: '15%'}
             ]
         });
     });

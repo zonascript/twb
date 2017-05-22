@@ -3,6 +3,7 @@
 namespace App\Service;
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class News
@@ -58,7 +59,7 @@ class News
 
     public function store(Request $request)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->of;
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');

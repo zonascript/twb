@@ -25,7 +25,7 @@ class StoreNews extends FormRequest
     {
         return [
             'title' => 'required',
-            'publish_date' => 'required|date_format:Y-m-d'
+            'publish_date' => 'required|date_format:d/m/Y'
         ];
     }
 
