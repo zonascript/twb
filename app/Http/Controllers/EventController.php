@@ -29,7 +29,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('admin.events.index');
+        $data['pageTitle'] = 'Event List';
+        return view('admin.events.index', $data);
     }
 
     public function datatableList()
@@ -44,7 +45,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.events.create');
+        $data['pageTitle'] = 'Add Event';
+        return view('admin.events.create', $data);
     }
 
     /**
@@ -71,6 +73,7 @@ class EventController extends Controller
     {
         $data['id'] = $id;
         $data['event'] = $this->event->getById($id);
+        $data['pageTitle'] = 'Edit Event';
         //dd($data);
         return view('admin.events.edit', $data);
     }
