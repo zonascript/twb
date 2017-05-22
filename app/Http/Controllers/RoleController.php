@@ -28,7 +28,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.roles.index');
+        $data['pageTitle'] = 'Role List';
+        return view('admin.roles.index', $data);
     }
 
     public function datatableList()
@@ -44,6 +45,7 @@ class RoleController extends Controller
     public function create()
     {
         $data['permissions'] = $this->role->permission()->getList();
+        $data['pageTitle'] = 'Add Role';
         return view('admin.roles.create', $data);
     }
 
@@ -72,6 +74,7 @@ class RoleController extends Controller
         $data['id'] = $id;
         $data['role'] = $this->role->getById($id);
         $data['permissions'] = $this->role->permission()->getList();
+        $data['pageTitle'] = 'Edit Role';
         return view('admin.roles.edit', $data);
     }
 

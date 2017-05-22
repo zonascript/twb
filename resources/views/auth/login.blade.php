@@ -8,8 +8,8 @@
     <section class="k-login uk-width-1-1 uk-cover-container">
         <img src="{!! asset('assets/img/admin/wilhelminabrug.jpg') !!}" alt="login" uk-cover>
         <div class="uk-overlay-primary uk-position-cover"></div>
-        <div class="uk-overlay uk-overlay-default uk-position-center uk-width-1-4">
-            <img class="uk-border-circle uk-align-center" src="{!! asset('assets/img/admin/favicon.png') !!}" width="100" height="100" alt="Login">
+        <div class="uk-overlay uk-position-center uk-width-1-4@m">
+            <img class="uk-border-circle uk-align-center" src="{!! asset('assets/img/admin/favicon.png') !!}" width="72" height="72" alt="Login">
             <form role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                 <div class="uk-margin {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="uk-flex uk-flex-middle uk-flex-between uk-margin">
-                    <label>
+                    <label class="uk-light">
                         <input class="uk-checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                     </label>
                     <button type="submit" class="uk-button uk-button-primary">
@@ -45,7 +45,7 @@
                     </button>
                 </div>
                 <ul class="uk-subnav uk-subnav-divider">
-                    <li><a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a></li>
+                    <li><a class="btn btn-link uk-text-capitalize" href="{{ route('password.request') }}">Forgot Your Password?</a></li>
                     {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                 </ul>
             </form>

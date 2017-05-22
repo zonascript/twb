@@ -29,7 +29,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin.news.index');
+        $data['pageTitle'] = 'News List';
+        return view('admin.news.index', $data);
     }
 
     public function datatableList()
@@ -44,7 +45,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $data['pageTitle'] = 'Add New Post';
+        return view('admin.news.create', $data);
     }
 
     /**
@@ -71,6 +73,8 @@ class NewsController extends Controller
     {
         $data['id'] = $id;
         $data['news'] = $this->news->getById($id);
+        $data['new'] = $this->news->getById($id);
+        $data['pageTitle'] = 'Edit Post';
         return view('admin.news.edit', $data);
     }
 

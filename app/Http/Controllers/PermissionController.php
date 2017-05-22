@@ -28,7 +28,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('admin.permissions.index');
+        $data['pageTitle'] = 'Permission List';
+        return view('admin.permissions.index', $data);
     }
 
     public function datatableList()
@@ -43,7 +44,8 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('admin.permissions.create');
+        $data['pageTitle'] = 'Add Permission';
+        return view('admin.permissions.create', $data);
     }
 
     /**
@@ -70,6 +72,7 @@ class PermissionController extends Controller
     {
         $data['id'] = $id;
         $data['permission'] = $this->permission->getById($id);
+        $data['pageTitle'] = 'Edit Permission';
         return view('admin.permissions.edit', $data);
     }
 

@@ -18,7 +18,7 @@
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
     </h3>
 
-    <form class="uk-form uk-form-stacked" action="{!! action('UserController@store') !!}" method="POST">
+    <form class="uk-form uk-form-stacked" action="{!! action('UserController@profile') !!}" method="POST">
         {!! csrf_field() !!}
 
         <div class="uk-grid-small uk-margin" uk-grid>
@@ -26,19 +26,13 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="">Name</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" type="text" name="name"
-                        @if(old('name') != '')
-                            value="{!! old('name') !!}"
-                        @endif >
+                        <input class="uk-input" type="text" name="name">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <label class="uk-form-label" for="">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" type="email" name="email"
-                        @if(old('email') != '')
-                            value="{!! old('email') !!}"
-                        @endif >
+                        <input class="uk-input" type="email" name="email">
                     </div>
                 </div>
             </div>
@@ -53,19 +47,6 @@
                     <label class="uk-form-label" for="">Re-type Password</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="password" name="password_confirmation">
-                    </div>
-                </div>
-            </div>
-            <div class="uk-width-1-1">
-                <div class="uk-margin">
-                    <label class="uk-form-label">Roles</label>
-                    <div class="uk-form-controls uk-grid-small uk-child-width-1-5" uk-grid>
-                        @foreach($roles as $role)
-                            <label>
-                                <input type="checkbox" class="uk-checkbox" name="roles[]" value="{!! $role->name !!}" />
-                                {!! $role->name !!}
-                            </label>
-                        @endforeach
                     </div>
                 </div>
             </div>

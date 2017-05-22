@@ -1,5 +1,5 @@
 <div class="k-sidenav uk-overflow-auto">
-    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="duration: 300; transition: linear;">
         <li class="uk-active"><a href="{!! route('admin') !!}"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: file-edit"></span> News</a>

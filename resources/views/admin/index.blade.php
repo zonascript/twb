@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-        Main
+    Main
 @endsection
 
 @section('page-level-scripts')
