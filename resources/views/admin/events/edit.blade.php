@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('NewsController@update', $news->id) !!}" method="POST">
+    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('EventController@update', $event->id) !!}" method="POST">
         <div class="uk-width-2-3">
 
             {!! csrf_field() !!}
@@ -32,14 +32,14 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $news->title !!} @endif"/>
+                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $event->title !!} @endif"/>
                     </div>
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label" for="">Content</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $news->content !!} @endif</textarea>
+                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $event->content !!} @endif</textarea>
                 </div>
             </div>
         </div>
@@ -50,11 +50,11 @@
                         <div class="uk-form-row">
                             <label class="uk-form-label" for="">Publish Date</label>
                             <div class="uk-form-controls">
-                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $news->publish_at)->format('Y-m-d') !!} @endif" />
+                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $event->publish_at)->format('Y-m-d') !!} @endif" />
                             </div>
                         </div>
                         <div class="uk-form-row uk-margin">
-                            <a href="{!! action('NewsController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
+                            <a href="{!! action('EventController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
                             <button type="submit" class="uk-button uk-button-default uk-button-small" name="status" value="publish">Publish</button>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
             </div>
             <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
                 <div class="featured-image-viewer">
-                    @if ($news->path != '')
-                    <a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$news->path) !!}" alt="" /></a>
+                    @if ($event->path != '')
+                    <a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$event->path) !!}" alt="" /></a>
                     @endif
                 </div>
                 <input type="hidden" name="featured_image_id" class="featured-image-id"/>

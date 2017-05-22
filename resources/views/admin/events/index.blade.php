@@ -7,9 +7,9 @@
 @section('content')
 <div class="uk-grid">
     <div class="uk-width-1-1">
-        <h4>News</h4>
+        <h4>Events</h4>
         <div>
-            <a href="{!! action('NewsController@create') !!}"/>Add</a>
+            <a href="{!! action('EventController@create') !!}"/>Add</a>
         </div>
         <table class="uk-table" id="thetable">
             <thead>
@@ -34,7 +34,7 @@
         $('#thetable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! action('NewsController@datatableList') !!}',
+            ajax: '{!! action('EventController@datatableList') !!}',
             columns: [
                 {data: 'id', name: 'id', 'width': '80px'},
                 {data: 'title', name: 'title'},

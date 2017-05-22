@@ -2,17 +2,16 @@
 
 namespace App\Service;
 
-
 use Illuminate\Http\Request;
 
-class News
+class Event
 {
     use DatatableParameters;
 
     // News Post Type
-    protected $postTypeId = 1;
+    protected $postTypeId = 2;
 
-    protected $baseUrl = 'news';
+    protected $baseUrl = 'event';
 
     /**
      * @var Post
@@ -91,5 +90,4 @@ class News
         $post = $this->post->getPostById($id);
         return $post->delete();
     }
-
 }

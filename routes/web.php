@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/setting/role-datatable-list', 'RoleController@datatableList')->name('setting.role');
     Route::get('/setting/user-datatable-list', 'UserController@datatableList')->name('setting.user');
     Route::get('/news-datatable-list', 'NewsController@datatableList')->name('setting.user');
+    Route::get('/event-datatable-list', 'EventController@datatableList')->name('setting.user');
 });
 
 

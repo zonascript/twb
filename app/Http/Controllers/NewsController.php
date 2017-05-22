@@ -84,9 +84,9 @@ class NewsController extends Controller
     public function update(StoreNews $request, $id)
     {
         if ($this->news->update($request, $id)) {
-            return backendRedirect('news');
+            return backendRedirect('news/' . $id . '/edit')->with('message', 'News Saved.');;
         }
-        return backendRedirect('news/' . $id . '/edit');
+        return backendRedirect('news/' . $id . '/edit')->withErrors(['update' => 'Error when updating the data.']);
     }
 
     /**
