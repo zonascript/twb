@@ -5,46 +5,75 @@
 @endsection
 
 @section('content')
-    <div class="uk-grid">
-        <div class="uk-width-1-1">
-            <form class="uk-form uk-form-stacked" action="{!! action('PermissionController@update', $id) !!}" method="POST">
-                {!! csrf_field() !!}
 
-                @if (count($errors) > 0)
-                    <div class="uk-alert uk-alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('NewsController@update', $news->id) !!}" method="POST">
+        <div class="uk-width-2-3">
+
+            {!! csrf_field() !!}
+
+            @if (count($errors) > 0)
+                <div class="uk-alert uk-alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="uk-margin">
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="">Title</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" type="text" name="title"
+                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $news->title !!} @endif"/>
                     </div>
-                @endif
-
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="">Content</label>
+                <div class="uk-form-controls">
+                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $news->content !!} @endif</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-3 uk-margin-top">
+            <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
                 <div class="uk-margin">
                     <div class="uk-form-row">
-                        <label class="uk-form-label" for="">Show Name</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" type="text" name="show_name" value="{!! $permission->show_name !!}" />
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="">Publish Date</label>
+                            <div class="uk-form-controls">
+                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $news->publish_at)->format('Y-m-d') !!} @endif" />
+                            </div>
+                        </div>
+                        <div class="uk-form-row uk-margin">
+                            <a href="{!! action('NewsController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
+                            <button type="submit" class="uk-button uk-button-default uk-button-small" name="status" value="publish">Publish</button>
                         </div>
                     </div>
                 </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="">Name</label>
-                    <div class="uk-form-controls">
-                        <input class="uk-input" type="text" name="name" value="{!! $permission->name !!}" />
-                    </div>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
+                <div class="featured-image-viewer">
+                    @if ($news->path != '')
+                    <a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$news->path) !!}" alt="" /></a>
+                    @endif
                 </div>
-                <div class="uk-margin">
-                    <div class="uk-form-row">
-                        <a href="{!! action('PermissionController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
-                        <button type="submit" class="uk-button uk-button-default uk-button-small">Save</button>
-                    </div>
-                </div>
-            </form>
+                <input type="hidden" name="featured_image_id" class="featured-image-id"/>
+                <a class="uk-button uk-button-default featured-image-add-button" href="#featured-image-modal" uk-toggle>Add Image</a>
+                <a class="uk-button uk-button-default featured-image-remove-button" href="javascript:;">Remove Image</a>
+            </div>
         </div>
-    </div>
+    </form>
+
+
+    @include('admin.includes.featured-modal')
 @endsection
 
 @section('page-level-scripts')
-
+    <script src="{!! asset('assets/js/tinymce/tinymce.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plupload/plupload.full.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/editor.js') !!}"></script>
+    <script src="{!! asset('assets/js/featured-image.js') !!}"></script>
 @endsection

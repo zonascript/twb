@@ -26,7 +26,7 @@
                                 <div class="uk-form-row">
                                     <label class="uk-form-label" for="">Alternative Text</label>
                                     <div class="uk-form-controls">
-                                        <input class="uk-input" name="alt" class="image_alt" />
+                                        <input class="uk-input image_alt" name="alt" type="text" />
                                     </div>
                                 </div>
                             </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNews;
 use App\Service\News;
 use Illuminate\Http\Request;
 
@@ -49,16 +50,15 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePermission $request
+     * @param StoreNews $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreNews $request)
     {
-        dd($request->all());
         if ($this->news->store($request)) {
-            return backendRedirect('setting/new');
+            return backendRedirect('news');
         }
-        return backendRedirect('setting/news/create')->withInput();
+        return backendRedirect('news/create')->withInput();
     }
 
     /**
@@ -70,23 +70,23 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data['id'] = $id;
-        $data['new'] = $this->news->getById($id);
+        $data['news'] = $this->news->getById($id);
         return view('admin.news.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdatePermission $request
+     * @param StoreNews $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePermission $request, $id)
+    public function update(StoreNews $request, $id)
     {
         if ($this->news->update($request, $id)) {
-            return backendRedirect('setting/news');
+            return backendRedirect('news');
         }
-        return backendRedirect('setting/news/' . $id . '/edit');
+        return backendRedirect('news/' . $id . '/edit');
     }
 
     /**
@@ -98,8 +98,8 @@ class NewsController extends Controller
     public function destroy($id)
     {
         if ($this->news->destroy($id)) {
-            return backendRedirect('setting/news');
+            return backendRedirect('news');
         }
-        return backendRedirect('setting/news');
+        return backendRedirect('news')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
 }

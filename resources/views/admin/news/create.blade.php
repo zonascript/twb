@@ -41,8 +41,16 @@
             <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
                 <div class="uk-margin">
                     <div class="uk-form-row">
-                        <a href="{!! action('NewsController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
-                        <button type="submit" class="uk-button uk-button-default uk-button-small">Publish</button>
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="">Publish Date</label>
+                            <div class="uk-form-controls">
+                                <input type="text" class="uk-input" name="publish_date" />
+                            </div>
+                        </div>
+                        <div class="uk-form-row uk-margin">
+                            <a href="{!! action('NewsController@index') !!}" class="uk-button uk-button-default uk-button-small">Back</a>
+                            <button type="submit" class="uk-button uk-button-default uk-button-small" name="status" value="publish">Publish</button>
+                        </div>
                     </div>
                 </div>
             </div>

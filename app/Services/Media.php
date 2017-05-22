@@ -6,11 +6,12 @@ use File;
 
 class Media
 {
-    public function saveMedia($name, $path, $description = '')
+    public function saveMedia($name, $path, $fullPath, $description = '')
     {
         $media = \App\Models\Media::create([
             'filename' => $name,
             'path' => $path,
+            'fullpath' => $fullPath,
             'description' => $description
         ]);
         return $media;

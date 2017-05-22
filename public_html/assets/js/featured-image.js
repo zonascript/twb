@@ -54,7 +54,7 @@ var reloadImageList = function() {
                     $imgDesc = $result[i].description;
                     $imgId = $result[i].id;
                     $images += '<div> \
-                        <img src="'+$baseUrl+'/'+$imgPath+'" class="uk-padding-small" \
+                        <img src="'+$baseUrl+'/image/medium/'+$imgPath+'" class="uk-padding-small" \
                          data-img-path="'+$imgPath+'" data-img-desc="'+$imgDesc+'" data-img-id="'+$imgId+'" \
                          onclick="viewImage(this, \'\')" /> \
                         </div>'
@@ -67,12 +67,12 @@ var reloadImageList = function() {
 
 function viewImage($this, $imagePath) {
     if ($imagePath != '') {
-        $imageUrl = $baseUrl + '/' + $imagePath;
+        $imageUrl = $baseUrl + '/image/featured/' + $imagePath;
         $imageId = $this.result.mediaId;
     } else {
         $imgPath = $($this).attr('data-img-path');
         $imageId = $($this).attr('data-img-id');
-        $imageUrl = $baseUrl + '/' + $imgPath;
+        $imageUrl = $baseUrl + '/image/featured/' + $imgPath;
     }
     $imageViewer = '<img src="'+$imageUrl+'" data-img-id="'+$imageId+'" />';
     $('.image-view-container').empty();
@@ -99,8 +99,9 @@ $(document).ready(function() {
     $('.featured-submit').click(function() {
         imageUrl = $('.image-view-container > img').attr('src');
         if (imageUrl) {
-            var imageId = $('.image-view-container > img').attr('data-img-id');
-            var content = '<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="'+imageUrl+'" alt="" /></a>';
+            let imageId = $('.image-view-container > img').attr('data-img-id');
+            let altText = $('.image_alt').val();
+            let content = '<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="'+imageUrl+'" alt="'+altText+'" /></a>';
             $('.featured-image-id').val(imageId);
             $('.featured-image-viewer').empty();
             $('.featured-image-viewer').append(content);

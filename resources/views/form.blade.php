@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="uk-width-1-3">
-                    <div class="image-view-container">
+                    <div class="image-view-container uk-text-center">
 
                     </div>
                     <div class="image-modifier-container">
@@ -31,7 +31,7 @@
                             <div class="uk-form-row">
                                 <label class="uk-form-label" for="">Alternative Text</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" name="alt" class="image_alt" />
+                                    <input class="uk-input image_alt" name="alt" type="text" />
                                 </div>
                             </div>
                             {{--<div class="uk-form-row">--}}
@@ -115,7 +115,7 @@
                     $imgDesc = $result[i].description;
                     $imgId = $result[i].id;
                     $images += '<div> \
-                        <img src="'+$baseUrl+'/'+$imgPath+'" class="uk-padding-small" \
+                        <img src="'+$baseUrl+'/image/medium/'+$imgPath+'" class="uk-padding-small" \
                          data-img-path="'+$imgPath+'" data-img-desc="'+$imgDesc+'" data-img-id="'+$imgId+'" \
                          onclick="viewImage(this, \'\')" /> \
                         </div>'
@@ -128,10 +128,10 @@
 
     function viewImage($this, $imagePath) {
         if ($imagePath != '') {
-            $imageUrl = $baseUrl + '/' + $imagePath;
+            $imageUrl = $baseUrl + '/image/featured/' + $imagePath;
         } else {
             $imgPath = $($this).attr('data-img-path');
-            $imageUrl = $baseUrl + '/' + $imgPath;
+            $imageUrl = $baseUrl + '/image/featured/' + $imgPath;
         }
         $imageViewer = '<img src="'+$imageUrl+'" />';
         $('.image-view-container').empty();
@@ -143,8 +143,9 @@
         uploader.init();
         reloadImageList();
         jQuery('#submitButton').on('click', function(e) {
-            var imageUrl = $('.image-view-container > img').attr('src');
-            var content = '<img style="margin: 5px;" src="'+imageUrl+'" alt="" />';
+            let imageUrl = $('.image-view-container > img').attr('src');
+            let altText = $('.image_alt').val();
+            let content = '<img style="margin: 5px;" src="'+imageUrl+'" alt="'+altText+'" />';
             top.tinymce.activeEditor.insertContent(content);
             top.tinymce.activeEditor.windowManager.close();
         });

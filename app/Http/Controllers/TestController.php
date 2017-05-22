@@ -54,10 +54,11 @@ class TestController extends Controller
 
         // save to db
         $filename = pathinfo($imageName, PATHINFO_FILENAME);
-        $media = $this->media->saveMedia($filename, $imagePath);
+        $media = $this->media->saveMedia($filename, $imageName, $imagePath);
 
         $result = [
-            'filePath' => $imagePath,
+            'filePath' => $imageName,
+            'fullPath' => $imagePath,
             'status' => 'OK',
             'mediaId' => $media->id,
             'description' => $media->description

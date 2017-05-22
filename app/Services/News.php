@@ -3,9 +3,14 @@
 namespace App\Service;
 
 
+use Illuminate\Http\Request;
+
 class News
 {
     use DatatableParameters;
+
+    // News Post Type
+    protected $postTypeId = 1;
 
     protected $baseUrl = 'news';
 
@@ -46,5 +51,45 @@ class News
         return $news;
     }
 
+    public function getById($id)
+    {
+        return $this->post->getPostQuery(['id' => $id])->first();
+    }
+
+    public function store(Request $request)
+    {
+        $publishDate = $request->input('publish_date');
+        $status = $request->input('status');
+        $details['title'] = $request->input('title');
+        $details['content'] = $request->input('content');
+        $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        try {
+            $this->post->store($this->postTypeId, $publishDate, $status, $details);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public function update($request, $id)
+    {
+        $publishDate = $request->input('publish_date');
+        $status = $request->input('status');
+        $details['title'] = $request->input('title');
+        $details['content'] = $request->input('content');
+        $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        try {
+            $this->post->update($id, $publishDate, $status, $details);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public function destroy($id)
+    {
+        $post = $this->post->getPostById($id);
+        return $post->delete();
+    }
 
 }

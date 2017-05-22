@@ -14,7 +14,7 @@ class CreateTablePostHasMedias extends Migration
     public function up()
     {
         Schema::create('post_has_medias', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigIncrements('id');
             $table->bigInteger('post_id')->unsigned();
             $table->integer('media_id')->unsigned();
 
