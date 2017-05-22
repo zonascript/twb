@@ -2,11 +2,12 @@
 <html>
 <head>
     <link rel="stylesheet" href="{!! asset('assets/css/uikit.min.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/admin.css') !!}" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="white">
     <form class="uk-form" action="#">
-        <div class="uk-card-body uk-card-small uk-height-large">
+        <div class="uk-card-body uk-card-small">
             <ul class="image-tab" uk-tab="animation: uk-animation-fade">
                 <li><a href="#">Upload</a></li>
                 <li class="uk-active"><a href="#">Select Images</a></li>
@@ -14,29 +15,27 @@
 
             <ul class="uk-switcher uk-margin">
                 <li>
-                    <button type="button" id="browse">Upload</button>
+                    <div class="k-modal-h"><button type="button" id="browse">Upload</button></div>
                 </li>
-                <li class="uk-grid">
-                    <div class="uk-width-2-3">
-                        <div class="uk-overflow-auto">
-                            <div class="uk-child-width-1-4 uk-grid-small uk-text-center image-list-container" uk-grid ></div>
+                <li>
+                    <div class="uk-grid-small uk-grid-match" uk-grid>
+                        <div class="uk-width-2-3 k-modal-h">
+                            <div class="uk-child-width-1-4 uk-grid-small uk-text-center image-list-container" uk-grid></div>
                         </div>
-                    </div>
-                    <div class="uk-width-1-3">
-                        <div class="image-view-container uk-margin">
-
-                        </div>
-                        <div class="image-modifier-container">
-                            <div class="uk-form-row">
-                                <label class="uk-form-label" for="">Alternative Text</label>
-                                <input class="uk-input image_alt" name="alt" type="text" />
+                        <div class="uk-width-1-3 k-modal-h">
+                            <div class="image-view-container uk-margin"></div>
+                            <div class="image-modifier-container">
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label" for="">Alternative Text</label>
+                                    <input class="uk-input image_alt" name="alt" type="text" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="uk-modal-footer uk-text-right uk-position-bottom">
+        <div class="uk-modal-footer uk-text-right">
             <button class="uk-button uk-button-primary" type="button" id="submitButton">Submit</button>
         </div>
     </form>

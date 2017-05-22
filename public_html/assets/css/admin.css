@@ -72,7 +72,17 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.k-modal-h {
+    height: calc(100vh - 165px);
+    overflow: auto;
+}
+.k-modal-h2 {
+    height: calc(100vh - 350px);
+    overflow: auto;
+}
+.k-modal-w {
+    max-width: calc(80% - 65px) !important;
+}
 
 /**/
 .mce-branding-powered-by {
