@@ -67,7 +67,7 @@ class Template
 
     public function store(Request $request)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
@@ -87,7 +87,7 @@ class Template
 
     public function update($request, $id)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');

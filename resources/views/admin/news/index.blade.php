@@ -17,7 +17,7 @@
             <th>Id</th>
             <th>Title</th>
             <th>Excerpt</th>
-            <th>Action</th>
+            <th class="uk-text-center">Action</th>
         </tr>
         </thead>
     </table>
@@ -40,7 +40,8 @@
                 {data: 'title', name: 'title', width: '30%'},
                 {data: 'excerpt', name: 'excerpt', width: '40%'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, width: '20%'}
-            ]
+            ],
+            "order": [[ 0, 'desc' ]]
         });
     });
 </script>

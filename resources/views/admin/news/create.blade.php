@@ -20,36 +20,24 @@
         {!! csrf_field() !!}
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-2-3">
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-large uk-width-1-1" type="text" name="title" placeholder="Enter title here"
-                    @if(old('title') != '')value="{!! old('title') !!}"@endif >
-                </div>
-                <div class="uk-card k-border">
-                    <textarea class="uk-input textarea uk-width-1-1" name="content"></textarea>
-                </div>
+                @include('admin.includes.main')
             </div>
             <div class="uk-width-1-3">
                 <div class="uk-card uk-card-small uk-margin k-border white">
                     <div class="uk-card-body">
                         <label class="uk-form-label" for="">Publish Date</label>
-                        <input type="text" class="uk-input" name="publish_date" data-uk-datepicker="{format:'DD/MM/YYYY',maxDate:0}">
+                        <input type="text" class="uk-input" name="publish_date"
+                               data-uk-datepicker="{format:'DD/MM/YYYY',maxDate:0}"
+                               @if(old('publish_date') != '')value="{!! old('publish_date') !!}"@endif />
                     </div>
                     <div class="uk-card-footer uk-flex uk-flex-middle uk-flex-between">
                         <a href="{!! action('NewsController@index') !!}" class="uk-button uk-button-default">Back</a>
                         <button type="submit" class="uk-button uk-button-primary" name="status" value="publish">Publish</button>
                     </div>
                 </div>
-                <div class="uk-card uk-card-small k-border white">
-                    <h5 class="uk-card-header uk-margin-remove">Featured Image</h5>
-                    <div class="uk-card-body">
-                        <div class="featured-image-viewer">
 
-                        </div>
-                        <input type="hidden" name="featured_image_id" class="featured-image-id"/>
-                        <a class="uk-button uk-button-default featured-image-add-button" href="#featured-image-modal" uk-toggle>Add Image</a>
-                        <a class="uk-button uk-button-default featured-image-remove-button" href="javascript:;">Remove Image</a>
-                    </div>
-                </div>
+                @include('admin.includes.featured-sidebar')
+
             </div>
         </div>
     </form>

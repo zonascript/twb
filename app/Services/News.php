@@ -59,7 +59,7 @@ class News
 
     public function store(Request $request)
     {
-        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->of;
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
@@ -74,13 +74,13 @@ class News
 
     public function update($request, $id)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         try {
-            $this->post->update($id, $publishDate, $status, $details);
+            $update = $this->post->update($id, $publishDate, $status, $details);
             return true;
         } catch (\Exception $e) {
             return false;

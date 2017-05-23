@@ -57,7 +57,7 @@ class Video
 
     public function store(Request $request)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $videoLink = $request->has('video_link') ? $request->input('video_link') : '';
         $status = $request->input('status');
         $details['title'] = $request->input('title');
@@ -78,7 +78,7 @@ class Video
 
     public function update($request, $id)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $videoLink = $request->input('video_link');
         $status = $request->input('status');
         $details['title'] = $request->input('title');

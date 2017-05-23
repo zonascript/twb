@@ -83,11 +83,13 @@ function viewImage($this, $imagePath) {
 
 $(document).ready(function() {
     // set the button
-    imageUrl = $('.image-view-container > img').attr('src');
+    imageUrl = $('.featured-image-viewer > a > img').attr('src');
     if (! imageUrl) {
         $('.featured-image-remove-button').hide();
+        $('.featured-image-add-button').show();
     } else {
         $('.featured-image-remove-button').show();
+        $('.featured-image-add-button').hide();
     }
 
     // init the plupload

@@ -21,7 +21,6 @@ class VideoController extends Controller
         $this->video = $video;
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +28,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('admin.videos.index');
+        $data['pageTitle'] = 'Video List';
+        return view('admin.videos.index', $data);
     }
 
     public function datatableList()
@@ -44,7 +44,8 @@ class VideoController extends Controller
      */
     public function create()
     {
-        return view('admin.videos.create');
+        $data['pageTitle'] = 'Add Video';
+        return view('admin.videos.create', $data);
     }
 
     /**
@@ -72,7 +73,7 @@ class VideoController extends Controller
         $data['id'] = $id;
         $data['videoLink'] = getMetaValue($id, 'video_link');
         $data['video'] = $this->video->getById($id);
-        // dd($data);
+        $data['pageTitle'] = 'Delete Video';
         return view('admin.videos.edit', $data);
     }
 

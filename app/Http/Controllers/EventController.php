@@ -72,9 +72,8 @@ class EventController extends Controller
     public function edit($id)
     {
         $data['id'] = $id;
-        $data['event'] = $this->event->getById($id);
+        $data['post'] = $this->event->getById($id);
         $data['pageTitle'] = 'Edit Event';
-        //dd($data);
         return view('admin.events.edit', $data);
     }
 

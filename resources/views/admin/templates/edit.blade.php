@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('TemplateController@update', $template->id) !!}" method="POST" enctype="multipart/form-data">
+    <form class="uk-form uk-form-stacked uk-grid" action="{!! action('TemplateController@update', $post->id) !!}" method="POST" enctype="multipart/form-data">
         <div class="uk-width-2-3">
 
             {!! csrf_field() !!}
@@ -32,14 +32,14 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $template->title !!} @endif" autofocus/>
+                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $post->title !!} @endif" autofocus/>
                     </div>
                 </div>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label" for="">Content</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $template->content !!} @endif</textarea>
+                    <textarea class="uk-input textarea" name="content">@if(old('content') != '') {!! old('content') !!} @else {!! $post->content !!} @endif</textarea>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                         <div class="uk-form-row">
                             <label class="uk-form-label" for="">Publish Date</label>
                             <div class="uk-form-controls">
-                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $template->publish_at)->format('Y-m-d') !!} @endif" />
+                                <input type="text" class="uk-input" name="publish_date" value="@if(old('publish_date') != '') {!! old('publish_date') !!} @else {!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->publish_at)->format('d/m/Y') !!} @endif" />
                             </div>
                         </div>
                         <div class="uk-form-row uk-margin">
@@ -64,9 +64,9 @@
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="">Template Image</label>
                     <div class="featured-image-viewer">
-                        @if ($template->path != '')<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$template->path) !!}" alt="" /></a>@endif
+                        @if ($post->path != '')<a href="#featured-image-modal" uk-toggle><img style="margin: 5px;" src="{!! url('image/featured/'.$post->path) !!}" alt="" /></a>@endif
                     </div>
-                    <input type="hidden" name="featured_image_id" value="{!! $template->media_id !!}" class="featured-image-id"/>
+                    <input type="hidden" name="featured_image_id" value="{!! $post->media_id !!}" class="featured-image-id"/>
                     <a class="uk-button uk-button-default featured-image-add-button" href="#featured-image-modal" uk-toggle>Add Image</a>
                     <a class="uk-button uk-button-default featured-image-remove-button" href="javascript:;">Remove Image</a>
                 </div>

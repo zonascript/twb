@@ -30,7 +30,8 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        return view('admin.templates.index');
+        $data['pageTitle'] = 'Template List';
+        return view('admin.templates.index', $data);
     }
 
     public function datatableList()
@@ -45,7 +46,8 @@ class TemplateController extends Controller
      */
     public function create()
     {
-        return view('admin.templates.create');
+        $data['pageTitle'] = 'Add Template';
+        return view('admin.templates.create', $data);
     }
 
     /**
@@ -72,8 +74,8 @@ class TemplateController extends Controller
     {
         $data['id'] = $id;
         $data['templateFile'] = getMedia($id, 'template_file');
-        $data['template'] = $this->template->getById($id);
-
+        $data['post'] = $this->template->getById($id);
+        $data['pageTitle'] = 'Edit Template';
         return view('admin.templates.edit', $data);
     }
 

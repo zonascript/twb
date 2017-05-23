@@ -71,7 +71,7 @@ class Event
 
     public function store(Request $request)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $eventDate = $request->input('event_date');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
@@ -88,7 +88,7 @@ class Event
 
     public function update($request, $id)
     {
-        $publishDate = $request->input('publish_date');
+        $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $eventDate = $request->input('event_date');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
