@@ -14,80 +14,41 @@
             <p>Pilih dan cetak salah satu lembar gambar untuk diwarnai. Mewarnai secara kreatif dan bebas pada lembar yang terpilih dan akan dipamerkan kepada masyarakat!</p>
 
             <div class="uk-flex uk-flex-middle uk-flex-between uk-child-width-1-4 uk-grid-small" uk-grid>
-                <div>
-                    <div class="twb-color-bw">
-                        <div class="uk-cover-container thumb">
-                            <img src="{!! asset('images/sample-content/color-1.jpg') !!}" alt="Tini Wini Biti" uk-cover>
-                        </div>
-                        <div class="info uk-padding-small">
-                            <h6 class="twb-blue-text uk-margin-remove">Taman Favorit Kupu-kupu</h6>
-                            <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
-                                <li><a class="uk-text-capitalize zoom" title="Zoom">Zoom +</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="twb-color-bw">
-                        <div class="uk-cover-container thumb">
-                            <img src="{!! asset('images/sample-content/color-2.jpg') !!}" alt="Tini Wini Biti" uk-cover>
-                        </div>
-                        <div class="info uk-padding-small">
-                            <h6 class="twb-blue-text uk-margin-remove">Sahabat Main Bebek</h6>
-                            <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
-                                <li><a class="uk-text-capitalize zoom" title="">Zoom +</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
-                            </ul>
+                @foreach($templates as $template)
+                    <div>
+                        <div class="twb-color-bw">
+                            <div class="uk-cover-container thumb">
+                                {{--<a class="zoom" title="zoom">--}}
+                                <img src="{!! asset($template->fullpath) !!}" alt="{!! $template->title !!}" uk-cover />
+                                {{--</a>--}}
+                            </div>
+                            <div class="info uk-padding-small">
+                                <h6 class="twb-blue-text uk-margin-remove">{!! $template->title !!}</h6>
+                                <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
+                                    <li><a class="uk-text-capitalize zoom" title="Zoom">Zoom +</a></li>
+                                    <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
+                                    <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="twb-color-bw">
-                        <div class="uk-cover-container thumb">
-                            <img src="{!! asset('images/sample-content/color-3.jpg') !!}" alt="Tini Wini Biti" uk-cover>
-                        </div>
-                        <div class="info uk-padding-small">
-                            <h6 class="twb-blue-text uk-margin-remove">Petualangan yang Seru</h6>
-                            <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
-                                <li><a class="uk-text-capitalize zoom" title="">Zoom +</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="twb-color-bw">
-                        <div class="uk-cover-container thumb">
-                            <img src="{!! asset('images/sample-content/color-4.jpg') !!}" alt="Tini Wini Biti" uk-cover>
-                        </div>
-                        <div class="info uk-padding-small">
-                            <h6 class="twb-blue-text uk-margin-remove">4 Sehat 5 Sempurna</h6>
-                            <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
-                                <li><a class="uk-text-capitalize zoom" title="">Zoom +</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
-                                <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <ul class="uk-pagination twb-pagination" uk-margin>
-                <li><a href="#"><span uk-pagination-previous></span></a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li class="uk-active"><span>7</span></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#">20</a></li>
-                <li><a href="#"><span uk-pagination-next></span></a></li>
-            </ul>
+
+            {{ $templates->links() }}
+            {{--<ul class="uk-pagination twb-pagination" uk-margin>--}}
+                {{--<li><a href="#"><span uk-pagination-previous></span></a></li>--}}
+                {{--<li><a href="#">1</a></li>--}}
+                {{--<li><a href="#">4</a></li>--}}
+                {{--<li><a href="#">5</a></li>--}}
+                {{--<li><a href="#">6</a></li>--}}
+                {{--<li class="uk-active"><span>7</span></li>--}}
+                {{--<li><a href="#">8</a></li>--}}
+                {{--<li><a href="#">9</a></li>--}}
+                {{--<li><a href="#">10</a></li>--}}
+                {{--<li><a href="#">20</a></li>--}}
+                {{--<li><a href="#"><span uk-pagination-next></span></a></li>--}}
+            {{--</ul>--}}
 
             <h4 class="uk-text-uppercase">Langkah KEDUA: MEMAJANG Lembar Mewarnai</h4>
             <div class="uk-flex uk-flex-middle" uk-grid>

@@ -72,3 +72,9 @@ if (! function_exists('getMedia')) {
         return '';
     }
 }
+
+if (! function_exists('changeDateFormat')) {
+    function changeDateFormat($date, $from = 'Y-m-d H:i:s', $to = 'd-m-Y') {
+        return \Carbon\Carbon::createFromFormat($from, $date)->format($to);
+    }
+}

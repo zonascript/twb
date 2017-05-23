@@ -30,7 +30,7 @@ class News
 
     public function datatable()
     {
-        $data = $this->getList();
+        $data = $this->getList()->get();
         $actions = $this->actionParameters(['edit', 'delete']);
 
         return (new DatatableGenerator($data))
@@ -43,12 +43,15 @@ class News
         return $this->post->getPostById($newsId);
     }
 
-    private function getList()
+    public function getList($params = [])
     {
-        $params = [
+        $listParams = [
             'post_type_id' => $this->postTypeId
         ];
-        $news = $this->post->getPostQuery($params)->get();
+        if (isset($params['slug'])) {
+            $listParams['slug'] = $params['slug'];
+        }
+        $news = $this->post->getPostQuery($listParams);
         return $news;
     }
 

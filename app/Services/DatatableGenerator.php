@@ -29,7 +29,7 @@ class DatatableGenerator
     public function addActions(array $actions)
     {
         $this->datatable->addColumn('action', function ($collection) use ($actions) {
-            $action = '<div class="text-center">';
+            $action = '<div class="uk-text-center">';
             $hasLink = false;
             foreach ($actions as $act) {
                 $link = $this->generateActionLink($act, $collection);

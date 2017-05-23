@@ -28,7 +28,7 @@ class Event
 
     public function datatable()
     {
-        $data = $this->getList();
+        $data = $this->getList()->get();
         $actions = $this->actionParameters(['edit', 'delete']);
 
         return (new DatatableGenerator($data))
@@ -41,7 +41,7 @@ class Event
         return $this->post->getPostById($eventId);
     }
 
-    private function getList()
+    public function getList()
     {
         $params = [
             'post_type_id' => $this->postTypeId
@@ -52,8 +52,7 @@ class Event
                 $join->on('pm.id', '=', 'pmt.post_meta_id')
                     ->where('pm.meta_key', 'event_date');
             })
-            ->addSelect('pm.meta_key', 'pmt.value AS event_date')
-            ->get();
+            ->addSelect('pm.meta_key', 'pmt.value AS event_date');
         return $news;
     }
 

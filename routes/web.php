@@ -20,8 +20,8 @@ Route::get('/', 'FrontendController@home');
 Route::get('/produk-kami', 'FrontendController@product');
 Route::get('/video', 'FrontendController@video');
 Route::get('/berita', 'FrontendController@berita');
-Route::get('/berita/detail', 'FrontendController@beritaDetail');
-Route::get('/seru-mewarnai', 'FrontendController@seru');
+Route::get('/berita/detail/{slug}', 'FrontendController@beritaDetail');
+Route::get('/seru-mewarnai', 'FrontendController@seruMewarnai');
 
 // Auth::routes();
 Route::get($loginUrl, 'Auth\LoginController@showLoginForm')->name($loginUrl);

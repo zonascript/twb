@@ -7,7 +7,7 @@
         <h1 class="k-title-page uk-text-uppercase">@if(isset($pageTitle)) {!! $pageTitle !!}@endif</h1>
     </div>
 
-    <div class="uk-navbar-right">
+    <div class="uk-navbar-right uk-margin-right">
         <ul class="uk-navbar-nav">
             {{--<li><a href="#">Hi, {!! \Auth::user()->name !!}</a></li>--}}
             <li>

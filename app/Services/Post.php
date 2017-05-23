@@ -30,6 +30,10 @@ class Post
             $query = $query->where('p.id', $params['id']);
         }
 
+        if (isset($params['slug'])) {
+            $query = $query->where('p.slug', $params['slug']);
+        }
+
         if (isset($params['lang'])) {
             $query = $query->where('pt.locale', $params['lang']);
         } else {

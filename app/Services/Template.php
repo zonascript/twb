@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -34,7 +35,7 @@ class Template
 
     public function datatable()
     {
-        $data = $this->getList();
+        $data = $this->getList()->get();
         $actions = $this->actionParameters(['edit', 'delete']);
 
         return (new DatatableGenerator($data))
@@ -47,13 +48,13 @@ class Template
         return $this->post->getPostById($templateId);
     }
 
-    private function getList()
+    public function getList()
     {
         $params = [
             'post_type_id' => $this->postTypeId
         ];
         $news = $this->post->getPostQuery($params)
-            ->where('medias.type', 'featured')->get();
+            ->where('medias.type', 'featured');
         return $news;
     }
 
