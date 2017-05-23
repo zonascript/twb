@@ -22,6 +22,7 @@ Route::get('/video', 'FrontendController@video');
 Route::get('/berita', 'FrontendController@berita');
 Route::get('/berita/detail/{slug}', 'FrontendController@beritaDetail');
 Route::get('/seru-mewarnai', 'FrontendController@seruMewarnai');
+Route::get('/account', 'FrontendController@account');
 
 // Auth::routes();
 Route::get($loginUrl, 'Auth\LoginController@showLoginForm')->name($loginUrl);

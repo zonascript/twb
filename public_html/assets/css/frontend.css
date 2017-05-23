@@ -41,12 +41,12 @@ footer a {
 .twb-nav .uk-subnav > * > :first-child {
     color: #204998;
 }
-.twb-nav .uk-subnav a {
+.twb-nav .uk-subnav > * > a {
     font-weight: bold;
     border-bottom: 1px solid rgba(235, 35, 39, 0);
 }
-.twb-nav .uk-subnav a:hover,
-.twb-nav .uk-subnav .uk-active a {
+.twb-nav .uk-subnav > * > a:hover,
+.twb-nav .uk-subnav .uk-active > a {
     border-bottom: 1px solid #EA2327;
 }
 .twb-socmed {

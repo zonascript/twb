@@ -94,4 +94,12 @@ class FrontEndController extends Controller
         $data['navActiveColoring'] = 'class="uk-active"';
         return view('frontend.seru-mewarnai', $data);
     }
+
+    public function account()
+    {
+        $data['pageTitle'] = 'My Account';
+        $data['pageClass'] = 'class="account"';
+        $data['navActiveProfile'] = 'class="uk-active"';
+        return view('frontend.account', $data);
+    }
 }
