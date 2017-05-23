@@ -26,7 +26,7 @@
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
     </h3>
 
-    <form class="uk-form " action="{!! action('VideoController@update', $video->id) !!}" method="POST">
+    <form class="uk-form " action="{!! action('VideoController@update', $post->id) !!}" method="POST">
         {!! csrf_field() !!}
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-2-3">
@@ -41,7 +41,7 @@
                         @if(old('publish_date') != '')
                             value="{!! old('publish_date') !!}"
                         @else
-                            value="{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $video->publish_at)->format('d/m/Y') !!}"
+                            value="{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->publish_at)->format('d/m/Y') !!}"
                         @endif />
                     </div>
                     <div class="uk-card-footer uk-flex uk-flex-middle uk-flex-between">

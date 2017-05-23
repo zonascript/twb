@@ -72,7 +72,7 @@ class VideoController extends Controller
     {
         $data['id'] = $id;
         $data['videoLink'] = getMetaValue($id, 'video_link');
-        $data['video'] = $this->video->getById($id);
+        $data['post'] = $this->video->getById($id);
         $data['pageTitle'] = 'Delete Video';
         return view('admin.videos.edit', $data);
     }
