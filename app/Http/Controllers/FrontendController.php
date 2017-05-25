@@ -68,7 +68,7 @@ class FrontEndController extends Controller
     {
         $newsQuery = $this->news->getList();
         $eventQuery = $this->event->getList();
-        $data['news'] = $newsQuery->orderBy('publish_at', 'desc')->get();
+        //$data['news'] = $newsQuery->orderBy('publish_at', 'desc')->get();
         $data['events'] = $eventQuery->orderBy('publish_at', 'desc')->get();
         $data['pageTitle'] = 'Berita &amp; Acara';
         $data['pageClass'] = 'class="news"';

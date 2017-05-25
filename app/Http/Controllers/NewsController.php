@@ -106,4 +106,12 @@ class NewsController extends Controller
         }
         return backendRedirect('news')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
+
+    public function newsPaginated(Request $request)
+    {
+        $newsQuery = $this->news->getList();
+        $news = $newsQuery->paginate(4);
+        $news->withPath('berita-paginated');
+        return $news->toJson();
+    }
 }
