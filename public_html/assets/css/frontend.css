@@ -234,6 +234,10 @@ footer .twb-nav .uk-subnav > * > :first-child {
 .twb-pagination > * {
     padding-left: 10px;
 }
+a.twb-blue.uk-disabled {
+    background: #ddd !important;
+    color: #eee !important;
+}
 .twb-zoom-img {
     margin: -30px -30px 1em -30px;
 }

@@ -182,18 +182,66 @@ $(document).ready(function() {
         });
     }
 
+    $('#image-preview').addClass('uk-hidden');
     $("#file").change(function () {
         filePreview(this);
     });
-
+    filePreview('#file');
     function filePreview(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
                 $('#image-preview').empty();
-                $('#image-preview').append('<img src="'+e.target.result+'" width="450" height="300"/>');
+                $('#image-preview').append('<img src="'+e.target.result+'">');
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
+    var bar = $("#progressbar")[0];
+    UIkit.upload('.twb-upload', {
+
+        url: '',
+        multiple: false,
+        allow : '*.(jpg|jpeg|png)',
+        msgInvalidName: 'Format file tidak sesuai, harap gunakan format %s',
+
+        beforeSend: function() { console.log('beforeSend', arguments); },
+        beforeAll: function() { console.log('beforeAll', arguments); },
+        load: function() { console.log('load', arguments); },
+        error: function() { console.log('error', arguments); },
+        complete: function() { console.log('complete', arguments); },
+
+        loadStart: function (e) {
+            console.log('loadStart', arguments);
+
+            bar.removeAttribute('hidden');
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+        },
+
+        progress: function (e) {
+            console.log('progress', arguments);
+
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+
+        },
+
+        loadEnd: function (e) {
+            console.log('loadEnd', arguments);
+
+            bar.max =  e.total;
+            bar.value =  e.loaded;
+        },
+
+        completeAll: function () {
+            console.log('completeAll', arguments);
+
+            setTimeout(function () {
+                bar.setAttribute('hidden', 'hidden');
+            }, 1000);
+            $('#image-preview').removeClass('uk-hidden');
+
+        }
+    });
 });
