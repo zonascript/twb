@@ -28,6 +28,7 @@ Route::get('/account', 'FrontendController@account');
 // Auth::routes();
 Route::get($loginUrl, 'Auth\LoginController@showLoginForm')->name($loginUrl);
 Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/ajax-login', 'FrontendLoginController@ajaxLogin');
 Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');

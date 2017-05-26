@@ -9,7 +9,7 @@
         <li @if(isset($navActiveVid)) {!! $navActiveVid !!} @endif>
             <a href="{!! url('/video') !!}" title="Video">Video</a>
         </li>
-        {{-- @if(logged) --}}
+        @if (auth()->check())
         <li @if(isset($navActiveProfile)) {!! $navActiveProfile !!} @endif>
             <a href="{!! url('/account') !!}" title="Profile">My Account</a>
             <div uk-dropdown>
@@ -19,7 +19,7 @@
                 </ul>
             </div>
         </li>
-        {{-- @endif --}}
+        @endif
     </ul>
     <ul class="twb-socmed uk-visible@s">
         <li><a href="" class="uk-icon-button" uk-icon="icon: instagram"></a></li>

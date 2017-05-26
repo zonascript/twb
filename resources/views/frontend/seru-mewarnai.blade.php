@@ -54,11 +54,11 @@
             <div class="uk-flex uk-flex-middle" uk-grid>
                 <div class="uk-width-expand">Memindai dan mengunggah hasil mewarnai kamu untuk dipajangkan di halaman situs ini, serta mengisi nama, usia, tempat tinggal, alamat e-mail kamu.</div>
                 <div class="uk-width-auto">
-                    {{-- @if(logged) --}}
-                    <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round upload"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
-                    {{-- @else --}}
-                    <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round login"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
-                    {{-- @endif --}}
+                    @if (auth()->check())
+                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round upload"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
+                    @else
+                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round login"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
+                    @endif
                 </div>
             </div>
 
@@ -179,9 +179,15 @@
                 <li><a href="#"><span uk-pagination-next></span></a></li>
             </ul>
         </div>
+
+        @include('frontend.includes.login-modal')
+
+        @include('frontend.includes.upload-modal');
+
     </section>
 @endsection
 
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/seru-mewarnai.js') !!}"></script>
+
 @endsection
