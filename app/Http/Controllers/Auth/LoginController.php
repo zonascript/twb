@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,5 +38,13 @@ class LoginController extends Controller
         $adminUrl = config('misc.admin-prefix');
         $this->redirectTo = url($adminUrl);
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required|email',
+            'password' => 'required|string',
+        ]);
     }
 }

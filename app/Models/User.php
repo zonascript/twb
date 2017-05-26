@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Models\Post;
+use App\Models\UserDetail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -32,5 +33,10 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'created_by');
+    }
+
+    public function details()
+    {
+        return $this->hasMany(UserDetail::class);
     }
 }

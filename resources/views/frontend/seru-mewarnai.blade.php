@@ -1,6 +1,7 @@
 @extends('frontend.layouts.default')
 
 @section('page-level-styles')
+    <link rel="stylesheet" href="{!! asset('assets/css/datepicker.min.css') !!}" />
 @endsection
 
 @section('page-level-nav')
@@ -184,10 +185,17 @@
 
         @include('frontend.includes.upload-modal');
 
+        @include('frontend.includes.register-modal');
+
     </section>
 @endsection
 
 @section('page-level-scripts')
+    <script>
+        var isLoggedIn = @if(auth()->check()) 'true'; @else 'false'; @endif
+    </script>
+    <script src="{!! asset('assets/js/uikit.2.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/datepicker.min.js') !!}"></script>
     <script src="{!! asset('assets/js/seru-mewarnai.js') !!}"></script>
 
 @endsection

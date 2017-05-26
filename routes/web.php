@@ -28,14 +28,16 @@ Route::get('/account', 'FrontendController@account');
 // Auth::routes();
 Route::get($loginUrl, 'Auth\LoginController@showLoginForm')->name($loginUrl);
 Route::post('/login', 'Auth\LoginController@login')->name('login');
-Route::post('/ajax-login', 'FrontendLoginController@ajaxLogin');
 Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 //Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//Route::post('/register', 'Auth\RegisterController@register');
+Route::post('/register', 'Auth\RegisterController@register');
+
+Route::post('/ajax-login', 'FrontendLoginController@ajaxLogin');
+Route::post('/ajax-register', 'FrontendLoginController@ajaxRegister');
 
 Route::group([
     'middleware' => ['auth', 'authorize'],

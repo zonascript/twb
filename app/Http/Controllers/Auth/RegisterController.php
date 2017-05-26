@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -51,7 +54,22 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'city' => 'required|string',
+            'address' => 'required',
+            'birthdate' => 'required|date_format:d/m/Y'
         ]);
+    }
+
+    public function registered(Request $request, $user)
+    {
+        Log::warning('RegisterController registered ==> ' . \GuzzleHttp\json_encode($request->all()));
+        $params = [
+            'birth_date' => Carbon::createFromFormat('d/m/Y', $request->input('birthdate'))->format('Y-m-d'),
+            'address' => $request->input('address'),
+            'city' => $request->input('city')
+        ];
+        Log::warning('RegisterController param ==> ' . \GuzzleHttp\json_encode($params));
+        $user->details()->create($params);
     }
 
     /**
