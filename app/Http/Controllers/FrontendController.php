@@ -57,8 +57,20 @@ class FrontEndController extends Controller
         return view('frontend.product', $data);
     }
 
-    public function video()
+    public function video($slug = '')
     {
+        if ($slug != '') {
+            $video = $this->video->getList(['slug' => $slug]);
+            if ($video->exists()) {
+                $video = $video->first();
+            } else {
+                return redirect('video');
+            }
+        } else {
+            $video = $this->video->getList()
+                ->orderBy('publish_at', 'desc')->first();
+        }
+        $data['video'] = $video;
         $data['pageTitle'] = 'Video';
         $data['pageClass'] = 'class="video"';
         $data['navActiveVid'] = 'class="uk-active"';

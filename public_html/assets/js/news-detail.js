@@ -1,13 +1,11 @@
-function loadNews(url, type, search) {
-    if (url.indexOf("latest") >= 0 || url.indexOf("popular") >= 0) {
-        newsUrl = baseUrl + '/' + url;
-    } else {
-        newsUrl = baseUrl + '/' + url + '/' + type;
-    }
-    // console.log(newsUrl);
-    var data = {};
+function loadNews(url, search) {
+    newsUrl = baseUrl + '/' + url;
+    var data = {
+        'currentId': currentId
+    };
     if(search != undefined) {
         data = {
+            'currentId': currentId,
             'search': search
         };
     }
@@ -20,7 +18,7 @@ function loadNews(url, type, search) {
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
-        // console.log($res);
+        console.log($res);
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
@@ -29,7 +27,7 @@ function loadNews(url, type, search) {
             }, 500);
         } else {
             //stop the animation
-            generateEmptyNews();
+            generateBlankNews();
         }
     });
 }
@@ -51,40 +49,41 @@ function generateNews($res) {
     }
     $('.news-prev-button').attr('data-link', $prevButton);
     $('.news-next-button').attr('data-link', $nextButton);
-    generateNewsContent($res.data);
+    generateVideoContent($res.data);
 }
 
-function generateEmptyNews() {
+function generateBlankNews() {
     blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-            '<p>Tidak ada data.</p>' +
-            '</div>';
+        '<p>Tidak ada data.</p>' +
+        '</div>';
     $('.news-container').empty();
     $('.news-container').append(blankContent);
 }
 
-function generateNewsContent($data) {
-    let newsContent = '';
+function generateVideoContent($data) {
+    let videoContent = '';
     $.each($data, function (index, news) {
-        let newsImage = baseUrl+'/images/default.png';
+        let publishDate = moment(news.publish_at, "YYYY-MM-DD HH:mm:ss").fromNow();
+        let newsImage = baseUrl+'/images/sample-content/vid-thumb-1.png';
         if (news.fullpath != '' && news.fullpath != null) {
             newsImage = baseUrl + '/' + news.fullpath;
         }
-        console.log(news.publish_at);
-        publishDate = moment(news.publish_at, "YYYY-MM-DD HH:mm:ss").fromNow();
-        newsContent += '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-            '<div class="uk-grid-medium" uk-grid>' +
-            '<div class="uk-width-auto twb-news-thumb">' +
+        let newsLink = baseUrl + '/berita/detail/' + news.slug;
+        videoContent += '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
+            '<div class="uk-grid-small" uk-grid>' +
+        '<div class="uk-width-1-3">' +
+            '<a class="uk-inline" href="'+newsLink+'">' +
             '<img src="'+newsImage+'" alt="Tini Wini Biti">' +
+            '</a>' +
             '</div>' +
-            '<div class="twb-news-excerpt uk-width-3-5">' +
-            '<h5 class="twb-blue-text uk-margin-small-bottom">'+news.title+'</h5>' +
-            '<div class="uk-margin-small-bottom">'+news.excerpt+'</div>' +
-            '<div>'+publishDate+'</div>' +
-            '</div>' +
-            '<div class="uk-width-auto"><a href="'+baseUrl+'/berita/detail/'+news.slug+'" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a></div>' +
-            '</div>' +
-            '</div>';
+            '<div class="uk-width-2-3">' +
+            '<a href="'+newsLink+'" title="" class="grey-text text-darken-2">'+news.title+'</a>' +
+        '<br>' +
+        '<span class="uk-text-muted">'+publishDate+'</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     })
     $('.news-container').empty();
-    $('.news-container').append(newsContent);
+    $('.news-container').append(videoContent);
 }

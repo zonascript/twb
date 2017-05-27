@@ -29,7 +29,7 @@ class Video
 
     public function datatable()
     {
-        $data = $this->getList();
+        $data = $this->getList()->get();
         $actions = $this->actionParameters(['edit', 'delete']);
 
         return (new DatatableGenerator($data))
@@ -42,13 +42,22 @@ class Video
         return $this->post->getPostById($videoId);
     }
 
-    private function getList()
+    public function getList($params = [])
     {
-        $params = [
+        $listParams = [
             'post_type_id' => $this->postTypeId
         ];
-        $news = $this->post->getPostQuery($params)->get();
-        return $news;
+        if (isset($params['slug'])) {
+            $listParams['slug'] = $params['slug'];
+        }
+        $videos = $this->post->getPostQuery($listParams)
+            ->leftJoin('post_metas AS pm', function($join) {
+                $join->on('p.id', '=', 'pm.post_id')
+                    ->where('pm.meta_key', 'video_id');
+            })
+            ->leftJoin('post_meta_translations AS pmt', 'pm.id', '=', 'pmt.post_meta_id')
+            ->addSelect('pm.meta_key', 'pmt.value AS video_id');
+        return $videos;
     }
 
     public function getById($id)

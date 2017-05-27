@@ -18,7 +18,8 @@ $adminPrefix = config('misc.admin-prefix');
 
 Route::get('/', 'FrontendController@home');
 Route::get('/produk-kami', 'FrontendController@product');
-Route::get('/video', 'FrontendController@video');
+Route::get('/video/{slug?}', 'FrontendController@video');
+Route::get('/videos-paginated', 'VideoController@videosPaginated');
 Route::get('/berita', 'FrontendController@berita');
 Route::get('/berita/detail/{slug}', 'FrontendController@beritaDetail');
 Route::get('/seru-mewarnai', 'FrontendController@seruMewarnai');

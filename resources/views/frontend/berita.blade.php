@@ -17,6 +17,7 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/moment.min.js') !!}"></script>
     <script>
         $(document).ready(function() {
             var type = 'latest';
@@ -26,11 +27,13 @@
             $('.news-latest').on('click', function() {
                 loadNews('news-paginated', 'latest');
                 type = 'latest';
+                $('.news-search').val('');
             });
 
             $('.news-popular').on('click', function() {
                 loadNews('news-paginated', 'popular');
                 type = 'popular';
+                $('.news-search').val('');
             });
 
             $('.news-prev-button').on('click', function() {
@@ -62,8 +65,7 @@
             });
 
             $('.news-search').keyup(function() {
-                var searchVal = $(this).val().trim();
-                searchVal = searchVal.replace(/\s+/g, '');
+                var searchVal = $(this).val();
 
                 if(searchVal.length >= 3) { //for checking 3 characters
                     loadNews('news-paginated', type, searchVal);

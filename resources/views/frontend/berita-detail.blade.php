@@ -35,80 +35,12 @@
                     <div class="uk-panel uk-padding-small white twb-border-bottom">
                         <h6 class="twb-blue-text uk-margin-small-bottom">Berita Lain</h6>
                     </div>
-                    <div class="uk-panel uk-padding-small white twb-border-bottom">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-3">
-                                <a class="uk-inline">
-                                    <img src="{!! asset('images/sample-content/vid-thumb-1.png') !!}" alt="Tini Wini Biti">
-                                </a>
-                            </div>
-                            <div class="uk-width-2-3">
-                                <a href="" title="" class="grey-text text-darken-2">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                                <br>
-                                <span class="uk-text-muted">1h 25m</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-panel uk-padding-small white twb-border-bottom">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-3">
-                                <a class="uk-inline">
-                                    <img src="{!! asset('images/sample-content/vid-thumb-2.png') !!}" alt="Tini Wini Biti">
-                                </a>
-                            </div>
-                            <div class="uk-width-2-3">
-                                <a href="" title="" class="grey-text text-darken-2">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                                <br>
-                                <span class="uk-text-muted">1h 25m</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-panel uk-padding-small white twb-border-bottom">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-3">
-                                <a class="uk-inline">
-                                    <img src="{!! asset('images/sample-content/vid-thumb-3.png') !!}" alt="Tini Wini Biti">
-                                </a>
-                            </div>
-                            <div class="uk-width-2-3">
-                                <a href="" title="" class="grey-text text-darken-2">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                                <br>
-                                <span class="uk-text-muted">1h 25m</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-panel uk-padding-small white twb-border-bottom">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-3">
-                                <a class="uk-inline">
-                                    <img src="{!! asset('images/sample-content/vid-thumb-4.png') !!}" alt="Tini Wini Biti">
-                                </a>
-                            </div>
-                            <div class="uk-width-2-3">
-                                <a href="" title="" class="grey-text text-darken-2">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                                <br>
-                                <span class="uk-text-muted">1h 25m</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-panel uk-padding-small white twb-border-bottom">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-3">
-                                <a class="uk-inline">
-                                    <img src="{!! asset('images/sample-content/vid-thumb-5.png') !!}" alt="Tini Wini Biti">
-                                </a>
-                            </div>
-                            <div class="uk-width-2-3">
-                                <a href="" title="" class="grey-text text-darken-2">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                                <br>
-                                <span class="uk-text-muted">1h 25m</span>
-                            </div>
-                        </div>
-                    </div>
+
+                    <div class="news-container"></div>
 
                     <div class="uk-panel uk-padding-small white">
-                        <a class="uk-button uk-button-small twb-blue white-text twb-btn-paging" href="#"><span uk-icon="icon: chevron-left"></span></a>
-                        <a class="uk-button uk-button-small twb-blue white-text twb-btn-paging" href="#"><span uk-icon="icon: chevron-right"></span></a>
+                        <a class="uk-button uk-button-small twb-blue white-text twb-btn-paging news-prev-button" href="javascript:;"><span uk-icon="icon: chevron-left"></span></a>
+                        <a class="uk-button uk-button-small twb-blue white-text twb-btn-paging news-next-button" href="javascript:;"><span uk-icon="icon: chevron-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -117,9 +49,26 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/moment.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/news-detail.js') !!}"></script>
     <script>
+        var currentId = '{!! $news->id !!}';
         $(document).ready(function() {
+            loadNews('news-paginated');
 
+            $('.news-prev-button').on('click', function() {
+                let url = $(this).attr('data-link');
+                if (url != '#' && url != '') {
+                    loadNews(url);
+                }
+            });
+
+            $('.news-next-button').on('click', function() {
+                let url = $(this).attr('data-link');
+                if (url != '#' && url != '') {
+                    loadNews(url);
+                }
+            });
         });
     </script>
 @endsection

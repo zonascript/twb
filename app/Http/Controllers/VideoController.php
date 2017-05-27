@@ -105,4 +105,18 @@ class VideoController extends Controller
         }
         return backendRedirect('video')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
+
+    public function videosPaginated(Request $request)
+    {
+        $videoQuery = $this->video->getList();
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $videoQuery = $videoQuery->where('title', 'like', '%'.$search.'%');
+        }
+        $videoQuery = $videoQuery->where('p.id', '<>', $request->input('currentId'));
+        $videos = $videoQuery->orderBy('publish_at', 'desc')
+            ->paginate(5);
+        $videos->withPath('videos-paginated');
+        return $videos->toJson();
+    }
 }

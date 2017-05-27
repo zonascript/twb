@@ -109,8 +109,6 @@ class NewsController extends Controller
 
     public function newsPaginated(Request $request, $type = 'latest')
     {
-        // Log::warning(\GuzzleHttp\json_encode($request->segment(2)));
-        // Log::warning($request->input('search'));
         $newsQuery = $this->news->getList();
         if ($type == 'latest') {
             $newsQuery = $newsQuery->orderBy('publish_at', 'desc');
@@ -118,13 +116,12 @@ class NewsController extends Controller
             $newsQuery = $newsQuery->orderBy('views', 'desc');
         }
         if ($request->has('search')) {
-            Log::warning($request->input('search'));
             $search = $request->input('search');
-            $newsQuery = $newsQuery->where('title', 'like', '%'.$search.'%')
-                ->orWhere('content', 'like', '%'.$search.'%');
+            $newsQuery = $newsQuery->where('title', 'like', '%'.$search.'%');
         }
-//        $newsQuery = $newsQuery->where('title', 'like', '%Laboriosam%')
-//            ->orWhere('content', 'like', '%Laboriosam%');
+        if ($request->has('currentId')) {
+            $newsQuery = $newsQuery->where('p.id', '<>', $request->input('currentId'));
+        }
         $news = $newsQuery->paginate(4);
         $news->withPath('news-paginated/' . $type);
         return $news->toJson();
