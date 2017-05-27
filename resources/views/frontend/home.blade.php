@@ -132,6 +132,9 @@
                 directionNav: false,
                 smoothHeight: true
             });
+            var w = $('.homeslide').width();
+            var h = w * 800/1440;
+            $('.homeslide').height(h);
         });
     </script>
 
