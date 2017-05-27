@@ -3,9 +3,7 @@
         <button class="uk-modal-close-outside" type="button" uk-close></button>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">DAFTAR</h5></div>
         <form action="#" id="register-form" class="uk-padding-small">
-            <div class="uk-margin">
-                <div class="form-group" id="reg-errors"></div>
-            </div>
+            <div class="uk-margin-small-bottom form-group" id="reg-errors"></div>
             {!! csrf_field() !!}
             <div class="uk-margin-small-bottom">
                 <label class="uk-form-label" for="nama">Nama *</label>

@@ -2,9 +2,10 @@
     <div class="uk-modal-dialog">
         <a class="uk-modal-close uk-close"></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">LOGIN</h5></div>
-        <div class="uk-padding-small">Anda harus login untuk mengupload hasil mewarnai Anda.</div>
         <form action="#" id="login-form" class="uk-padding-small">
+
             <div id="login-errors"></div>
+
             {!! csrf_field() !!}
             <div class="uk-margin-small-bottom">
                 <label class="uk-form-label" for="judul">Email *</label>
