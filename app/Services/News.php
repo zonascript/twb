@@ -95,4 +95,11 @@ class News
         return $this->post->destroy($id);
     }
 
+    public function viewed($id)
+    {
+        $news = $this->post->getPostById($id);
+        $news->views = $news->views + 1;
+        $news->save();
+    }
+
 }

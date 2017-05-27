@@ -107,11 +107,26 @@ class NewsController extends Controller
         return backendRedirect('news')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
 
-    public function newsPaginated(Request $request)
+    public function newsPaginated(Request $request, $type = 'latest')
     {
+        // Log::warning(\GuzzleHttp\json_encode($request->segment(2)));
+        // Log::warning($request->input('search'));
         $newsQuery = $this->news->getList();
+        if ($type == 'latest') {
+            $newsQuery = $newsQuery->orderBy('publish_at', 'desc');
+        } else {
+            $newsQuery = $newsQuery->orderBy('views', 'desc');
+        }
+        if ($request->has('search')) {
+            Log::warning($request->input('search'));
+            $search = $request->input('search');
+            $newsQuery = $newsQuery->where('title', 'like', '%'.$search.'%')
+                ->orWhere('content', 'like', '%'.$search.'%');
+        }
+//        $newsQuery = $newsQuery->where('title', 'like', '%Laboriosam%')
+//            ->orWhere('content', 'like', '%Laboriosam%');
         $news = $newsQuery->paginate(4);
-        $news->withPath('berita-paginated');
+        $news->withPath('news-paginated/' . $type);
         return $news->toJson();
     }
 }

@@ -22,7 +22,8 @@ Route::get('/video', 'FrontendController@video');
 Route::get('/berita', 'FrontendController@berita');
 Route::get('/berita/detail/{slug}', 'FrontendController@beritaDetail');
 Route::get('/seru-mewarnai', 'FrontendController@seruMewarnai');
-Route::get('/berita-paginated', 'NewsController@newsPaginated');
+Route::get('/news-paginated/{type?}', 'NewsController@newsPaginated');
+Route::get('/event-paginated', 'EventController@eventPaginated');
 Route::get('/account', 'FrontendController@account');
 
 // Auth::routes();

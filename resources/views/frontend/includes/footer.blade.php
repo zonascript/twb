@@ -7,8 +7,8 @@
             @include('frontend.includes.nav')
         </footer>
 
-    @include('frontend.includes.login-modal');
-    @include('frontend.includes.register-modal');
+    @include('frontend.includes.login-modal')
+    @include('frontend.includes.register-modal')
     @section('page-level-js-variables')
         <script src="{!! asset('assets/js/uikit.2.min.js') !!}"></script>
         <script src="{!! asset('assets/js/datepicker.min.js') !!}"></script>

@@ -22,3 +22,46 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\App\Models\Post::class, function (\Faker\Generator $faker) {
+    return [
+        'slug' => $faker->slug(),
+        'post_type_id' => 2,
+        'status' => 'publish',
+        'publish_at' => date('Y-m-d'),
+        'created_by' => 1,
+        'created_by_name' => 'pashamahardika'
+    ];
+});
+
+$factory->define(\App\Models\PostTranslation::class, function (\Faker\Generator $faker) {
+    return [
+        'post_id' => function () {
+            return factory(\App\Models\Post::class)->create()->id;
+        },
+        'locale' => 'en',
+        'title' => $faker->sentence,
+        'content' => $faker->paragraphs(5, true),
+        'excerpt' => $faker->paragraph,
+    ];
+});
+
+$factory->define(\App\Models\PostMeta::class, function (\Faker\Generator $faker) {
+    return [
+        'post_id' => function () {
+            return factory(\App\Models\PostTranslation::class)->create()->post_id;
+        },
+        'meta_key' => 'event_date'
+    ];
+});
+
+$factory->define(\App\Models\PostMetaTranslation::class, function (\Faker\Generator $faker) {
+    $eventDate = $faker->dateTimeBetween('now', '+5 months')->format('Y-m-d');
+    return [
+        'post_meta_id' => function () {
+            return factory(\App\Models\PostMeta::class)->create()->id;
+        },
+        'locale' => 'en',
+        'value' => $eventDate
+    ];
+});

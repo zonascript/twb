@@ -67,10 +67,10 @@ class FrontEndController extends Controller
 
     public function berita()
     {
-        $newsQuery = $this->news->getList();
-        $eventQuery = $this->event->getList();
+        //$newsQuery = $this->news->getList();
+        //$eventQuery = $this->event->getList();
         //$data['news'] = $newsQuery->orderBy('publish_at', 'desc')->get();
-        $data['events'] = $eventQuery->orderBy('publish_at', 'desc')->get();
+        //$data['events'] = $eventQuery->orderBy('publish_at', 'desc')->get();
         $data['pageTitle'] = 'Berita &amp; Acara';
         $data['pageClass'] = 'class="news"';
         $data['navActiveNews'] = 'class="uk-active"';
@@ -79,7 +79,9 @@ class FrontEndController extends Controller
 
     public function beritaDetail($slug)
     {
-        $data['news'] = $this->news->getList(['slug' => $slug])->first();
+        $news = $this->news->getList(['slug' => $slug])->first();
+        $this->news->viewed($news->id);
+        $data['news'] = $news;
         $data['pageTitle'] = 'Judul Berita/Acara';
         $data['pageClass'] = 'class="news"';
         $data['navActiveNews'] = 'class="uk-active"';

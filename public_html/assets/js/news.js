@@ -1,18 +1,35 @@
-function loadNews(url) {
+function loadNews(url, type, search) {
+    if (url.indexOf("latest") >= 0 || url.indexOf("popular") >= 0) {
+        newsUrl = baseUrl + '/' + url;
+    } else {
+        newsUrl = baseUrl + '/' + url + '/' + type;
+    }
+    // console.log(newsUrl);
+    var data = {};
+    if(search != undefined) {
+        data = {
+            'search': search
+        };
+    }
     $.ajax({
-        url: baseUrl + '/' + url,
+        url: newsUrl,
+        data: data,
         beforeSend: function( xhr ) {
             // loading animation here
-            console.log('loading animation');
+            //console.log('loading animation');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
+        // console.log($res);
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
-                console.log('animation stop');
+                //console.log('animation stop');
                 generateNews($res);
             }, 500);
+        } else {
+            //stop the animation
+            generateEmptyNews();
         }
     });
 }
@@ -37,6 +54,14 @@ function generateNews($res) {
     generateNewsContent($res.data);
 }
 
+function generateEmptyNews() {
+    blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
+            '<p>Tidak ada data.</p>' +
+            '</div>';
+    $('.news-container').empty();
+    $('.news-container').append(blankContent);
+}
+
 function generateNewsContent($data) {
     let newsContent = '';
     $.each($data, function (index, news) {
@@ -51,7 +76,7 @@ function generateNewsContent($data) {
             '</div>' +
             '<div class="twb-news-excerpt uk-width-3-5">' +
             '<h5 class="twb-blue-text uk-margin-small-bottom">'+news.title+'</h5>' +
-            '<div class="uk-margin-small-bottom">'+news.content+'</div>' +
+            '<div class="uk-margin-small-bottom">'+news.excerpt+'</div>' +
             '<div>'+news.publish_at+'</div>' +
             '</div>' +
             '<div class="uk-width-auto"><a href="'+baseUrl+'/berita/detail/'+news.slug+'" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a></div>' +

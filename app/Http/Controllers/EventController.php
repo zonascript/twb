@@ -105,4 +105,12 @@ class EventController extends Controller
         }
         return backendRedirect('event')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
+
+    public function eventPaginated(Request $request)
+    {
+        $eventQuery = $this->event->getList();
+        $events = $eventQuery->paginate(4);
+        $events->withPath('event-paginated');
+        return $events->toJson();
+    }
 }
