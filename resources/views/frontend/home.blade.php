@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-    <section id="home1" class="twb-home-section">
+    <section id="home1" class="twb-home-section" style="background-image:url({!! asset('images/homeslide/bg.png') !!})">
         <div class="homeslide htmlNoPages">
-            <img src="{!! asset('images/homeslide/bg.png') !!}" class="gwd-img-1u7v">
+            {{-- <img src="{!! asset('images/homeslide/bg.png') !!}" class="gwd-img-1u7v"> --}}
             <img src="{!! asset('images/homeslide/mountain2.png') !!}" class="gwd-img-13ie gwd-gen-b63vgwdanimation">
             <img src="{!! asset('images/homeslide/mountain1.png') !!}" class="gwd-img-1952 gwd-gen-1vbrgwdanimation">
             <img src="{!! asset('images/homeslide/jungle.png') !!}" class="gwd-img-1wzq gwd-gen-10d6gwdanimation">

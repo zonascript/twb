@@ -1,6 +1,9 @@
 #home1 {
     overflow: hidden;
     background-color: #7BD0EB;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top center;
 }
 .homeslide {
     width: 100%;
