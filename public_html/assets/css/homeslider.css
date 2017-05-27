@@ -46,13 +46,6 @@
     }
 }
 
-.gwd-img-1wzq {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-}
-
 .gwd-img-1952 {
     position: absolute;
     width: 100%;
@@ -755,15 +748,17 @@
 
 @keyframes gwd-gen-1a9pgwdanimation_gwd-keyframes {
     0% {
-        transform: translate3d(-160%, 0px, 0px) rotateZ(-50deg);
+        transform: translate3d(0px, 0px, 0px) rotateZ(-50deg);
         opacity: 0;
         bottom: 30%;
+        margin-left: -10%;
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(-125%, 0px, 0px) rotateZ(0deg);
+        transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
         opacity: 1;
         bottom: 25%;
+        margin-left: -7%;
         animation-timing-function: linear;
     }
 }
@@ -846,7 +841,13 @@
 .htmlNoPages .gwd-gen-6xzmgwdanimation {
     animation: gwd-gen-6xzmgwdanimation_gwd-keyframes 0.5s linear 3s 1 normal forwards;
 }
-
+/*jungle*/
+.gwd-img-1wzq {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+}
 @keyframes gwd-gen-10d6gwdanimation_gwd-keyframes {
     0% {
         opacity: 0;
@@ -861,7 +862,7 @@
         transform: translate3d(0px, 0px, 0px);
         width: 100%;
         left: 0%;
-        bottom: 21%;
+        bottom: 22%;
         animation-timing-function: linear;
     }
 }
