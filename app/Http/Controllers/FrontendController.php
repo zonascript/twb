@@ -40,7 +40,7 @@ class FrontEndController extends Controller
         $this->event = $event;
         $this->video = $video;
         $this->template = $template;
-        //$this->middleware('frontend_auth')->only(['account']);
+        $this->middleware('frontendAuth')->only(['account']);
     }
 
     public function home()

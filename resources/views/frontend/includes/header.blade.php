@@ -11,6 +11,7 @@
 
         <link rel="stylesheet" href="{!! asset('assets/css/uikit.css') !!}" />
         <link rel="stylesheet" href="{!! asset('assets/css/frontend.css') !!}" />
+        <link rel="stylesheet" href="{!! asset('assets/css/datepicker.min.css') !!}" />
 		@section('page-level-styles')
 	    @show
         <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
