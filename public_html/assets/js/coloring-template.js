@@ -23,7 +23,7 @@ function loadTemplate(url) {
 }
 
 function generateTemplate($res, url) {
-    generateNav($res, url);
+    generateNav($res, url, 'template');
     generateTemplateContent($res.data);
 }
 
@@ -60,7 +60,7 @@ function generateTemplateContent($data) {
     $('.template-container').append(templateContent);
 }
 
-function generateNav($res, templateUrl) {
+function generateNav($res, templateUrl, prefix) {
     let navItems = '';
     // API details
     let total = $res.total;
@@ -71,7 +71,7 @@ function generateNav($res, templateUrl) {
     let nextUrl = ($res.next_page_url != null ? $res.next_page_url : '');
     let prevClass = prevUrl == '' ? 'uk-disabled' : '';
     let nextClass = nextUrl == '' ? 'uk-disabled' : '';
-    navItems += '<li><a href="javascript:;" class="template-nav-button '+prevClass+'" data-link="'+prevUrl+'"><span uk-pagination-previous></span></a></li>';
+    navItems += '<li><a href="javascript:;" class="'+prefix+'-nav-button '+prevClass+'" data-link="'+prevUrl+'"><span uk-pagination-previous></span></a></li>';
     //loop the page number
     if (total > perPage) {
         for (start=1; start <= lastPage; start++) {
@@ -79,15 +79,15 @@ function generateNav($res, templateUrl) {
             if (start == currentPage) {
                 active = 'uk-active';
             }
-            navItems += '<li><a href="javascript:;" class="template-nav-button '+active+'" data-link="'+templateUrl+'?page='+start+'"><span>'+start+'</span></a></li>';
+            navItems += '<li><a href="javascript:;" class="'+prefix+'-nav-button '+active+'" data-link="'+templateUrl+'?page='+start+'"><span>'+start+'</span></a></li>';
         }
     }
-    navItems += '<li><a href="javascript:;" class="template-nav-button '+nextClass+'" data-link="'+nextUrl+'"><span uk-pagination-next></span></a></li>';
+    navItems += '<li><a href="javascript:;" class="'+prefix+'-nav-button '+nextClass+'" data-link="'+nextUrl+'"><span uk-pagination-next></span></a></li>';
 
-    $('.template-nav-container').empty();
+    $('.'+prefix+'-nav-container').empty();
     $('.template-nav-container').append(navItems);
 
-    $('.template-nav-button').on('click', function() {
+    $('.'+prefix+'-nav-button').on('click', function() {
         let url = $(this).attr('data-link');
         if (url != '#' && url != '') {
             loadTemplate(url);
