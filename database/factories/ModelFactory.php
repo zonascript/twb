@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(\App\Models\Post::class, function (\Faker\Generator $faker) {
     return [
         'slug' => $faker->slug(),
-        'post_type_id' => 2,
+        'post_type_id' => 4,
         'status' => 'publish',
         'publish_at' => date('Y-m-d'),
         'created_by' => 1,

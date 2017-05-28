@@ -107,4 +107,14 @@ class TemplateController extends Controller
         }
         return backendRedirect('template')->withErrors(['delete_failed' => 'Error when delete the data.']);
     }
+
+    public function templatePaginated(Request $request)
+    {
+        $newsQuery = $this->template->getList();
+        $newsQuery = $newsQuery->orderBy('publish_at', 'desc');
+            //->where('p.id', '<', '200');
+        $news = $newsQuery->paginate(4);
+        $news->withPath('template-paginated');
+        return $news->toJson();
+    }
 }

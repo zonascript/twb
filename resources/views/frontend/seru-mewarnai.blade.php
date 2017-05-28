@@ -9,46 +9,7 @@
 @section('content')
     <section class="twb-content">
         <div class="uk-container uk-container-small">
-            <h2 class="twb-blue-text">SERU MEWARNAI</h2>
-            <h4 class="uk-text-uppercase">Langkah Pertama: Memilih Lembar Mewarnai</h4>
-            <p>Pilih dan cetak salah satu lembar gambar untuk diwarnai. Mewarnai secara kreatif dan bebas pada lembar yang terpilih dan akan dipamerkan kepada masyarakat!</p>
-
-            <div class="uk-child-width-1-4 uk-grid-small" uk-grid>
-                @foreach($templates as $template)
-                    <div>
-                        <div class="twb-color-bw">
-                            <div class="uk-cover-container thumb">
-                                {{--<a class="zoom" title="zoom">--}}
-                                <img src="{!! asset($template->fullpath) !!}" alt="{!! $template->title !!}" uk-cover />
-                                {{--</a>--}}
-                            </div>
-                            <div class="info uk-padding-small">
-                                <h6 class="twb-blue-text uk-margin-remove">{!! $template->title !!}</h6>
-                                <ul class="uk-subnav uk-subnav-divider uk-margin-remove">
-                                    <li><a class="uk-text-capitalize zoom" title="Zoom">Zoom +</a></li>
-                                    <li><a href="" class="uk-text-capitalize" title="">Print</a></li>
-                                    <li><a href="" class="uk-text-capitalize" title="">Download</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-            {{ $templates->links() }}
-            {{--<ul class="uk-pagination twb-pagination" uk-margin>--}}
-                {{--<li><a href="#"><span uk-pagination-previous></span></a></li>--}}
-                {{--<li><a href="#">1</a></li>--}}
-                {{--<li><a href="#">4</a></li>--}}
-                {{--<li><a href="#">5</a></li>--}}
-                {{--<li><a href="#">6</a></li>--}}
-                {{--<li class="uk-active"><span>7</span></li>--}}
-                {{--<li><a href="#">8</a></li>--}}
-                {{--<li><a href="#">9</a></li>--}}
-                {{--<li><a href="#">10</a></li>--}}
-                {{--<li><a href="#">20</a></li>--}}
-                {{--<li><a href="#"><span uk-pagination-next></span></a></li>--}}
-            {{--</ul>--}}
+            @include('frontend.includes.coloring-template')
 
             <h4 class="uk-text-uppercase">Langkah KEDUA: MEMAJANG Lembar Mewarnai</h4>
             <div class="uk-flex uk-flex-middle" uk-grid>
@@ -180,10 +141,6 @@
             </ul>
         </div>
 
-        {{--@include('frontend.includes.login-modal')--}}
-
-        {{--@include('frontend.includes.register-modal');--}}
-
         @include('frontend.includes.upload-modal');
 
     </section>
@@ -193,6 +150,10 @@
     <script>
         var isLoggedIn = @if(auth()->check()) 'true'; @else 'false'; @endif
     </script>
+    <script src="{!! asset('assets/js/jquery.form.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/coloring-template.js') !!}"></script>
     <script src="{!! asset('assets/js/seru-mewarnai.js') !!}"></script>
-
+    <script>
+        loadTemplate('template-paginated');
+    </script>
 @endsection
