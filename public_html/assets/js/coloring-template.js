@@ -3,20 +3,18 @@ function loadTemplate(url) {
     $.ajax({
         url: templateUrl,
         beforeSend: function( xhr ) {
-            // loading animation here
-            //console.log('loading animation');
+            $('.template-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
         // console.log($res);
         if($res.total > 0) {
             setTimeout(function() {
-                //stop the animation
-                //console.log('animation stop');
+                $('.loader').remove();
                 generateTemplate($res, url);
             }, 500);
         } else {
-            //stop the animation
+            $('.loader').remove();
             generateEmptyTemplate();
         }
     });

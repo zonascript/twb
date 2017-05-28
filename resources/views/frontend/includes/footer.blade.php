@@ -17,6 +17,7 @@
             var token = '{!! csrf_token() !!}';
         </script>
         <script src="{!! asset('assets/js/login.js') !!}"></script>
+        <script src="{!! asset('assets/js/twb.js') !!}"></script>
     @show
     <script src="{!! asset('assets/js/frontend.js') !!}"></script>
     @section('page-level-scripts')
