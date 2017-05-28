@@ -4,16 +4,16 @@ function loadEvents(url) {
         url: baseUrl + '/' + url,
         beforeSend: function( xhr ) {
             // loading animation here
-            //console.log('loading animation');
+            $('.events-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
-                //console.log('animation stop');
                 generateEvents($res);
-            }, 500);
+                $('.loader').remove();
+            }, 300);
         }
     });
 }

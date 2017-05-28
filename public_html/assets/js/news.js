@@ -16,7 +16,7 @@ function loadNews(url, type, search) {
         data: data,
         beforeSend: function( xhr ) {
             // loading animation here
-            //console.log('loading animation');
+            $('.news-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
@@ -24,9 +24,9 @@ function loadNews(url, type, search) {
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
-                //console.log('animation stop');
                 generateNews($res);
-            }, 500);
+                $('.loader').remove();
+            }, 300);
         } else {
             //stop the animation
             generateEmptyNews();

@@ -154,6 +154,6 @@
     <script src="{!! asset('assets/js/coloring-template.js') !!}"></script>
     <script src="{!! asset('assets/js/seru-mewarnai.js') !!}"></script>
     <script>
-        loadTemplate('template-paginated');
+        loadTemplate('template-paginated', 'template-paginated');
     </script>
 @endsection

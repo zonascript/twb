@@ -1,4 +1,4 @@
-function loadTemplate(url) {
+function loadTemplate(url, ajaxBaseUrl) {
     templateUrl = baseUrl + '/' + url;
     $.ajax({
         url: templateUrl,
@@ -10,9 +10,9 @@ function loadTemplate(url) {
         // console.log($res);
         if($res.total > 0) {
             setTimeout(function() {
+                generateTemplate($res, ajaxBaseUrl);
                 $('.loader').remove();
-                generateTemplate($res, url);
-            }, 500);
+            }, 300);
         } else {
             $('.loader').remove();
             generateEmptyTemplate();
@@ -21,6 +21,7 @@ function loadTemplate(url) {
 }
 
 function generateTemplate($res, url) {
+    console.log('generateTemplate ==> ' + url);
     generateNav($res, url, 'template');
     generateTemplateContent($res.data);
 }
@@ -59,6 +60,7 @@ function generateTemplateContent($data) {
 }
 
 function generateNav($res, templateUrl, prefix) {
+    console.log('generateNav ==> ' + templateUrl);
     let navItems = '';
     // API details
     let total = $res.total;
@@ -88,7 +90,7 @@ function generateNav($res, templateUrl, prefix) {
     $('.'+prefix+'-nav-button').on('click', function() {
         let url = $(this).attr('data-link');
         if (url != '#' && url != '') {
-            loadTemplate(url);
+            loadTemplate(url, templateUrl);
         }
     });
 }
