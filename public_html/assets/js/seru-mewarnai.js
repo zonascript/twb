@@ -1,21 +1,21 @@
 $(document).ready(function() {
     // pop coloring
-    $('a.zoom').on('click', function(e) {
-        e.preventDefault();
-        $(this).blur();
-        var img = $(this).closest('div.twb-color-bw').find('img').prop('src');
-        var txt = $(this).closest('div.info').find('h6').text();
-        var modal = '<button class="uk-modal-close-outside" type="button" uk-close></button>' +
-        '<img src="'+img+'" class="twb-popimg">' +
-        '<div class="uk-padding-small uk-flex uk-flex-middle uk-flex-between">' +
-            '<div>'+ txt +'</div>' +
-            '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
-                '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
-                '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
-            '</ul>' +
-        '</div>';
-        var uikitModal = UIkit.modal.dialog(modal);
-    });
+    // $('a.zoom').on('click', function(e) {
+    //     e.preventDefault();
+    //     $(this).blur();
+    //     var img = $(this).closest('div.twb-color-bw').find('img').prop('src');
+    //     var txt = $(this).closest('div.info').find('h6').text();
+    //     var modal = '<button class="uk-modal-close-outside" type="button" uk-close></button>' +
+    //     '<img src="'+img+'" class="twb-popimg">' +
+    //     '<div class="uk-padding-small uk-flex uk-flex-middle uk-flex-between">' +
+    //         '<div>'+ txt +'</div>' +
+    //         '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
+    //             '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
+    //             '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
+    //         '</ul>' +
+    //     '</div>';
+    //     var uikitModal = UIkit.modal.dialog(modal);
+    // });
 
     // pop galeri
     $('a.thumb').on('click', function(e) {
@@ -82,54 +82,54 @@ $(document).ready(function() {
         }
     });
 
-
-    var bar = $("#progressbar")[0];
-    UIkit.upload('.twb-upload', {
-
-        url: '',
-        multiple: false,
-        allow : '*.(jpg|jpeg|png)',
-        msgInvalidName: 'Format file tidak sesuai, harap gunakan format %s',
-
-        beforeSend: function() { console.log('beforeSend', arguments); },
-        beforeAll: function() { console.log('beforeAll', arguments); },
-        load: function() { console.log('load', arguments); },
-        error: function() { console.log('error', arguments); },
-        complete: function() { console.log('complete', arguments); },
-
-        loadStart: function (e) {
-            console.log('loadStart', arguments);
-
-            bar.removeAttribute('hidden');
-            bar.max =  e.total;
-            bar.value =  e.loaded;
-        },
-
-        progress: function (e) {
-            console.log('progress', arguments);
-
-            bar.max =  e.total;
-            bar.value =  e.loaded;
-
-        },
-
-        loadEnd: function (e) {
-            console.log('loadEnd', arguments);
-
-            bar.max =  e.total;
-            bar.value =  e.loaded;
-        },
-
-        completeAll: function () {
-            console.log('completeAll', arguments);
-
-            setTimeout(function () {
-                bar.setAttribute('hidden', 'hidden');
-            }, 1000);
-            $('#image-preview').removeClass('uk-hidden');
-
-        }
-    });
+    //
+    // var bar = $("#progressbar")[0];
+    // UIkit.upload('.twb-upload', {
+    //
+    //     url: '',
+    //     multiple: false,
+    //     allow : '*.(jpg|jpeg|png)',
+    //     msgInvalidName: 'Format file tidak sesuai, harap gunakan format %s',
+    //
+    //     beforeSend: function() { console.log('beforeSend', arguments); },
+    //     beforeAll: function() { console.log('beforeAll', arguments); },
+    //     load: function() { console.log('load', arguments); },
+    //     error: function() { console.log('error', arguments); },
+    //     complete: function() { console.log('complete', arguments); },
+    //
+    //     loadStart: function (e) {
+    //         console.log('loadStart', arguments);
+    //
+    //         bar.removeAttribute('hidden');
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //     },
+    //
+    //     progress: function (e) {
+    //         console.log('progress', arguments);
+    //
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //
+    //     },
+    //
+    //     loadEnd: function (e) {
+    //         console.log('loadEnd', arguments);
+    //
+    //         bar.max =  e.total;
+    //         bar.value =  e.loaded;
+    //     },
+    //
+    //     completeAll: function () {
+    //         console.log('completeAll', arguments);
+    //
+    //         setTimeout(function () {
+    //             bar.setAttribute('hidden', 'hidden');
+    //         }, 1000);
+    //         $('#image-preview').removeClass('uk-hidden');
+    //
+    //     }
+    // });
 });
 
 function showUploadModal() {
@@ -146,7 +146,7 @@ function filePreview(input) {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#image-preview').empty();
-            $('#image-preview').append('<img src="'+e.target.result+'">');
+            $('#image-preview').append('<img src="'+e.target.result+'" style="height:40vh;">');
         }
         reader.readAsDataURL(input.files[0]);
     }
@@ -184,15 +184,15 @@ function clearUploadForm() {
 
 function zoomColoring($this) {
     var img = $($this).closest('div.twb-color-bw').find('img').prop('src');
-    var txt = $($this).closest('div.info').find('h6').text();
+    var txt = $($this).closest('div.twb-color-bw').find('h6').text();
     var modal = '<button class="uk-modal-close-outside" type="button" uk-close></button>' +
-        '<img src="'+img+'" class="twb-popimg">' +
-        '<div class="uk-padding-small uk-flex uk-flex-middle uk-flex-between">' +
-        '<div>'+ txt +'</div>' +
-        '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
-        '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
-        '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
+    '<img src="'+img+'" class="twb-popimg">' +
+    '<div class="uk-padding-small uk-flex uk-flex-middle uk-flex-between">' +
+        '<div class="uk-width-expand">'+ txt +'</div>' +
+        '<ul class="uk-subnav uk-subnav-divider uk-margin-remove uk-width-auto">' +
+            '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
+            '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
         '</ul>' +
-        '</div>';
+    '</div>';
     var uikitModal = UIkit.modal.dialog(modal);
 }

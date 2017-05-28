@@ -23,16 +23,16 @@
             <img src="{!! asset('images/homeslide/tree1.png') !!}" class="gwd-img-m246 gwd-gen-1tl3gwdanimation">
             <a href="{!! url('/seru-mewarnai') !!}" title="Seru Mewarnai"><img src="{!! asset('images/homeslide/house.png') !!}" class="gwd-img-jhwp gwd-gen-1t2zgwdanimation"></a>
             <img src="{!! asset('images/homeslide/sun.png') !!}" class="gwd-img-11ze gwd-gen-6xzmgwdanimation">
-            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-1tow gwd-gen-1b4wgwdanimation">
-            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-qmdo gwd-gen-uhfugwdanimation">
-            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-1183 gwd-gen-noc2gwdanimation">
-            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-1isj gwd-gen-174sgwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-1090 gwd-gen-196jgwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-8c6t gwd-gen-mm0zgwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-gncm gwd-gen-6bfpgwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-1x45 gwd-gen-11a8gwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-u43i gwd-gen-pxmqgwdanimation">
-            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-6s89 gwd-gen-o3jkgwdanimation">
+            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-cloud1left gwd-gen-cloud1left">
+            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-cloud2left gwd-gen-cloud2left">
+            <img src="{!! asset('images/homeslide/cloud1.png') !!}" class="gwd-img-cloud1right gwd-gen-cloud1right">
+            <img src="{!! asset('images/homeslide/cloud2.png') !!}" class="gwd-img-cloud2right gwd-gen-cloud2right">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird1left gwd-gen-bird1left">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird2left gwd-gen-bird2left">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3left gwd-gen-bird3left">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird1right gwd-gen-bird1right">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird2right gwd-gen-bird2right">
+            <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3right gwd-gen-bird3right">
             <div class="slides-text uk-position-center">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
         </div>
         {{-- <div class="flexslider">
@@ -135,6 +135,9 @@
             var w = $('.homeslide').width();
             var h = w * 800/1440;
             $('.homeslide').height(h);
+        });
+        $(window).resize(function() {
+            location.reload();
         });
     </script>
 

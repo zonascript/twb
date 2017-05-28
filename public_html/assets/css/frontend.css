@@ -262,9 +262,9 @@ a.twb-blue.uk-disabled {
 .twb-pop-left {
     background: #EEF3F2;
     border-right: 1px solid #BCBEC0;
-    -webkit-border-radius: 0 0 0 5px;
-    -moz-border-radius: 0 0 0 5px;
-    border-radius: 0 0 0 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
 }
 @media (max-width: 639px) {
     .twb-logo {

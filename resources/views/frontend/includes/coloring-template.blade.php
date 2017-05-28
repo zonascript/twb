@@ -2,7 +2,6 @@
 <h4 class="uk-text-uppercase">Langkah Pertama: Memilih Lembar Mewarnai</h4>
 <p>Pilih dan cetak salah satu lembar gambar untuk diwarnai. Mewarnai secara kreatif dan bebas pada lembar yang terpilih dan akan dipamerkan kepada masyarakat!</p>
 
-<div class="uk-child-width-1-4 uk-grid-small template-container" uk-grid></div>
+<div class="uk-child-width-1-4 uk-grid-small uk-grid-match template-container" uk-grid></div>
 
-<ul class="uk-pagination twb-pagination template-nav-container" uk-margin></ul>
-
+<ul class="uk-pagination twb-pagination template-nav-container uk-position-relative" uk-margin></ul>
