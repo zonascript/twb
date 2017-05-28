@@ -21,7 +21,6 @@ function loadTemplate(url, ajaxBaseUrl) {
 }
 
 function generateTemplate($res, url) {
-    console.log('generateTemplate ==> ' + url);
     generateNav($res, url, 'template');
     generateTemplateContent($res.data);
 }
@@ -60,7 +59,6 @@ function generateTemplateContent($data) {
 }
 
 function generateNav($res, templateUrl, prefix) {
-    console.log('generateNav ==> ' + templateUrl);
     let navItems = '';
     // API details
     let total = $res.total;
@@ -85,12 +83,18 @@ function generateNav($res, templateUrl, prefix) {
     navItems += '<li><a href="javascript:;" class="'+prefix+'-nav-button '+nextClass+'" data-link="'+nextUrl+'"><span uk-pagination-next></span></a></li>';
 
     $('.'+prefix+'-nav-container').empty();
-    $('.template-nav-container').append(navItems);
+    $('.'+prefix+'-nav-container').append(navItems);
 
     $('.'+prefix+'-nav-button').on('click', function() {
         let url = $(this).attr('data-link');
+        console.log(url);
         if (url != '#' && url != '') {
-            loadTemplate(url, templateUrl);
+            if (prefix == 'template') {
+                loadTemplate(url, templateUrl);
+            }
+            if (prefix == 'gallery') {
+                loadGallery(url, templateUrl);
+            }
         }
     });
 }

@@ -27,7 +27,8 @@ Route::get('/template-paginated', 'TemplateController@templatePaginated');
 Route::get('/news-paginated/{type?}', 'NewsController@newsPaginated');
 Route::get('/event-paginated', 'EventController@eventPaginated');
 Route::get('/account', 'FrontendController@account');
-Route::post('/ajaxImageUpload', 'FrontendController@ajaxImageUploadPost')->name('ajaxImageUpload');
+Route::post('/ajaxImageUpload', 'ColoringController@ajaxImageUploadPost')->name('ajaxImageUpload');
+Route::get('/coloring-paginated', 'ColoringController@coloringPaginated');
 
 // Auth::routes();
 Route::get($loginUrl, 'Auth\LoginController@showLoginForm')->name($loginUrl);

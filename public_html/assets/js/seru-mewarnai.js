@@ -73,8 +73,8 @@ $(document).ready(function() {
             clearUploadForm();
         },
         success: function(data) {
-            alert('Image Upload Successfully.');
             UIkit.modal('#upload-modal').hide();
+            location.reload();
         },
         error: function(data) {
             var obj = $.parseJSON(data.responseText);

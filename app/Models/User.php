@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Models\ColoringImage;
 use App\Models\Post;
 use App\Models\UserDetail;
 use Illuminate\Notifications\Notifiable;
@@ -35,8 +36,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'created_by');
     }
 
-    public function details()
+    public function detail()
     {
-        return $this->hasMany(UserDetail::class);
+        return $this->hasOne(UserDetail::class);
+    }
+
+    public function coloringImages()
+    {
+        return $this->hasMany(ColoringImage::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadColoringImage;
+use App\Models\ColoringImage;
 use App\Service\Event;
 use App\Service\Media;
 use App\Service\News;
@@ -31,10 +32,6 @@ class FrontEndController extends Controller
      * @var Template
      */
     private $template;
-    /**
-     * @var Media
-     */
-    private $media;
 
     /**
      * FrontEndController constructor.
@@ -43,13 +40,12 @@ class FrontEndController extends Controller
      * @param Video $video
      * @param Template $template
      */
-    public function __construct(News $news, Event $event, Video $video, Template $template, Media $media)
+    public function __construct(News $news, Event $event, Video $video, Template $template)
     {
         $this->news = $news;
         $this->event = $event;
         $this->video = $video;
         $this->template = $template;
-        $this->media = $media;
         $this->middleware('frontendAuth')->only(['account']);
     }
 
@@ -89,10 +85,6 @@ class FrontEndController extends Controller
 
     public function berita()
     {
-        //$newsQuery = $this->news->getList();
-        //$eventQuery = $this->event->getList();
-        //$data['news'] = $newsQuery->orderBy('publish_at', 'desc')->get();
-        //$data['events'] = $eventQuery->orderBy('publish_at', 'desc')->get();
         $data['pageTitle'] = 'Berita &amp; Acara';
         $data['pageClass'] = 'class="news"';
         $data['navActiveNews'] = 'class="uk-active"';
@@ -126,34 +118,5 @@ class FrontEndController extends Controller
         return view('frontend.account', $data);
     }
 
-    public function ajaxImageUploadPost(UploadColoringImage $request)
-    {
-        Log::warning('ajax upload ' . \GuzzleHttp\json_encode($request->all()));
-//        $input = $request->all();
-//        $input['image'] = time().'.'.$request->file->getClientOriginalExtension();
-//        $request->image->move(public_path('images'), $input['image']);
-//
-//        //AjaxImage::create($input);
-        // check the folder
-        $title = $request->input('title');
-        $file = $request->file('file');
-        $folder = 'uploads/coloring-images/';
-        if (! File::exists(public_path($folder))) {
-            File::makeDirectory(public_path($folder), 0775, true, true);
-        }
-        // check the file
-        $imageName = $this->media->getUniqueFileName($file, $folder);
-        $imagePath = $folder . $imageName;
-        $publicPath = public_path($imagePath);
 
-        // save file to disk
-        $image = Image::make($file);
-        $image->save($publicPath);
-
-        // save to db
-//        $filename = pathinfo($imageName, PATHINFO_FILENAME);
-//        $media = $this->media->saveMedia($filename, $imageName, $imagePath);
-
-        return response()->json(['success'=>'done']);
-    }
 }
