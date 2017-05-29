@@ -17,7 +17,7 @@
     <h3>
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
     </h3>
-    <form class="uk-form uk-form-stacked" action="{!! action('RoleController@store') !!}" method="POST">
+    <form class="uk-form uk-form-stacked" action="{!! action('RoleController@update', $id) !!}" method="POST">
         {!! csrf_field() !!}
 
         <div class="uk-margin">

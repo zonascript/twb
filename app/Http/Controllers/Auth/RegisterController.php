@@ -62,14 +62,15 @@ class RegisterController extends Controller
 
     public function registered(Request $request, $user)
     {
-        Log::warning('RegisterController registered ==> ' . \GuzzleHttp\json_encode($request->all()));
+        // Log::warning('RegisterController registered ==> ' . \GuzzleHttp\json_encode($user));
         $params = [
             'birth_date' => Carbon::createFromFormat('d/m/Y', $request->input('birthdate'))->format('Y-m-d'),
             'address' => $request->input('address'),
             'city' => $request->input('city')
         ];
-        Log::warning('RegisterController param ==> ' . \GuzzleHttp\json_encode($params));
-        $user->details()->create($params);
+        // Log::warning('RegisterController param ==> ' . \GuzzleHttp\json_encode($params));
+        $user->detail()->create($params);
+        $user->assignRole('Frontend');
     }
 
     /**

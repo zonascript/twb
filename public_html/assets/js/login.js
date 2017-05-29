@@ -8,6 +8,7 @@ $('.nav-login').on('click', function(e) {
 })
 
 $('.btn-login').on('click', function() {
+    console.log('login');
     clearLoginForm();
     var formData = $('#login-form').serialize();
     var loginErrors = '';
@@ -24,6 +25,7 @@ $('.btn-login').on('click', function() {
             }
         },
         error: function(data) {
+            console.log(data);
             var obj = $.parseJSON(data.responseText);
             if (obj.password) {
                 $("#login_password").addClass("uk-form-danger");

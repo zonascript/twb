@@ -18,7 +18,7 @@
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
     </h3>
 
-    <form class="uk-form uk-form-stacked" action="{!! action('PermissionController@store') !!}" method="POST">
+    <form class="uk-form uk-form-stacked" action="{!! action('PermissionController@update', $id) !!}" method="POST">
         {!! csrf_field() !!}
         <div class="uk-margin">
             <label class="uk-form-label" for="">Show Name</label>
