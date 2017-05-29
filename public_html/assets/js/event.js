@@ -47,23 +47,29 @@ function generateEventsContent($data) {
         eventDate = moment(events.event_date, 'YYYY-MM-DD HH:mm:ss').format('DD MMM YYYY');
         publishDate = moment(events.publish_at, "YYYY-MM-DD HH:mm:ss").fromNow();
         eventsContent += '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-            '<div class="uk-grid-medium" uk-grid>' +
-            '<div class="twb-calendar-thumb">' +
-            '<div class="uk-inline">' +
-            '<img src="'+baseUrl+'/assets/img/calendar.png" alt="Calendar">' +
-            '<div class="uk-overlay uk-position-center">' +
-            '<div class="uk-margin-top">'+eventDate+'</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="twb-news-excerpt uk-width-3-5">' +
-            '<div class="uk-article-meta">'+publishDate+'</div>' +
-            '<h5 class="uk-margin-small-bottom uk-margin-small-top">'+events.title+'</h5>' +
-            '<div>'+events.excerpt+'</div>' +
-            '</div>' +
-            '<div class="uk-width-auto"><a href="" class="uk-button uk-button-small uk-button-danger twb-btn-info" title="Info">Info</a></div>' +
-            '</div>' +
-            '</div>';
+            ' <div class="uk-grid-medium" uk-grid> ' +
+                ' <div class="uk-width-1-1 uk-width-auto@m twb-calendar-thumb uk-text-center uk-position-relative"> ' +
+                    '<div class="uk-inline">' +
+                        '<img src="'+baseUrl+'/assets/img/calendar.png" alt="Calendar">' +
+                        '<div class="uk-overlay uk-position-center">' +
+                            '<div class="uk-margin-top">'+eventDate+'</div>' +
+                        '</div>' +
+                    '</div>' +
+                ' </div> ' +
+                ' <div class="uk-width-1-1 uk-width-expand@m"> ' +
+                    ' <div class="uk-grid-medium" uk-grid> ' +
+                        ' <div class="uk-width-expand"> ' +
+                            '<div class="uk-article-meta">'+publishDate+'</div>' +
+                            ' <h5 class="twb-blue-text uk-margin-small-top uk-margin-small-bottom">'+events.title+'</h5> ' +
+                            ' <div class="uk-margin-small-top">'+events.excerpt+'</div> ' +
+                        ' </div> ' +
+                        ' <div class="uk-width-auto"> ' +
+                            ' <a href="" class="uk-button uk-button-small uk-button-danger twb-btn-info" title="Info">Info</a> ' +
+                        ' </div> ' +
+                    ' </div> ' +
+                ' </div> ' +
+            ' </div> ' +
+        ' </div> ';
     })
 
     $('.events-container').empty();

@@ -73,18 +73,24 @@ function generateNewsContent($data) {
         console.log(news.publish_at);
         publishDate = moment(news.publish_at, "YYYY-MM-DD HH:mm:ss").fromNow();
         newsContent += '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-            '<div class="uk-grid-medium" uk-grid>' +
-            '<div class="uk-width-auto twb-news-thumb">' +
-            '<img src="'+newsImage+'" alt="Tini Wini Biti">' +
-            '</div>' +
-            '<div class="twb-news-excerpt uk-width-3-5">' +
-            '<h5 class="twb-blue-text uk-margin-small-bottom">'+news.title+'</h5>' +
-            '<div class="uk-margin-small-bottom">'+news.excerpt+'</div>' +
-            '<div>'+publishDate+'</div>' +
-            '</div>' +
-            '<div class="uk-width-auto"><a href="'+baseUrl+'/berita/detail/'+news.slug+'" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a></div>' +
-            '</div>' +
-            '</div>';
+            ' <div class="uk-grid-medium" uk-grid> ' +
+                ' <div class="uk-width-1-1 uk-width-auto@m twb-news-thumb"> ' +
+                    ' <img src="'+newsImage+'" alt="Tini Wini Biti">' +
+                ' </div> ' +
+                ' <div class="uk-width-1-1 uk-width-expand@m"> ' +
+                    ' <div class="uk-grid-medium" uk-grid> ' +
+                        ' <div class="uk-width-expand"> ' +
+                            ' <h5 class="twb-blue-text uk-margin-small-bottom">'+news.title+'</h5> ' +
+                            ' <div class="uk-margin-small-bottom">'+news.excerpt+'</div> ' +
+                            ' <div>'+publishDate+'</div> ' +
+                        ' </div> ' +
+                        ' <div class="uk-width-auto"> ' +
+                            ' <a href="'+baseUrl+'/berita/detail/'+news.slug+'" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a> ' +
+                        ' </div> ' +
+                    ' </div> ' +
+                ' </div> ' +
+            ' </div> ' +
+        ' </div> ';
     })
     $('.news-container').empty();
     $('.news-container').append(newsContent);

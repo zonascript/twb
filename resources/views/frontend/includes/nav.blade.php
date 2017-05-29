@@ -45,8 +45,23 @@
             <li @if(isset($navActiveVid)) {!! $navActiveVid !!} @endif>
                 <a href="{!! url('/video') !!}" title="Video">Video</a>
             </li>
-            {{-- @if(logged) --}}
+            @if (auth()->check())
             <li @if(isset($navActiveProfile)) {!! $navActiveProfile !!} @endif>
+                <a href="{!! url('/account') !!}" title="Profile">My Account</a>
+                <div uk-dropdown>
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="{!! url('/account') !!}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> My Account</a></li>
+                        <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+            @else
+            <li>
+                <a href="javascript:;" title="Login" class="nav-login">Login</a>
+            </li>
+            @endif
+            {{-- @if(logged) --}}
+            {{-- <li @if(isset($navActiveProfile)) {!! $navActiveProfile !!} @endif>
                 <a href="{!! url('/profile') !!}" title="Profile">My Profile</a>
                 <div class="uk-padding-small" uk-drop>
                     <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -54,7 +69,7 @@
                         <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
                     </ul>
                 </div>
-            </li>
+            </li> --}}
             {{-- @endif --}}
             <li class="uk-nav-divider"></li>
             <li><a href=""><span uk-icon="icon: instagram"></span> Instagram</a></li>

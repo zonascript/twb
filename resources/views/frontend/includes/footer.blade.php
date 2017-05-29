@@ -1,10 +1,12 @@
 
         <footer class="twb-footer uk-flex uk-flex-middle">
-            <a title="Back to Top" class="uk-margin-left" uk-scroll uk-tooltip><span uk-totop></span> Back to Top</a>
+            <a title="Back to Top" class="uk-margin-left" uk-scroll uk-tooltip><span uk-totop></span> <span class="uk-visible@m">Back to Top</span></a>
             <div class="uk-margin-large-left">
                 Copyright &copy; <?php echo date('Y'); ?> <a class="" href="#" target="_blank" title="PT Tini Wini Biti">PT Tini Wini Biti</a> | All Rights Reserved
             </div>
-            @include('frontend.includes.nav')
+            <div class="uk-visible@m">
+                @include('frontend.includes.nav')
+            </div>
         </footer>
 
     @include('frontend.includes.login-modal')

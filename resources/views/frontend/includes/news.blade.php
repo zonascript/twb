@@ -4,7 +4,7 @@
         <li><a href="#" class="uk-text-capitalize twb-blue-text news-latest">Terkini</a></li>
         <li><a href="#" class="uk-text-capitalize twb-blue-text news-popular">Populer</a></li>
     </ul>
-    <div class="uk-inline uk-width-medium">
+    <div class="uk-inline uk-width-1-2 uk-width-medium@m">
         <span class="uk-form-icon" uk-icon="icon: search"></span>
         <input class="uk-input uk-width-1-1 uk-form-small news-search" type="text" name="search" placeholder="Cari artikel berita">
     </div>

@@ -3,7 +3,7 @@ function loadGallery(url, ajaxBaseUrl) {
     $.ajax({
         url: galleryUrl,
         beforeSend: function( xhr ) {
-            $('.gallery-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
+            $('.gallery-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader" style="min-height:250px;">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
@@ -25,9 +25,7 @@ function generateGallery($res, url) {
 }
 
 function generateEmptyGallery() {
-    blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-        '<p>Tidak ada data.</p>' +
-        '</div>';
+    blankContent = '<div class="uk-width-1-1 uk-height-small">Tidak ada data</div>';
     $('.gallery-container').empty();
     $('.gallery-container').append(blankContent);
 }
@@ -39,12 +37,10 @@ function generateGalleryContent($data) {
         let age = moment().diff(birthdate, 'years');
         galleryContent += '<div>' +
             '<div class="twb-color">' +
-                '<a class="uk-cover-container thumb" onclick="zoomGallery(this)">' +
-                    '<img src="'+baseUrl+'/'+gallery.file_path+'" alt="Tini Wini Biti" >' +
-                '</a>' +
+                '<a class="thumb uk-background-cover" onclick="zoomGallery(this)" style="background-image:url('+baseUrl+'/'+gallery.file_path+')" data-img="'+baseUrl+'/'+gallery.file_path+'"></a>' +
                 '<div class="info uk-margin-small-top">' +
-                    '<h6 class="uk-margin-remove uk-text-uppercase">'+gallery.title+'</h6>' +
-                   '<div class="person"><strong>'+gallery.user_name+'</strong>, '+age+' Tahun, '+gallery.user_city+'</div>' +
+                    '<h6 class="uk-margin-remove uk-text-uppercase uk-text-truncate" title="'+gallery.title+'" uk-tooltip>'+gallery.title+'</h6>' +
+                    '<div class="person"><strong>'+gallery.user_name+'</strong>, '+age+' Tahun, '+gallery.user_city+'</div>' +
                 '</div>' +
             '</div>' +
         '</div>';
@@ -55,13 +51,13 @@ function generateGalleryContent($data) {
 
 // pop galeri
 function zoomGallery($this) {
-    var img = $($this).find('img').prop('src');
+    var img = $($this).closest('div.twb-color').find('a').attr('data-img');
     var txt = $($this).closest('div.twb-color').find('h6').text();
     var person = $($this).closest('div.twb-color').find('.person').text();
     var modal = '<button class="uk-modal-close-outside" type="button" uk-close></button>' +
         '<img src="'+img+'" class="twb-popimg">' +
         '<div class="uk-padding-small">' +
-        '<h6 class="uk-margin-remove">'+ txt +'</h6>' +
+        '<h6 class="uk-margin-remove uk-text-truncate" title="'+txt+'" uk-tooltip>'+ txt +'</h6>' +
         '<div class="uk-flex uk-flex-middle uk-flex-between">' +
         '<div>'+ person +'</div>' +
         '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +

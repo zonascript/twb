@@ -48,7 +48,7 @@
                     name: 'file_path',
                     width: '15%',
                     render: function (data) {
-                        return '<img src="'+$publicUrl+'/'+data+'" height="100px"/>';
+                        return '<img src="'+$publicUrl+'/'+data+'" >';
                     }
                 },
                 {data: 'title', name: 'title', width: '20%'},
