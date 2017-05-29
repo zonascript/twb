@@ -25,9 +25,9 @@
                         <div class="twb-article">{!! $news->content !!}</div>
                         <div class="uk-flex uk-flex-middle uk-margin">
                             <span class="uk-margin-small-right">Share :</span>
-                            <a href="" class="uk-margin-small-right"><span uk-icon="icon: twitter"></span></a>
-                            <a href="" class="uk-margin-small-right"><span uk-icon="icon: facebook"></span></a>
-                            <a href=""><span uk-icon="icon: google-plus"></span></a>
+                            <a href="javascript:;" class="uk-margin-small-right share s_twitter"><span uk-icon="icon: twitter"></span></a>
+                            <a href="javascript:;" class="uk-margin-small-right share s_facebook"><span uk-icon="icon: facebook"></span></a>
+                            <a href="javascript:;" class="share s_plus"><span uk-icon="icon: google-plus"></span></a>
                         </div>
                     </article>
                 </div>
@@ -51,6 +51,7 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/news-detail.js') !!}"></script>
+    <script src="{!! asset('assets/js/socialshare.js') !!}"></script>
     <script>
         var currentId = '{!! $news->id !!}';
         $(document).ready(function() {
@@ -68,6 +69,13 @@
                 if (url != '#' && url != '') {
                     loadNews(url);
                 }
+            });
+
+            $(".share").ShareLink({
+                title: "{!! $news->title !!}",
+                text: "{!! \Illuminate\Support\Str::words(strip_tags($news->content), 10) !!}",
+                image: "{!! asset($news->fullpath) !!}",
+                url: "{!! url('berita/detail/' . $news->slug) !!}"
             });
         });
     </script>
