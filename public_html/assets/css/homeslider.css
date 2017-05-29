@@ -246,7 +246,7 @@
     left: 50%;
     transform-style: preserve-3d;
     bottom: 56%;
-    margin-left: 28%;
+    margin-left: 23%;
     opacity: 0;
 }
 @keyframes gwd-gen-bird1right-keyframes {
@@ -277,7 +277,7 @@
     width: 1%;
     height: auto;
     opacity: 0;
-    margin-left: 28.5%;
+    margin-left: 23.5%;
 }
 @keyframes gwd-gen-bird2right-keyframes {
     0% {
@@ -306,7 +306,7 @@
     width: 0.75%;
     height: auto;
     opacity: 0;
-    margin-left: 27%;
+    margin-left: 22%;
 }
 
 @keyframes gwd-gen-bird3right-keyframes {
@@ -389,7 +389,7 @@
     width: 4%;
     height: auto;
     opacity: 0;
-    margin-left: 32%;
+    margin-left: 28%;
 }
 @keyframes gwd-gen-cloud1right-keyframes {
     0% {
@@ -446,7 +446,7 @@
     transform-style: preserve-3d;
     bottom: 51%;
     opacity: 0;
-    margin-left: 23%;
+    margin-left: 18%;
 }
 @keyframes gwd-gen-cloud2right-keyframes {
     0% {
