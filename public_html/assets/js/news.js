@@ -24,11 +24,12 @@ function loadNews(url, type, search) {
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
-                generateNews($res);
                 $('.loader').remove();
+                generateNews($res);
             }, 300);
         } else {
             //stop the animation
+            $('.loader').remove();
             generateEmptyNews();
         }
     });

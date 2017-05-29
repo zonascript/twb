@@ -20,7 +20,7 @@ class Post
             ->join('post_translations AS pt', 'p.id', '=', 'pt.post_id')
             ->leftJoin('post_has_medias AS phm', 'p.id', '=', 'phm.post_id')
             ->leftJoin('medias', 'phm.media_id', '=', 'medias.id')
-            ->select('p.*', 'pt.locale', 'pt.title', 'pt.excerpt', 'pt.content', 'pt.page_title', 'pt.meta_description', 'medias.path', 'medias.fullpath');
+            ->select('p.*', 'pt.locale', 'pt.title', 'pt.excerpt', 'pt.content', 'pt.page_title', 'pt.meta_description', 'medias.id AS media_id', 'medias.path', 'medias.fullpath');
 
         if (isset($params['post_type_id'])) {
             $query = $query->where('p.post_type_id', $params['post_type_id']);

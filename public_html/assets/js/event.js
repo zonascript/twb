@@ -10,10 +10,13 @@ function loadEvents(url) {
         let $res = $.parseJSON(result);
         if($res.total > 0) {
             setTimeout(function() {
-                //stop the animation
-                generateEvents($res);
                 $('.loader').remove();
+                generateEvents($res);
             }, 300);
+        } else {
+            //stop the animation
+            $('.loader').remove();
+            generateEmptyEvent();
         }
     });
 }
@@ -65,4 +68,12 @@ function generateEventsContent($data) {
 
     $('.events-container').empty();
     $('.events-container').append(eventsContent);
+}
+
+function generateEmptyEvent() {
+    blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
+        '<p>Tidak ada data.</p>' +
+        '</div>';
+    $('.events-container').empty();
+    $('.events-container').append(blankContent);
 }

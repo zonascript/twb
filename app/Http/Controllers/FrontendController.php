@@ -7,6 +7,7 @@ use App\Models\ColoringImage;
 use App\Service\Event;
 use App\Service\Media;
 use App\Service\News;
+use App\Service\Product;
 use App\Service\Template;
 use App\Service\Video;
 use Illuminate\Http\Request;
@@ -32,6 +33,10 @@ class FrontEndController extends Controller
      * @var Template
      */
     private $template;
+    /**
+     * @var Product
+     */
+    private $product;
 
     /**
      * FrontEndController constructor.
@@ -39,13 +44,21 @@ class FrontEndController extends Controller
      * @param Event $event
      * @param Video $video
      * @param Template $template
+     * @param Product $product
      */
-    public function __construct(News $news, Event $event, Video $video, Template $template)
+    public function __construct(
+        News $news,
+        Event $event,
+        Video $video,
+        Template $template,
+        Product $product
+    )
     {
         $this->news = $news;
         $this->event = $event;
         $this->video = $video;
         $this->template = $template;
+        $this->product = $product;
         $this->middleware('frontendAuth')->only(['account']);
     }
 
@@ -58,6 +71,7 @@ class FrontEndController extends Controller
 
     public function product()
     {
+        $data['products'] = $this->product->getList()->get();
         $data['pageTitle'] = 'Produk Kami';
         $data['pageClass'] = 'class="product"';
         return view('frontend.product', $data);
@@ -112,6 +126,7 @@ class FrontEndController extends Controller
 
     public function account()
     {
+        $data['user'] = auth()->user();
         $data['pageTitle'] = 'My Account';
         $data['pageClass'] = 'class="account"';
         $data['navActiveProfile'] = 'class="uk-active"';

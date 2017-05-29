@@ -40,7 +40,7 @@ function generateGalleryContent($data) {
         galleryContent += '<div>' +
             '<div class="twb-color">' +
                 '<a class="uk-cover-container thumb" onclick="zoomGallery(this)">' +
-                    '<img src="'+baseUrl+'/'+gallery.file_path+'" alt="Tini Wini Biti" uk-cover>' +
+                    '<img src="'+baseUrl+'/'+gallery.file_path+'" alt="Tini Wini Biti" >' +
                 '</a>' +
                 '<div class="info uk-margin-small-top">' +
                     '<h6 class="uk-margin-remove uk-text-uppercase">'+gallery.title+'</h6>' +

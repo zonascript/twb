@@ -14,7 +14,7 @@ function loadNews(url, search) {
         data: data,
         beforeSend: function( xhr ) {
             // loading animation here
-            //console.log('loading animation');
+            $('.news-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
@@ -22,11 +22,12 @@ function loadNews(url, search) {
         if($res.total > 0) {
             setTimeout(function() {
                 //stop the animation
-                //console.log('animation stop');
+                $('.loader').remove();
                 generateNews($res);
             }, 500);
         } else {
             //stop the animation
+            $('.loader').remove();
             generateBlankNews();
         }
     });

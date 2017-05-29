@@ -78,3 +78,9 @@ if (! function_exists('changeDateFormat')) {
         return \Carbon\Carbon::createFromFormat($from, $date)->format($to);
     }
 }
+
+if (! function_exists('getAge')) {
+    function getAge($birthDate, $birthDateFormat = 'Y-m-d') {
+        return \Carbon\Carbon::createFromFormat($birthDateFormat, $birthDate)->diff(\Carbon\Carbon::now())->format('%y tahun');
+    }
+}

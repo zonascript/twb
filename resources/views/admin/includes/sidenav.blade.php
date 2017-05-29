@@ -16,6 +16,13 @@
             </ul>
         </li>
         <li class="uk-parent">
+            <a href="#"><span class="uk-margin-small-right" uk-icon="icon: nut"></span> Products</a>
+            <ul class="uk-nav-sub">
+                <li><a href="{!! action('ProductController@index') !!}">All Product</a></li>
+                <li><a href="{!! action('ProductController@create') !!}">Create New</a></li>
+            </ul>
+        </li>
+        <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: video-camera"></span> Videos</a>
             <ul class="uk-nav-sub">
                 <li><a href="{!! action('VideoController@index') !!}">All Videos</a></li>

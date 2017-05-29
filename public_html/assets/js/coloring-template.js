@@ -10,8 +10,8 @@ function loadTemplate(url, ajaxBaseUrl) {
         // console.log($res);
         if($res.total > 0) {
             setTimeout(function() {
-                generateTemplate($res, ajaxBaseUrl);
                 $('.loader').remove();
+                generateTemplate($res, ajaxBaseUrl);
             }, 300);
         } else {
             $('.loader').remove();

@@ -3,18 +3,17 @@
 namespace App\Service;
 
 
-use App\Http\Requests\StoreNews;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class News
+class Product
 {
     use DatatableParameters;
 
-    // News Post Type
-    protected $postTypeId = 1;
+    // Product Post Type
+    protected $postTypeId = 5;
 
-    protected $baseUrl = 'news';
+    protected $baseUrl = 'product';
 
     /**
      * @var Post
@@ -22,7 +21,7 @@ class News
     private $post;
 
     /**
-     * News constructor.
+     * Product constructor.
      */
     public function __construct(Post $post)
     {
@@ -39,9 +38,9 @@ class News
             ->generate();
     }
 
-    public function getNewsById($newsId)
+    public function getProductById($productId)
     {
-        return $this->post->getPostById($newsId);
+        return $this->post->getPostById($productId);
     }
 
     public function getList($params = [])
@@ -52,24 +51,38 @@ class News
         if (isset($params['slug'])) {
             $listParams['slug'] = $params['slug'];
         }
-        $news = $this->post->getPostQuery($listParams);
-        return $news;
+        $product = $this->post->getPostQuery($listParams)
+            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
+            ->leftJoin('post_meta_translations AS pmt', function ($join) {
+                $join->on('pm.id', '=', 'pmt.post_meta_id')
+                    ->where('pm.meta_key', 'product_type');
+            })
+            ->addSelect('pm.meta_key', 'pmt.value AS product_type');
+        return $product;
     }
 
     public function getById($id)
     {
-        return $this->post->getPostQuery(['id' => $id])->first();
+        return $this->post->getPostQuery(['id' => $id])
+            ->leftJoin('post_metas AS pm', 'p.id', '=', 'pm.post_id')
+            ->leftJoin('post_meta_translations AS pmt', function ($join) {
+                $join->on('pm.id', '=', 'pmt.post_meta_id')
+                    ->where('pm.meta_key', 'product_type');
+            })
+            ->addSelect('pm.meta_key', 'pmt.value AS product_type')
+            ->first();
     }
 
-    public function store(StoreNews $request)
+    public function store(Request $request)
     {
         $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        $metas['product_type'] = $request->input('product_type');
         try {
-            $this->post->store($this->postTypeId, $publishDate, $status, $details);
+            $this->post->store($this->postTypeId, $publishDate, $status, $details, $metas);
             return true;
         } catch (\Exception $e) {
             return false;
@@ -83,8 +96,9 @@ class News
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
+        $metas['product_type'] = $request->input('product_type');
         try {
-            $update = $this->post->update($id, $publishDate, $status, $details);
+            $this->post->update($id, $publishDate, $status, $details, $metas);
             return true;
         } catch (\Exception $e) {
             return false;
@@ -95,12 +109,4 @@ class News
     {
         return $this->post->destroy($id);
     }
-
-    public function viewed($id)
-    {
-        $news = $this->post->getPostById($id);
-        $news->views = $news->views + 1;
-        $news->save();
-    }
-
 }

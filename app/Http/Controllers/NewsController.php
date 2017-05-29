@@ -74,7 +74,7 @@ class NewsController extends Controller
     {
         $data['id'] = $id;
         $data['post'] = $this->news->getById($id);
-        $data['pageTitle'] = 'Edit Post';
+        $data['pageTitle'] = 'Edit News';
         return view('admin.news.edit', $data);
     }
 

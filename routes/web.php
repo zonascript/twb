@@ -99,6 +99,13 @@ Route::group([
     Route::get('/template/{id}/edit', 'TemplateController@edit')->name('setting.user.edit');
     Route::post('/template/{id}/update', 'TemplateController@update')->name('setting.user.edit');
     Route::get('/template/{id}/destroy', 'TemplateController@destroy')->name('setting.user.delete');
+
+    Route::get('/product', 'ProductController@index')->name('setting.user');
+    Route::get('/product/create', 'ProductController@create')->name('setting.user.add');
+    Route::post('/product/store', 'ProductController@store')->name('setting.user.add');
+    Route::get('/product/{id}/edit', 'ProductController@edit')->name('setting.user.edit');
+    Route::post('/product/{id}/update', 'ProductController@update')->name('setting.user.edit');
+    Route::get('/product/{id}/destroy', 'ProductController@destroy')->name('setting.user.delete');
 });
 
 // without menu generator
@@ -110,6 +117,7 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/event-datatable-list', 'EventController@datatableList')->name('setting.user');
     Route::get('/video-datatable-list', 'VideoController@datatableList')->name('setting.user');
     Route::get('/template-datatable-list', 'TemplateController@datatableList')->name('setting.user');
+    Route::get('/product-datatable-list', 'ProductController@datatableList')->name('setting.user');
 });
 
 
