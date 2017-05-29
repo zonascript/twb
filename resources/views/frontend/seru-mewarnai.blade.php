@@ -25,11 +25,11 @@
 
 
             <h2 class="twb-blue-text">GALERI WARNA</h2>
-            <div class="uk-flex uk-flex-middle uk-flex-between uk-child-width-1-3 uk-grid-small gallery-container" uk-grid></div>
+            <div class="uk-child-width-1-1@s uk-child-width-1-3@m uk-grid-small gallery-container" uk-grid></div>
             <ul class="uk-pagination twb-pagination gallery-nav-container" uk-margin></ul>
         </div>
 
-        @include('frontend.includes.upload-modal');
+        @include('frontend.includes.upload-modal')
 
     </section>
 @endsection

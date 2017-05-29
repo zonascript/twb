@@ -3,7 +3,7 @@ function loadTemplate(url, ajaxBaseUrl) {
     $.ajax({
         url: templateUrl,
         beforeSend: function( xhr ) {
-            $('.template-container').html('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
+            $('.template-container').html('<div class="uk-width-1-1 uk-position-relative uk-text-center loader" style="min-height:218px;">'+ loader +'</div>');
         }
     }).done(function(result) {
         let $res = $.parseJSON(result);
@@ -26,9 +26,10 @@ function generateTemplate($res, url) {
 }
 
 function generateEmptyTemplate() {
-    blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
-        '<p>Tidak ada data.</p>' +
-        '</div>';
+    // blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
+    //     '<p>Tidak ada data.</p>' +
+    //     '</div>';
+    blankContent = '<div class="uk-width-1-1 uk-height-small">Tidak ada data</div>';
     $('.template-container').empty();
     $('.template-container').append(blankContent);
 }
@@ -38,13 +39,11 @@ function generateTemplateContent($data) {
     $.each($data, function (index, template) {
         templateContent += '<div>' +
             '<div class="twb-color-bw">' +
-                '<div class="uk-cover-container thumb">' +
-                    '<a class="zoom" title="zoom" onclick="zoomColoring(this)">' +
-                        '<img src="'+template.fullpath+'" alt="'+template.title+'" />' +
-                    '</a>' +
-                '</div>' +
+                '<a class="thumb zoom" title="zoom" onclick="zoomColoring(this)">' +
+                    '<img src="'+template.fullpath+'" alt="'+template.title+'" >' +
+                '</a>' +
                 '<div class="info uk-padding-small">' +
-                    '<h6 class="twb-blue-text uk-margin-remove">'+template.title+'</h6>' +
+                    '<h6 class="twb-blue-text uk-text-truncate uk-margin-remove" title="'+template.title+'" uk-tooltip>'+template.title+'</h6>' +
                     '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
                         '<li><a class="uk-text-capitalize zoom" title="Zoom" onclick="zoomColoring(this)">Zoom +</a></li>' +
                         '<li><a href="" class="uk-text-capitalize" title="">Print</a></li>' +

@@ -34,16 +34,15 @@
     margin-top: -10%;
     animation: fadeinslidetext 4s both;
 }
-@media (max-width: 639px) {
+@media (max-width: 959px) {
     .slides-text {
-        font-size: 20px;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        text-align: center;
+        font-size: 18px;
         max-width: 80%;
-        margin-top: -40vh;
-        animation: fadeinslidetext 4s both;
+        margin-top: -25%;
     }
+}
+@media (max-width: 959px) {
+
 }
 
 .gwd-img-1952 {

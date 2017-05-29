@@ -12,7 +12,7 @@
             <h2 class="twb-blue-text">VIDEO</h2>
             <div uk-grid>
 
-                <div class="uk-width-3-5">
+                <div class="uk-width-1-1@s uk-width-3-5@m">
                     <article class="uk-article">
                         @if ($video)
                         <div class="twb-vid">
@@ -32,7 +32,7 @@
                     </article>
                 </div>
 
-                <div class="uk-width-2-5">
+                <div class="uk-width-1-1@s uk-width-2-5@m">
                     <div class="uk-panel uk-padding-small white twb-border-bottom">
                         <h6 class="twb-blue-text uk-margin-small-bottom">Video Lain</h6>
                         <div class="uk-inline uk-width-1-1">
