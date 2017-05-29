@@ -106,6 +106,10 @@ Route::group([
     Route::get('/product/{id}/edit', 'ProductController@edit')->name('setting.user.edit');
     Route::post('/product/{id}/update', 'ProductController@update')->name('setting.user.edit');
     Route::get('/product/{id}/destroy', 'ProductController@destroy')->name('setting.user.delete');
+
+    Route::get('/participant', 'CampaignController@participantIndex')->name('setting.user');
+    Route::get('/participant-images', 'CampaignController@participantImages')->name('setting.user');
+    Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('setting.user');
 });
 
 // without menu generator
@@ -118,6 +122,8 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/video-datatable-list', 'VideoController@datatableList')->name('setting.user');
     Route::get('/template-datatable-list', 'TemplateController@datatableList')->name('setting.user');
     Route::get('/product-datatable-list', 'ProductController@datatableList')->name('setting.user');
+    Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('setting.user');
+    Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('setting.user');
 });
 
 

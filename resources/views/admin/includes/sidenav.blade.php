@@ -39,8 +39,8 @@
         <li class="uk-parent">
             <a href="#"><span class="uk-margin-small-right" uk-icon="icon: paint-bucket"></span> Campaign</a>
             <ul class="uk-nav-sub">
-                <li><a href="#">Users</a></li>
-                <li><a href="#">Images</a></li>
+                <li><a href="{!! action('CampaignController@participantIndex') !!}">Participants</a></li>
+                <li><a href="{!! action('CampaignController@participantImages') !!}">Images</a></li>
             </ul>
         </li>
         <li class="uk-nav-divider"></li>
