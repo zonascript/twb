@@ -48,4 +48,16 @@ class Campaign
         $imageQuery = ColoringImage::query();
         return $imageQuery;
     }
+
+    public function getImageById($id)
+    {
+        return ColoringImage::find($id);
+    }
+
+    public function updateStatus($id, $status)
+    {
+        $image = ColoringImage::find($id);
+        $image->status = $status;
+        $image->save();
+    }
 }

@@ -72,7 +72,7 @@ class ColoringController extends Controller
 
     public function coloringPaginated()
     {
-        $newsQuery = ColoringImage::query();
+        $newsQuery = ColoringImage::query()->where('status', 1);
         $newsQuery = $newsQuery->orderBy('created_at', 'desc');
         $news = $newsQuery->paginate(9);
         $news->withPath('coloring-paginated');

@@ -10,38 +10,46 @@
     </h3>
     <div class="uk-grid-medium uk-child-width-1-1@s uk-child-width-1-2@m" uk-grid>
         <div>
-            <img src="http://twb.dev/uploads/coloring-images/dsc00104.jpg" >
+            <img src="{{ asset($image->file_path) }}" />
         </div>
         <div>
+            <form method="post" action="{{ action('CampaignController@updateStatus', $image->id) }}">
+            {{ csrf_field() }}
             <table class="uk-table uk-width-1-1">
                 <tr>
                     <td width="25%">Judul</td>
-                    <td>"Menunggu Lebaran"</td>
+                    <td>{{ $image->title }}</td>
                 </tr>
                 <tr>
                     <td>Nama</td>
-                    <td>Donald Trump</td>
+                    <td>{{ $image->user_name }}</td>
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
-                    <td>01/01/2001</td>
+                    <td>{{ changeDateFormat($image->user_birthdate, 'Y-m-d', 'd F Y') }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>Jl. Setapak 13</td>
+                    <td>{{ $image->user_address }}</td>
                 </tr>
                 <tr>
                     <td>Kota</td>
-                    <td>Bandung</td>
+                    <td>{{ $image->user_city }}</td>
                 </tr>
                 <tr class="uk-margin">
                     <td>Email</td>
-                    <td>alamat@email.com</td>
+                    <td>{{ $image->user_email }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="uk-text-right"><button class="uk-button uk-button-primary twb-round green" title="Daftar" type="submit">APPROVE</button></td>
+                    <td colspan="2" class="uk-text-right">
+                        <a class="uk-button uk-button-primary twb-round green" href="{{ action('CampaignController@participantImages') }}">BACK</a>
+                        @if ($image->status == 0)
+                        <button class="uk-button uk-button-primary twb-round green" title="Daftar" type="submit">APPROVE</button>
+                        @endif
+                    </td>
                 </tr>
             </table>
+            </form>
         </div>
     </div>
 

@@ -49,7 +49,16 @@ class CampaignController extends Controller
 
     public function imageDetail($id)
     {
+        $data['image'] = $this->campaign->getImageById($id);
         $data['pageTitle'] = 'Coloring Image Detail';
         return view('admin.campaigns.image-detail', $data);
+    }
+
+    public function updateStatus($id)
+    {
+        if ($this->campaign->updateStatus($id, 1)) {
+            return redirect(action('CampaignController@participantImages'));
+        }
+        return redirect(action('CampaignController@participantImages'));
     }
 }

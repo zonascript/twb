@@ -110,6 +110,7 @@ Route::group([
     Route::get('/participant', 'CampaignController@participantIndex')->name('setting.user');
     Route::get('/participant-images', 'CampaignController@participantImages')->name('setting.user');
     Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('setting.user');
+    Route::post('/participant-images/{id}/update-status', 'CampaignController@updateStatus')->name('setting.user');
 });
 
 // without menu generator
