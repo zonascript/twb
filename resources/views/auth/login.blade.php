@@ -8,7 +8,7 @@
     <section class="k-login uk-width-1-1 uk-cover-container">
         <img src="{!! asset('assets/img/admin/wilhelminabrug.jpg') !!}" alt="login" uk-cover>
         <div class="uk-overlay-primary uk-position-cover"></div>
-        <div class="uk-overlay uk-position-center uk-width-1-4@m">
+        <div class="uk-overlay uk-position-center uk-width-1-3@m">
             <img class="uk-border-circle uk-align-center" src="{!! asset('assets/img/admin/favicon.png') !!}" width="72" height="72" alt="Login">
             <form role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}

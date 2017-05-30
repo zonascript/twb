@@ -21,8 +21,15 @@
             </div>
 
             <div class="uk-flex uk-flex-middle uk-flex-between">
-                <div class="uk-inline">Belum terdaftar? <a class="uk-modal-close uk-text-bold red-text register-link" title="Register Now">Daftar Sekarang!</a></div>
-                <button class="uk-button uk-button-small uk-button-primary twb-round green btn-login" title="LOGIN" type="button">LOGIN</button>
+                <div class="uk-width-expand">
+                    <ul class="uk-subnav uk-subnav-divider uk-margin-remove-bottom">
+                        <li><a class="uk-modal-close uk-text-bold uk-text-capitalize red-text register-link" title="Register Now">Daftar Sekarang!</a></li>
+                        <li><a class="uk-modal-close uk-text-bold uk-text-capitalize blue-text resetpwd-link" title="Reset Password">Lupa Password?</a></li>
+                    </ul>
+                </div>
+                <div class="uk-width-auto">
+                    <button class="uk-button uk-button-small uk-button-primary twb-round green btn-login" title="LOGIN" type="button">LOGIN</button>
+                </div>
             </div>
         </form>
     </div>

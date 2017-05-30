@@ -11,7 +11,7 @@
         <div class="uk-container uk-container-small">
             <h2 class="twb-blue-text">BERITA</h2>
             <div uk-grid>
-                <div class="uk-width-3-5">
+                <div class="uk-width-1-1@s uk-width-3-5@m">
                     <article class="uk-article uk-padding-small white">
                         <h3 class="twb-blue-text uk-margin-small-bottom">{!! $news->title !!}</h3>
                         <div class="uk-article-meta uk-margin-bottom">
@@ -31,7 +31,7 @@
                         </div>
                     </article>
                 </div>
-                <div class="uk-width-2-5">
+                <div class="uk-width-1-1@s uk-width-2-5@m">
                     <div class="uk-panel uk-padding-small white twb-border-bottom">
                         <h6 class="twb-blue-text uk-margin-small-bottom">Berita Lain</h6>
                     </div>

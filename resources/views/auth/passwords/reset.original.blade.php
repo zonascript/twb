@@ -1,8 +1,4 @@
-@extends('admin.layouts.login')
-
-@section('page-level-styles')
-
-@endsection
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -77,8 +73,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('page-level-scripts')
-
 @endsection

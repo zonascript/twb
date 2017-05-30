@@ -1,46 +1,39 @@
-@extends('layouts.app')
+@extends('admin.layouts.login')
+
+@section('page-level-styles')
+
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+    <section class="k-login uk-width-1-1 uk-cover-container">
+        <img src="{!! asset('assets/img/admin/wilhelminabrug.jpg') !!}" alt="login" uk-cover>
+        <div class="uk-overlay-primary uk-position-cover"></div>
+        <div class="uk-overlay uk-position-center uk-width-1-3@m">
+            <img class="uk-border-circle uk-align-center" src="{!! asset('assets/img/admin/favicon.png') !!}" width="72" height="72" alt="Login">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
+                {{ csrf_field() }}
+
+                <div class="uk-margin {{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input id="email" type="email" class="uk-input" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                    </div>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
                     @endif
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
+
+                <div class="uk-margin uk-text-center">
+                    <button type="submit" class="uk-button uk-button-primary">
+                        Send Password Reset Link
+                    </button>
+                </div>
+            </form>
         </div>
-    </div>
-</div>
+        <footer class="k-footer uk-position-bottom uk-text-center">
+            Copyright &copy; <?php echo date('Y'); ?> <a class="" href="{!! url('/') !!}" target="_blank" title="Site Name">Site Name</a> | Powered by <a class="" href="http://kleur.id" target="_blank" title="Kleur CMS">Kleur CMS</a>
+        </footer>
+    </section>
 @endsection
