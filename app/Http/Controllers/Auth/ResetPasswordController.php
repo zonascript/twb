@@ -34,6 +34,8 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
+        $adminUrl = config('misc.admin-prefix');
+        $this->redirectTo = url($adminUrl);
         $this->middleware('guest');
     }
 }

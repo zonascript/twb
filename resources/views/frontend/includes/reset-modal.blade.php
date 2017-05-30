@@ -8,7 +8,7 @@
             <div class="uk-margin-small-bottom">
                 <label class="uk-form-label" for="judul">Email *</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input uk-form-small twb-round" name="email" id="reset_email" type="email" placeholder="" required>
+                    <input class="uk-input uk-form-small twb-round" name="email" id="reset_email" type="text" placeholder="" required>
                 </div>
             </div>
             <div class="uk-flex uk-flex-middle uk-flex-right">

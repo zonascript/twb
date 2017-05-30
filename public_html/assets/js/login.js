@@ -10,14 +10,14 @@ $('.nav-login').on('click', function(e) {
 $('.resetpwd-link').on('click', function(e) {
     e.preventDefault();
     $(this).blur();
-    // $('.btn-login').attr('data-type', 'login');
+    cleanResetForm();
     var resetModal = UIkit.modal('#reset-modal');
     clearLoginForm();
     resetModal.show();
 })
 
 $('.btn-login').on('click', function() {
-    console.log('login');
+    // console.log('login');
     clearLoginForm();
     var formData = $('#login-form').serialize();
     var loginErrors = '';
@@ -52,6 +52,42 @@ $('.btn-login').on('click', function() {
             if (obj.error) {
                 $("#login-errors").addClass("uk-form-danger");
                 $('#form-login-errors').html(obj.error);
+            }
+        }
+    });
+});
+
+$('.btn-reset').on('click', function() {
+    cleanResetForm();
+    $.ajax({
+        url: baseUrl + '/password/email',
+        type: 'POST',
+        data: $('#reset-form').serialize(),
+        beforeSend: function( xhr ) {
+            // loading animation here
+            $('#reset-form').prepend('<div class="uk-height-small uk-width-1-1 uk-position-relative uk-text-center loader">'+ loader +'</div>');
+        },
+        success: function(data) {
+            $('.loader').remove();
+            $('#reset-form').empty();
+            $('#reset-form').append('<p class="uk-alert uk-alert-success">Email telah dikirim.</p>');
+        },
+        error: function(data) {
+            $('.loader').remove();
+            var obj = $.parseJSON(data.responseText);
+            var errors = '';
+            if (obj.email) {
+                $("#reset_email").addClass("uk-form-danger");
+                errors += obj.email + '<br/>';
+                $('#reset_email').focus();
+            }
+
+            if (errors != '') {
+                $('#reset-errors').append('<p class="uk-alert uk-alert-danger">'+errors+'</p>')
+            }
+
+            if (obj.error) {
+                $("#reset-errors").addClass("uk-form-danger");
             }
         }
     });
@@ -124,6 +160,11 @@ $('.register-link').on('click', function(e) {
     cleanRegisterForm();
     $('#reg_name').focus();
 });
+
+function cleanResetForm() {
+    $("#reset_email").removeClass("uk-form-danger");
+    $('#reset-errors').empty();
+}
 
 function cleanRegisterForm() {
     $("#reg_email").removeClass("uk-form-danger");
