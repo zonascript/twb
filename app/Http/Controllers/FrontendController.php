@@ -64,7 +64,9 @@ class FrontEndController extends Controller
 
     public function home()
     {
+        $data['news'] = $this->news->getList()->limit(3)->get();
         $data['pageTitle'] = 'Home';
+        $data['metaDescription'] = config('misc.home-meta');
         $data['pageClass'] = 'class="home"';
         return view('frontend.home', $data);
     }
@@ -110,7 +112,8 @@ class FrontEndController extends Controller
         $news = $this->news->getList(['slug' => $slug])->first();
         $this->news->viewed($news->id);
         $data['news'] = $news;
-        $data['pageTitle'] = 'Judul Berita/Acara';
+        $data['pageTitle'] = $news->page_title;
+        $data['metaDescription'] = $news->meta_description;
         $data['pageClass'] = 'class="news"';
         $data['navActiveNews'] = 'class="uk-active"';
         return view('frontend.berita-detail', $data);

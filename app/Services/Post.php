@@ -96,8 +96,8 @@ class Post
         $title = $details['title'];
         $content = $details['content'];
         $mediaId = isset($details['mediaId']) ? $details['mediaId'] : '';
-        $excerpt = isset($details['excerpt']) ? $details['excerpt'] : wordwrap($content, 100);
-        $pageTitle = isset($details['pageTitle']) ? $details['pageTitle'] : '';
+        $excerpt = isset($details['excerpt']) ? $details['excerpt'] : wordwrap($content, 50);
+        $pageTitle = isset($details['pageTitle']) ? $details['pageTitle'] : $details['title'];
         $metaDescription = isset($details['metaDescription']) ? $details['metaDescription'] : '';
 
         if ($mediaId != '') {

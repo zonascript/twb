@@ -72,10 +72,13 @@ class Event
     public function store(Request $request)
     {
         $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
-        $eventDate = $request->input('event_date');
+        $eventDate = Carbon::createFromFormat('d/m/Y', $request->input('event_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
+        $details['excerpt'] = $request->input('excerpt');
+        $details['pageTitle'] = $request->input('page_title');
+        $details['metaDescription'] = $request->input('meta_description');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         $metas['event_date']= $eventDate;
         try {
@@ -89,10 +92,13 @@ class Event
     public function update($request, $id)
     {
         $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
-        $eventDate = $request->input('event_date');
+        $eventDate = Carbon::createFromFormat('d/m/Y', $request->input('event_date'))->format('Y-m-d');
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
+        $details['excerpt'] = $request->input('excerpt');
+        $details['pageTitle'] = $request->input('page_title');
+        $details['metaDescription'] = $request->input('meta_description');
         $details['mediaId'] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         // use the key for the meta
         $metas['event_date']= $eventDate;

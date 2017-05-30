@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>Tanggal Lahir</td>
-                    <td>{{ changeDateFormat($image->user_birthdate, 'Y-m-d', 'd F Y') }}</td>
+                    <td>{{ changeDateFormat($image->user_birthdate, 'Y-m-d', 'd F Y') }} ({{ getAge($image->user_birthdate) }})</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>

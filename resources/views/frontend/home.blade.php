@@ -83,63 +83,31 @@
             <div class="uk-container uk-container-small">
                 <h2 class="twb-blue-text">BERITA</h2>
                 <ul class="uk-list uk-list-large">
+                    @foreach($news as $theNews)
                     <li>
                         <div class="uk-grid-medium" uk-grid>
                             <div class="uk-width-1-1 uk-width-auto@m twb-news-thumb">
-                                <img src="{!! asset('images/sample-content/news1.png') !!}" alt="Tini Wini Biti">
+                                @if ($theNews->fullpath != '')
+                                    <img src="{!! asset($theNews->fullpath) !!}" alt="{{ $theNews->title }}" />
+                                @else
+                                    <img src="{!! asset('images/default.png') !!}" alt="{{ $theNews->title }}" />
+                                @endif
                             </div>
                             <div class="uk-width-1-1 uk-width-expand@m">
                                 <div class="uk-grid-medium" uk-grid>
                                     <div class="uk-width-expand">
-                                        <h5 class="twb-blue-text uk-margin-small-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
-                                        <div class="uk-margin-small-bottom">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                        <div>28 Maret 2017</div>
+                                        <h5 class="twb-blue-text uk-margin-small-bottom">{{ $theNews->title }}</h5>
+                                        <div class="uk-margin-small-bottom">{{ $theNews->excerpt }}</div>
+                                        <div>{{ changeDateFormat($theNews->publish_at, 'Y-m-d H:i:s', 'd F Y') }}</div>
                                     </div>
                                     <div class="uk-width-auto">
-                                        <a href="" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a>
+                                        <a href="{{ url('berita/detail/' . $theNews->slug) }}" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="uk-grid-medium" uk-grid>
-                            <div class="uk-width-1-1 uk-width-auto@m twb-news-thumb">
-                                <img src="{!! asset('images/sample-content/news1.png') !!}" alt="Tini Wini Biti">
-                            </div>
-                            <div class="uk-width-1-1 uk-width-expand@m">
-                                <div class="uk-grid-medium" uk-grid>
-                                    <div class="uk-width-expand">
-                                        <h5 class="twb-blue-text uk-margin-small-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
-                                        <div class="uk-margin-small-bottom">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                        <div>28 Maret 2017</div>
-                                    </div>
-                                    <div class="uk-width-auto">
-                                        <a href="" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="uk-grid-medium" uk-grid>
-                            <div class="uk-width-1-1 uk-width-auto@m twb-news-thumb">
-                                <img src="{!! asset('images/sample-content/news1.png') !!}" alt="Tini Wini Biti">
-                            </div>
-                            <div class="uk-width-1-1 uk-width-expand@m">
-                                <div class="uk-grid-medium" uk-grid>
-                                    <div class="uk-width-expand">
-                                        <h5 class="twb-blue-text uk-margin-small-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
-                                        <div class="uk-margin-small-bottom">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                        <div>28 Maret 2017</div>
-                                    </div>
-                                    <div class="uk-width-auto">
-                                        <a href="" class="uk-button uk-button-small uk-button-primary twb-btn-baca" title="">Baca</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

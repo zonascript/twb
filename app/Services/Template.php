@@ -72,6 +72,9 @@ class Template
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
+        $details['excerpt'] = $request->input('excerpt');
+        $details['pageTitle'] = $request->input('page_title');
+        $details['metaDescription'] = $request->input('meta_description');
         $details['mediaId'][] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         // the template file
         if ($request->hasFile('template_file')) {
@@ -92,6 +95,9 @@ class Template
         $status = $request->input('status');
         $details['title'] = $request->input('title');
         $details['content'] = $request->input('content');
+        $details['excerpt'] = $request->input('excerpt');
+        $details['pageTitle'] = $request->input('page_title');
+        $details['metaDescription'] = $request->input('meta_description');
         $details['mediaId'][] = $request->has('featured_image_id') ? $request->input('featured_image_id') : '';
         // the template file
         if ($request->hasFile('template_file')) {

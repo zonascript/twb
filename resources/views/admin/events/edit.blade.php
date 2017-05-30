@@ -39,7 +39,7 @@
                         @if(old('event_date') != '')
                             value="{!! old('event_date') !!}"
                         @else
-                            value="{!! \Carbon\Carbon::createFromFormat('Y-m-d', $post->event_date)->format('d/m/Y') !!}"
+                            value="{!! changeDateFormat($post->event_date, 'Y-m-d', 'd/m/Y') !!}"
                         @endif data-uk-datepicker="{format:'DD/MM/YYYY'}" />
                         <hr>
                         <label class="uk-form-label" for="">Publish Date</label>
@@ -47,7 +47,7 @@
                         @if(old('publish_date') != '')
                             value="{!! old('publish_date') !!}"
                         @else
-                            value="{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->publish_at)->format('d-m-Y') !!}"
+                            value="{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->publish_at)->format('d/m/Y') !!}"
                         @endif data-uk-datepicker="{format:'DD/MM/YYYY',maxDate:0}" />
                     </div>
                     <div class="uk-card-footer uk-flex uk-flex-middle uk-flex-between">
