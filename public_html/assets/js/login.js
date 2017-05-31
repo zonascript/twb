@@ -7,12 +7,15 @@ $('.nav-login').on('click', function(e) {
     loginModal.show();
 })
 
+$('#reset-form').on('submit', function(e) {
+    e.preventDefault();
+});
+
 $('.resetpwd-link').on('click', function(e) {
     e.preventDefault();
     $(this).blur();
-    cleanResetForm();
     var resetModal = UIkit.modal('#reset-modal');
-    clearLoginForm();
+    cleanResetForm();
     resetModal.show();
 })
 
