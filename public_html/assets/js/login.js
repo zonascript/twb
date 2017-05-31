@@ -1,3 +1,8 @@
+$('#reg_birthdate').dateDropdowns({
+    daySuffixes: false,
+    defaultDateFormat: 'dd/mm/yyyy'
+});
+
 $('.nav-login').on('click', function(e) {
     e.preventDefault();
     $(this).blur();

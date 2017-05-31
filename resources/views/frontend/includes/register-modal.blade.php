@@ -14,7 +14,8 @@
             <div class="uk-margin-small-bottom">
                 <label class="uk-form-label" for="lahir">Tanggal Lahir *</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" data-uk-datepicker="{format:'DD/MM/YYYY',maxDate:0,pos:'bottom'}" name="birthdate">
+                    {{--<input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" data-uk-datepicker="{format:'DD/MM/YYYY',maxDate:0,pos:'bottom'}" name="birthdate">--}}
+                    <input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" name="birthdate">
                 </div>
             </div>
             <div class="uk-margin-small-bottom">

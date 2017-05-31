@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'city' => 'required|string',
             'address' => 'required',
-            'birthdate' => 'required|date_format:d/m/Y'
+            'birthdate' => 'required|date_format:Y-m-d'
         ]);
     }
 
@@ -64,7 +64,8 @@ class RegisterController extends Controller
     {
         // Log::warning('RegisterController registered ==> ' . \GuzzleHttp\json_encode($user));
         $params = [
-            'birth_date' => Carbon::createFromFormat('d/m/Y', $request->input('birthdate'))->format('Y-m-d'),
+            //'birth_date' => Carbon::createFromFormat('d/m/Y', $request->input('birthdate'))->format('Y-m-d'),
+            'birth_date' => $request->input('birthdate'),
             'address' => $request->input('address'),
             'city' => $request->input('city')
         ];

@@ -15,6 +15,7 @@
     @section('page-level-js-variables')
         <script src="{!! asset('assets/js/uikit.2.min.js') !!}"></script>
         <script src="{!! asset('assets/js/datepicker.min.js') !!}"></script>
+        <script src="{!! asset('assets/js/jquery.date-dropdown.js') !!}"></script>
         <script type="text/javascript">
             var baseUrl = '{!! url('/') !!}';
             var token = '{!! csrf_token() !!}';
