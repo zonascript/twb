@@ -1,6 +1,7 @@
 $('#reg_birthdate').dateDropdowns({
     daySuffixes: false,
-    defaultDateFormat: 'dd/mm/yyyy'
+    defaultDateFormat: 'dd/mm/yyyy',
+    dropdownClass: 'uk-select uk-width-small uk-form-small twb-round'
 });
 
 $('.nav-login').on('click', function(e) {
