@@ -7,10 +7,6 @@ $('.nav-login').on('click', function(e) {
     loginModal.show();
 })
 
-$('#reset-form').on('submit', function(e) {
-    e.preventDefault();
-});
-
 $('.resetpwd-link').on('click', function(e) {
     e.preventDefault();
     $(this).blur();
@@ -19,8 +15,8 @@ $('.resetpwd-link').on('click', function(e) {
     resetModal.show();
 })
 
-$('.btn-login').on('click', function() {
-    // console.log('login');
+$('#login-form').on('submit', function(e) {
+    e.preventDefault();
     clearLoginForm();
     var formData = $('#login-form').serialize();
     var loginErrors = '';
@@ -60,7 +56,8 @@ $('.btn-login').on('click', function() {
     });
 });
 
-$('.btn-reset').on('click', function() {
+$('#reset-form').on('submit', function(e) {
+    e.preventDefault();
     cleanResetForm();
     $.ajax({
         url: baseUrl + '/password/email',
@@ -96,7 +93,8 @@ $('.btn-reset').on('click', function() {
     });
 });
 
-$('.btn-register').on('click', function() {
+$('#register-form').on('submit', function(e) {
+    e.preventDefault();
     cleanRegisterForm();
     $.ajax({
         url: baseUrl + '/register',
