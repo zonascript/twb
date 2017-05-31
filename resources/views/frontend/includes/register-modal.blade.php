@@ -1,6 +1,6 @@
 <div id="register-modal" class="uk-modal">
     <div class="uk-modal-dialog">
-        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <a class="uk-modal-close-outside" uk-close></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">DAFTAR</h5></div>
         <form action="#" id="register-form" class="uk-padding-small">
             <div class="uk-margin-small-bottom form-group" id="reg-errors"></div>

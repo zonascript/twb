@@ -1,6 +1,6 @@
 <div id="upload-modal" class="uk-modal">
     <div class="uk-modal-dialog">
-        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <a class="uk-modal-close-outside" uk-close></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">MENGUNGGAH HASIL MEWARNAI</h5></div>
         <form class="" method="post" action="{!! route('ajaxImageUpload') !!}" enctype="multipart/form-data" id="upload-form">
             {!! csrf_field() !!}
