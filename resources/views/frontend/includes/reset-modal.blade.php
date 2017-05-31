@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="uk-flex uk-flex-middle uk-flex-right">
-                <button class="uk-button uk-button-small uk-button-primary twb-round green btn-reset" title="Reset Password" type="button">RESET PASSWORD</button>
+                <button class="uk-button uk-button-small uk-button-primary twb-round green btn-reset" title="Reset Password" type="submit">RESET PASSWORD</button>
             </div>
         </form>
     </div>

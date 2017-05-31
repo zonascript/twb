@@ -48,7 +48,7 @@
 
             <div class="uk-flex uk-flex-middle uk-flex-between">
                 <span class="red-text">*) Wajib diisi</span>
-                <button class="uk-button uk-button-small uk-button-primary twb-round green btn-register" title="Daftar" type="button">DAFTAR</button>
+                <button class="uk-button uk-button-small uk-button-primary twb-round green btn-register" title="Daftar" type="submit">DAFTAR</button>
             </div>
         </form>
     </div>

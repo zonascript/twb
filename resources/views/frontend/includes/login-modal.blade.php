@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="uk-width-auto">
-                    <button class="uk-button uk-button-small uk-button-primary twb-round green btn-login" title="LOGIN" type="button">LOGIN</button>
+                    <button class="uk-button uk-button-small uk-button-primary twb-round green btn-login" title="LOGIN" type="submit">LOGIN</button>
                 </div>
             </div>
         </form>
