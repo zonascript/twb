@@ -59,6 +59,8 @@
                         <a href="assets/templates/TWB_coloring_fish.pdf" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
                     </div>
                 </div>
+                <h5 class="white-text">Foto / scan lalu upload di Facebook maupun Instagram<br>
+                    dengan hashtag #RamadhanColoringTWB #TiniWiniBiti</h5>
             </div>
         </section>
         <footer class="twb-footer uk-flex uk-flex-middle">

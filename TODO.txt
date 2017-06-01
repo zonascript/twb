@@ -1,3 +1,1 @@
-- Create custom field
--- Check custom field when add all/specific post/page, click category
-
+last update June 1st, 2017
