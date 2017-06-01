@@ -46,17 +46,17 @@
                     <div>
                         <h5 class="white-text uk-margin-remove">Kura-kura</h5>
                         <p><img src="assets/img/kurakura.png" style="margin-left:-45px;"></p>
-                        <a href="" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
+                        <a href="assets/templates/TWB_coloring_turtle.pdf" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
                     </div>
                     <div>
                         <h5 class="white-text uk-margin-remove">Gajah</h5>
                         <p><img src="assets/img/gajah.png" style="margin-right:-35px;"></p>
-                        <a href="" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
+                        <a href="assets/templates/TWB_coloring_elephant.pdf" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
                     </div>
                     <div>
                         <h5 class="white-text uk-margin-remove">Ikan</h5>
                         <p><img src="assets/img/ikan.png" style="margin-right:-50px;"></p>
-                        <a href="" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
+                        <a href="assets/templates/TWB_coloring_fish.pdf" target="_blank" title="Download" uk-tooltip><img src="assets/img/download.png"></a>
                     </div>
                 </div>
             </div>
