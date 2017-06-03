@@ -40,29 +40,31 @@ class MenuGenerator
 
         $menu = LavaryMenu::make('backendMenu', function($theMenu) use ($request, $menus, $theLang) {
             foreach ($menus as $menu) {
-                // get the 1st level
-                $thisItemLink = $menu->link != 'javascript:;' ? route($menu->link) : 'javascript';
-                if ($menu->parent_id == '0') {
-                    $theMenu->add($menu->title)
-                        ->nickname($menu->permission)
-                        ->data(['icon_class' => $menu->icon_class, 'menu_link' => $thisItemLink]);
-                } else {
-                    $parentMenu = $this->menu->getMenuQuery(['item_id' => $menu->parent_id])->first();
-                    $theMenu->get($parentMenu->permission)
-                        ->add($menu->title)
-                        ->nickname($menu->permission)
-                        ->data(['icon_class' => $menu->icon_class, 'menu_link' => $thisItemLink]);
-                }
+                if (userCan($menu->permission)) {
+                    // get the 1st level
+                    $thisItemLink = $menu->link != 'javascript:;' ? backendUrl($menu->link) : 'javascript';
+                    if ($menu->parent_id == '0') {
+                        $theMenu->add($menu->title, $thisItemLink)
+                            ->nickname($menu->permission)
+                            ->data(['icon_class' => $menu->icon_class, 'menu_link' => $thisItemLink]);
+                    } else {
+                        $parentMenu = $this->menu->getMenuQuery(['item_id' => $menu->parent_id])->first();
+                        $theMenu->get($parentMenu->permission)
+                            ->add($menu->title, $thisItemLink)
+                            ->nickname($menu->permission)
+                            ->data(['icon_class' => $menu->icon_class, 'menu_link' => $thisItemLink]);
+                    }
 
-                $langLink = $menu->link;
-                if ($request->is($langLink)) {
-                    $theMenu->item($menu->permission)->active();
-                    $this->activateItem($theMenu, $menu->item_id);
+                    $langLink = $menu->link;
+                    if ($request->is($langLink)) {
+                        $theMenu->item($menu->permission)->active();
+                        $this->activateItem($theMenu, $menu->item_id);
+                    }
                 }
             }
         });
-        echo $menu->asUl();
-        exit();
+
+        return $menu;
     }
 
     protected  function activateItem(Builder $item, $menuId, $first = true)

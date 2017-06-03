@@ -46,7 +46,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $data['pageTitle'] = 'Add New Post';
+        $data['pageTitle'] = 'Add News';
         return view('admin.news.create', $data);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Service\MenuGenerator;
 use Closure;
+use Illuminate\Support\Facades\View;
 
 class Menu
 {
@@ -29,7 +30,8 @@ class Menu
      */
     public function handle($request, Closure $next)
     {
-        $this->menuGenerator->generateMenu($request, 1);
+        $menu = $this->menuGenerator->generateMenu($request, 1);
+        View::share('g_menu', $menu);
         return $next($request);
     }
 }

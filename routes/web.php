@@ -48,7 +48,7 @@ Route::post('/ajax-login', 'FrontendLoginController@ajaxLogin');
 Route::post('/ajax-register', 'FrontendLoginController@ajaxRegister');
 
 Route::group([
-    'middleware' => ['auth', 'authorize'],
+    'middleware' => ['auth', 'authorize', 'menu'],
     'prefix' => $adminPrefix
 ], function () {
     Route::get('/', 'DashboardController@dashboard')->name('admin');
