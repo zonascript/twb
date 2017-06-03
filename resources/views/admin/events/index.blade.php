@@ -8,7 +8,9 @@
 
     <h3>
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
+            @if(userCan('event.add'))
         <a href="{!! action('EventController@create') !!}" class="uk-button uk-button-primary uk-button-small uk-margin-left">Add New</a>
+        @endif
     </h3>
 
     <table class="uk-table" id="thetable">

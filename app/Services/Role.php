@@ -26,7 +26,10 @@ class Role
     public function datatable()
     {
         $data = $this->getList();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'setting.role.edit' => 'edit',
+            'setting.role.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)

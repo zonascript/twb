@@ -26,7 +26,7 @@
                 <input class="uk-input" type="text" name="show_name"
                 @if(old('show_name') != '')
                     value="{!! old('show_name') !!}"
-                @endif >
+                @endif autofocus>
             </div>
         </div>
         <div class="uk-margin">

@@ -30,7 +30,10 @@ class Event
     public function datatable()
     {
         $data = $this->getList()->get();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'event.edit' => 'edit',
+            'event.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)

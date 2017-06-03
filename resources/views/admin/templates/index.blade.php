@@ -7,7 +7,9 @@
 @section('content')
     <h3>
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
-        <a href="{!! action('TemplateController@create') !!}" class="uk-button uk-button-primary uk-button-small uk-margin-left">Add New</a>
+        @if(userCan('template.add'))
+            <a href="{!! action('TemplateController@create') !!}" class="uk-button uk-button-primary uk-button-small uk-margin-left">Add New</a>
+        @endif
     </h3>
 
     <table class="uk-table" id="thetable">

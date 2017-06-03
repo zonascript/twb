@@ -75,45 +75,47 @@ Route::group([
     Route::get('/setting/user/{id}/destroy', 'UserController@destroy')->name('setting.user.delete');
     Route::get('/setting/user/profile', 'UserController@profile')->name('setting.user');
 
-    Route::get('/news', 'NewsController@index')->name('setting.user');
-    Route::get('/news/create', 'NewsController@create')->name('setting.user.add');
-    Route::post('/news/store', 'NewsController@store')->name('setting.user.add');
-    Route::get('/news/{id}/edit', 'NewsController@edit')->name('setting.user.edit');
-    Route::post('/news/{id}/update', 'NewsController@update')->name('setting.user.edit');
-    Route::get('/news/{id}/destroy', 'NewsController@destroy')->name('setting.user.delete');
+    Route::get('/news', 'NewsController@index')->name('news');
+    Route::get('/news/create', 'NewsController@create')->name('news.add');
+    Route::post('/news/store', 'NewsController@store')->name('news.add');
+    Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
+    Route::post('/news/{id}/update', 'NewsController@update')->name('news.edit');
+    Route::get('/news/{id}/destroy', 'NewsController@destroy')->name('news.delete');
 
-    Route::get('/event', 'EventController@index')->name('setting.user');
-    Route::get('/event/create', 'EventController@create')->name('setting.user.add');
-    Route::post('/event/store', 'EventController@store')->name('setting.user.add');
-    Route::get('/event/{id}/edit', 'EventController@edit')->name('setting.user.edit');
-    Route::post('/event/{id}/update', 'EventController@update')->name('setting.user.edit');
-    Route::get('/event/{id}/destroy', 'EventController@destroy')->name('setting.user.delete');
+    Route::get('/event', 'EventController@index')->name('event');
+    Route::get('/event/create', 'EventController@create')->name('event.add');
+    Route::post('/event/store', 'EventController@store')->name('event.add');
+    Route::get('/event/{id}/edit', 'EventController@edit')->name('event.edit');
+    Route::post('/event/{id}/update', 'EventController@update')->name('event.edit');
+    Route::get('/event/{id}/destroy', 'EventController@destroy')->name('event.delete');
 
-    Route::get('/video', 'VideoController@index')->name('setting.user');
-    Route::get('/video/create', 'VideoController@create')->name('setting.user.add');
-    Route::post('/video/store', 'VideoController@store')->name('setting.user.add');
-    Route::get('/video/{id}/edit', 'VideoController@edit')->name('setting.user.edit');
-    Route::post('/video/{id}/update', 'VideoController@update')->name('setting.user.edit');
-    Route::get('/video/{id}/destroy', 'VideoController@destroy')->name('setting.user.delete');
+    Route::get('/product', 'ProductController@index')->name('product');
+    Route::get('/product/create', 'ProductController@create')->name('product.add');
+    Route::post('/product/store', 'ProductController@store')->name('product.add');
+    Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+    Route::post('/product/{id}/update', 'ProductController@update')->name('product.edit');
+    Route::get('/product/{id}/destroy', 'ProductController@destroy')->name('product.delete');
 
-    Route::get('/template', 'TemplateController@index')->name('setting.user');
-    Route::get('/template/create', 'TemplateController@create')->name('setting.user.add');
-    Route::post('/template/store', 'TemplateController@store')->name('setting.user.add');
-    Route::get('/template/{id}/edit', 'TemplateController@edit')->name('setting.user.edit');
-    Route::post('/template/{id}/update', 'TemplateController@update')->name('setting.user.edit');
-    Route::get('/template/{id}/destroy', 'TemplateController@destroy')->name('setting.user.delete');
+    Route::get('/video', 'VideoController@index')->name('video');
+    Route::get('/video/create', 'VideoController@create')->name('video.add');
+    Route::post('/video/store', 'VideoController@store')->name('video.add');
+    Route::get('/video/{id}/edit', 'VideoController@edit')->name('video.edit');
+    Route::post('/video/{id}/update', 'VideoController@update')->name('video.edit');
+    Route::get('/video/{id}/destroy', 'VideoController@destroy')->name('video.delete');
 
-    Route::get('/product', 'ProductController@index')->name('setting.user');
-    Route::get('/product/create', 'ProductController@create')->name('setting.user.add');
-    Route::post('/product/store', 'ProductController@store')->name('setting.user.add');
-    Route::get('/product/{id}/edit', 'ProductController@edit')->name('setting.user.edit');
-    Route::post('/product/{id}/update', 'ProductController@update')->name('setting.user.edit');
-    Route::get('/product/{id}/destroy', 'ProductController@destroy')->name('setting.user.delete');
+    Route::get('/template', 'TemplateController@index')->name('template');
+    Route::get('/template/create', 'TemplateController@create')->name('template.add');
+    Route::post('/template/store', 'TemplateController@store')->name('template.add');
+    Route::get('/template/{id}/edit', 'TemplateController@edit')->name('template.edit');
+    Route::post('/template/{id}/update', 'TemplateController@update')->name('template.edit');
+    Route::get('/template/{id}/destroy', 'TemplateController@destroy')->name('template.delete');
 
-    Route::get('/participant', 'CampaignController@participantIndex')->name('setting.user');
-    Route::get('/participant-images', 'CampaignController@participantImages')->name('setting.user');
-    Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('setting.user');
-    Route::post('/participant-images/{id}/update-status', 'CampaignController@updateStatus')->name('setting.user');
+
+
+    Route::get('/participant', 'CampaignController@participantIndex')->name('campaign.participant');
+    Route::get('/participant-images', 'CampaignController@participantImages')->name('campaign.images');
+    Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('campaign.detail');
+    Route::post('/participant-images/{id}/update-status', 'CampaignController@updateStatus')->name('campaign.approve');
 });
 
 // without menu generator
@@ -121,13 +123,13 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/setting/permission-datatable-list', 'PermissionController@datatableList')->name('setting.permission');
     Route::get('/setting/role-datatable-list', 'RoleController@datatableList')->name('setting.role');
     Route::get('/setting/user-datatable-list', 'UserController@datatableList')->name('setting.user');
-    Route::get('/news-datatable-list', 'NewsController@datatableList')->name('setting.user');
-    Route::get('/event-datatable-list', 'EventController@datatableList')->name('setting.user');
-    Route::get('/video-datatable-list', 'VideoController@datatableList')->name('setting.user');
-    Route::get('/template-datatable-list', 'TemplateController@datatableList')->name('setting.user');
-    Route::get('/product-datatable-list', 'ProductController@datatableList')->name('setting.user');
-    Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('setting.user');
-    Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('setting.user');
+    Route::get('/news-datatable-list', 'NewsController@datatableList')->name('news');
+    Route::get('/event-datatable-list', 'EventController@datatableList')->name('event');
+    Route::get('/product-datatable-list', 'ProductController@datatableList')->name('product');
+    Route::get('/video-datatable-list', 'VideoController@datatableList')->name('video');
+    Route::get('/template-datatable-list', 'TemplateController@datatableList')->name('template');
+    Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('campaign.participant');
+    Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('campaign.images');
 });
 
 

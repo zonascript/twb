@@ -70,8 +70,8 @@
             <div class="uk-visible@m">
                 <nav class="twb-nav uk-flex uk-flex-middle">
                     <ul class="twb-socmed uk-visible@s">
-                        <li><a href="" class="uk-icon-button" uk-icon="icon: instagram"></a></li>
-                        <li><a href="" class="uk-icon-button" uk-icon="icon: facebook"></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/tiniwinibiti.id/" class="uk-icon-button" uk-icon="icon: instagram"></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/tiniwinibiti.id" class="uk-icon-button" uk-icon="icon: facebook"></a></li>
                         <!-- <li><a href="" class="uk-icon-button" uk-icon="icon: twitter"></a></li> -->
                     </ul>
                 </nav>

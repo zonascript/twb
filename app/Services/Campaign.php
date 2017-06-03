@@ -37,7 +37,7 @@ class Campaign
     {
         $data = $this->getImages()->get();
         $this->baseUrl = 'participant-images';
-        $action = $this->actionParameters(['detail']);
+        $action = $this->actionParameters(['campaign.detail' => 'detail']);
         return (new DatatableGenerator($data))
             ->addActions($action)
             ->generate();

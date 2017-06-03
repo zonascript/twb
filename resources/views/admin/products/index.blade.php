@@ -9,7 +9,9 @@
 
     <h3>
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
+        @if(userCan('product.add'))
         <a href="{!! action('ProductController@create') !!}" class="uk-button uk-button-primary uk-button-small uk-margin-left">Add New</a>
+        @endif
     </h3>
     <table class="uk-table" id="thetable">
         <thead>

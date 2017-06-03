@@ -27,7 +27,10 @@ class User
     public function datatable()
     {
         $data = $this->getList();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'setting.user.edit' => 'edit',
+            'setting.user.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)

@@ -14,7 +14,10 @@ class Permission
     public function datatable()
     {
         $data = $this->getList();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'setting.permission.edit' => 'edit',
+            'setting.permission.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)

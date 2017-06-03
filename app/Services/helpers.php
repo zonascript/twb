@@ -84,3 +84,9 @@ if (! function_exists('getAge')) {
         return \Carbon\Carbon::createFromFormat($birthDateFormat, $birthDate)->diff(\Carbon\Carbon::now())->format('%y tahun');
     }
 }
+
+if (! function_exists('userCan')) {
+    function userCan($permission) {
+        return auth()->user()->can($permission);
+    }
+}

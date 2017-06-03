@@ -36,7 +36,10 @@ class Template
     public function datatable()
     {
         $data = $this->getList()->get();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'template.edit' => 'edit',
+            'template.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)

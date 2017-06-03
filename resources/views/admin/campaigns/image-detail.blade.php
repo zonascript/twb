@@ -43,7 +43,7 @@
                 <tr>
                     <td colspan="2" class="uk-text-right">
                         <a class="uk-button uk-button-primary twb-round green" href="{{ action('CampaignController@participantImages') }}">BACK</a>
-                        @if ($image->status == 0)
+                        @if ($image->status == 0 && userCan('campaign.approve'))
                         <button class="uk-button uk-button-primary twb-round green" title="Daftar" type="submit">APPROVE</button>
                         @endif
                     </td>

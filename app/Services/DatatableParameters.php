@@ -8,27 +8,33 @@ trait DatatableParameters
     function actionParameters(array $actions)
     {
         $params = array();
-        foreach ($actions as $action) {
+        foreach ($actions as $permission => $action) {
             $function = $action.'Parameter';
-            $params[$action] = $this->$function();
+            $params[$action] = $this->$function($permission);
         }
 
         return $params;
     }
 
-    protected function editParameter()
+    protected function editParameter($permission = '')
     {
         $url = $this->baseUrl . '/%s/edit';
         $edit = [
-            'title'     => 'Edit',
-            'link'      => backendUrl($url),
-            'class'     => 'uk-label uk-text-capitalize green',
-            'icon'      => 'fa fa-fw fa-pencil'
+            'title' => 'Edit',
+            'link' => backendUrl($url),
+            'class' => 'uk-label uk-text-capitalize green',
+            'icon' => 'fa fa-fw fa-pencil'
         ];
-        return $edit;
+        if ($permission != '') {
+            if (auth()->user()->can($permission)) {
+                return $edit;
+            }
+        } else {
+            return $edit;
+        }
     }
 
-    protected function detailParameter()
+    protected function detailParameter($permission = '')
     {
         $url = $this->baseUrl . '/%s/detail';
         $detail = [
@@ -37,10 +43,16 @@ trait DatatableParameters
             'class'     => 'uk-label uk-text-capitalize blue',
             'icon'      => 'fa fa-fw fa-eye'
         ];
-        return $detail;
+        if ($permission != '') {
+            if (auth()->user()->can($permission)) {
+                return $detail;
+            }
+        } else {
+            return $detail;
+        }
     }
 
-    protected function deleteParameter()
+    protected function deleteParameter($permission = '')
     {
         $url = $this->baseUrl . '/%s/destroy';
         $delete = [
@@ -49,6 +61,12 @@ trait DatatableParameters
             'class'     => 'uk-label uk-text-capitalize red',
             'icon'      => 'fa fa-fw fa-times-circle',
         ];
-        return $delete;
+        if ($permission != '') {
+            if (auth()->user()->can($permission)) {
+                return $delete;
+            }
+        } else {
+            return $delete;
+        }
     }
 }

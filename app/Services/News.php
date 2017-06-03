@@ -32,7 +32,10 @@ class News
     public function datatable()
     {
         $data = $this->getList()->get();
-        $actions = $this->actionParameters(['edit', 'delete']);
+        $actions = $this->actionParameters([
+            'news.edit' => 'edit',
+            'news.delete' => 'delete'
+        ]);
 
         return (new DatatableGenerator($data))
             ->addActions($actions)
