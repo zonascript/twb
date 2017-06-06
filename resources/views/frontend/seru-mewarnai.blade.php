@@ -13,7 +13,7 @@
 
             <h4 class="uk-text-uppercase">Langkah KEDUA: MEMAJANG Lembar Mewarnai</h4>
             <div class="uk-flex uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">Memindai dan mengunggah hasil mewarnai kamu untuk dipajangkan di halaman situs ini, serta mengisi nama, usia, tempat tinggal, alamat e-mail kamu.</div>
+                <div class="uk-width-expand">Scan atau foto dan upload hasil karya si kecil di website Tini Wini Biti beserta data diri, untuk dipajang dan juga mendapat kesempatan untuk mendapat hadiah dari Tini Wini Biti.</div>
                 <div class="uk-width-auto">
                     @if (auth()->check())
                         <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round upload"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>

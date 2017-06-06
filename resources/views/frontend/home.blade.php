@@ -33,7 +33,7 @@
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird1right gwd-gen-bird1right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird2right gwd-gen-bird2right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3right gwd-gen-bird3right">
-            <div class="slides-text uk-position-center">Selamat datang lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <div class="slides-text uk-position-center">Selamat Datang di Dunia Tini Wini Biti</div>
         </div>
         {{-- <div class="flexslider">
             <ul class="slides">
@@ -49,7 +49,7 @@
                 <div class="uk-flex uk-flex-middle@m uk-flex-top@s" uk-grid>
                     <div class="uk-width-1-1@s uk-width-1-2@m">
                         <h2 class="white-text">Tentang Produk Kami</h2>
-                        <p class="white-text">Tini Wini Biti adalah biskuit yang berbentuk karakter 5 binatang yang lucu, yaitu Gajah, Bebek, Kura-kura, Ikan, dan Kupu-kupu. Tersedia dalam berbagai macam rasa yang enak dan pasti disukai anak-anak, seperti: rasa jagung manis, susu, stroberi, keju, coklat, dan sebagainya.</p>
+                        <p class="white-text">Tini Wini Biti adalah biskuit untuk anak yang berbentuk karakter 5 binatang yang lucu, yaitu Gajah, Bebek, Ikan, Kura-kura, dan Kupu-kupu. Tersedia dalam berbagai macam rasa yang enak dan pasti disukai anak-anak.</p>
                         <p class="white-text">Tini Wini Biti bisa menjadi teman bermain dan belajar untuk anak, karena setiap kemasannya dapat bercerita, serta bentuk biskuit yang imut dan lucu akan membantu mereka mengembangkan daya imajinasi yang kreatif.</p>
                         <p><a href="{!! url('/produk-kami') !!}" class="uk-button twb-button-yellow">Variasi Produk</a></p>
                         <p><a href="{!! url('/video') !!}" class="uk-button twb-button-yellow">Video Iklan</a></p>
@@ -64,7 +64,7 @@
     <section id="home3" class="twb-home-section uk-flex uk-flex-middle">
         <div class="uk-container uk-container-small uk-text-center">
             <h2 class="twb-blue-text">PROMO SPESIAL KAMI</h2>
-            <p class="uk-margin-large-bottom">Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod incidida ut labore et dolore.</p>
+            <p class="uk-margin-large-bottom">Dapatkan promo terbaru kami.</p>
             <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
                 <div class="uk-width-1-1 uk-width-1-3@m">
                     <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.png') !!}" alt="Tini Wini Biti"></a>
