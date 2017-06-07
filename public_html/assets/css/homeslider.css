@@ -41,8 +41,11 @@
         margin-top: -25%;
     }
 }
-@media (max-width: 959px) {
-
+@media (max-width: 639px) {
+    .slides-text {
+        font-size: 16px;
+        max-width: 90%;
+    }
 }
 
 .gwd-img-1952 {
