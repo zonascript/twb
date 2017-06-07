@@ -67,7 +67,7 @@
             <p class="uk-margin-large-bottom">Dapatkan promo terbaru kami.</p>
             <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
                 <div class="uk-width-1-1 uk-width-1-3@m">
-                    <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpeg') !!}" alt="Tini Wini Biti"></a>
+                    <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
                 </div>
                 <div class="uk-width-1-1 uk-width-1-3@m">
                     <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner2.png') !!}" alt="Tini Wini Biti"></a>
