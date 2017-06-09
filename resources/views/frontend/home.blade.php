@@ -33,7 +33,7 @@
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird1right gwd-gen-bird1right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird2right gwd-gen-bird2right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3right gwd-gen-bird3right">
-            <div class="slides-text uk-position-center">Selamat Datang di Dunia Tini Wini Biti</div>
+            <div class="slides-text uk-position-center">Selamat Datang di Dunia<br>Tini Wini Biti</div>
         </div>
         {{-- <div class="flexslider">
             <ul class="slides">
@@ -115,14 +115,14 @@
 @endsection
 
 @section('page-level-scripts')
-    {{-- <script src="{!! asset('assets/js/jquery.scrollify.min.js') !!}"></script> --}}
+    <script src="{!! asset('assets/js/jquery.scrollify.min.js') !!}"></script>
     {{-- <script src="{!! asset('assets/js/jquery.flexslider-min.js') !!}"></script> --}}
     <script>
         $(document).ready(function() {
-            // $.scrollify({
-            //     section : ".twb-home-section",
-            //     interstitialSection:"footer"
-            // });
+            $.scrollify({
+                section : ".twb-home-section",
+                interstitialSection:"footer"
+            });
             // $('.flexslider').flexslider({
             //     animation: 'fade',
             //     directionNav: false,
