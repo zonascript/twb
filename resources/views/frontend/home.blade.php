@@ -49,7 +49,7 @@
     <section id="home2" class="twb-home-section uk-background-cover uk-background-top uk-flex uk-flex-middle" style="background-image: url({!! asset('assets/img/bg-home-2.png') !!});">
         <div class="uk-width-1-1">
             <div class="uk-container uk-container-small">
-                <div class="uk-flex uk-flex-middle@m uk-flex-top@s" uk-grid>
+                <div class="uk-flex uk-flex-middle" uk-grid>
                     <div class="uk-width-1-1@s uk-width-1-2@m">
                         <h2 class="white-text">Tentang Produk Kami</h2>
                         <p class="white-text">Tini Wini Biti adalah biskuit untuk anak yang berbentuk karakter 5 binatang yang lucu, yaitu Gajah, Bebek, Ikan, Kura-kura, dan Kupu-kupu. Tersedia dalam berbagai macam rasa yang enak dan pasti disukai anak-anak.</p>
