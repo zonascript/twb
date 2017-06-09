@@ -119,10 +119,13 @@
     {{-- <script src="{!! asset('assets/js/jquery.flexslider-min.js') !!}"></script> --}}
     <script>
         $(document).ready(function() {
-            $.scrollify({
-                section : ".twb-home-section",
-                interstitialSection:"footer"
-            });
+
+            if(!(/Android|webOS|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent) )) { //if not these userAgents
+                $.scrollify({
+                    section : ".twb-home-section",
+                    interstitialSection:"footer"
+                });
+            }
             // $('.flexslider').flexslider({
             //     animation: 'fade',
             //     directionNav: false,
