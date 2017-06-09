@@ -33,7 +33,10 @@
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird1right gwd-gen-bird1right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird2right gwd-gen-bird2right">
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3right gwd-gen-bird3right">
-            <div class="slides-text uk-position-center">Selamat Datang di Dunia<br>Tini Wini Biti</div>
+            <div class="slides-text uk-position-center">
+                Selamat Datang di Dunia<br>
+                <img src="assets/img/tiniwinibiti.png" alt="Tini Wini Biti" class="uk-margin-small-top">
+            </div>
         </div>
         {{-- <div class="flexslider">
             <ul class="slides">
