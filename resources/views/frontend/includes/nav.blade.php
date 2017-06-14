@@ -21,14 +21,14 @@
         </li>
         @else
         <li>
-            <a href="javascript:;" title="Login" class="nav-login">Login</a>
+            <a href="javascript:;" title="Masuk" class="nav-login">Masuk</a>
         </li>
         @endif
     </ul>
     <ul class="twb-socmed uk-visible@s">
         <li><a target="_blank" href="https://www.instagram.com/tiniwinibiti.id/" class="uk-icon-button" uk-icon="icon: instagram"></a></li>
         <li><a target="_blank" href="https://www.facebook.com/tiniwinibiti.id/" class="uk-icon-button" uk-icon="icon: facebook"></a></li>
-        <li><a target="_blank" href="" class="uk-icon-button" uk-icon="icon: twitter"></a></li>
+        {{--<li><a target="_blank" href="" class="uk-icon-button" uk-icon="icon: twitter"></a></li>--}}
     </ul>
     <a href="#mobilenav" class="uk-hidden@s white-text" uk-toggle uk-icon="icon: menu"></a>
 </nav>
@@ -57,7 +57,7 @@
             </li>
             @else
             <li>
-                <a href="javascript:;" title="Login" class="nav-login">Login</a>
+                <a href="javascript:;" title="Masuk" class="nav-login">Masuk</a>
             </li>
             @endif
             {{-- @if(logged) --}}
@@ -74,7 +74,7 @@
             <li class="uk-nav-divider"></li>
             <li><a target="_blank" href="https://www.instagram.com/tiniwinibiti.id/"><span uk-icon="icon: instagram"></span> Instagram</a></li>
             <li><a target="_blank" href="https://www.facebook.com/tiniwinibiti.id/"><span uk-icon="icon: facebook"></span> Facebook</a></li>
-            <li><a target="_blank" href=""><span uk-icon="icon: twitter"></span> Twitter</a></li>
+            {{--<li><a target="_blank" href=""><span uk-icon="icon: twitter"></span> Twitter</a></li>--}}
         </ul>
     </div>
 </div>

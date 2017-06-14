@@ -1,8 +1,8 @@
 
         <footer class="twb-footer uk-flex uk-flex-middle">
-            <a title="Back to Top" class="uk-margin-left" uk-scroll uk-tooltip><span uk-totop></span> <span class="uk-visible@m">Back to Top</span></a>
+            <a title="Kembali ke atas" class="uk-margin-left" uk-scroll uk-tooltip><span uk-totop></span> <span class="uk-visible@m">Kembali ke atas</span></a>
             <div class="uk-margin-large-left">
-                Copyright &copy; <?php echo date('Y'); ?> <a class="" href="#" target="_blank" title="PT Tini Wini Biti">PT Tini Wini Biti</a> | All Rights Reserved
+                Copyright &copy; {{ date('Y') }} <a class="" href="#" target="_blank" title="PT Tini Wini Biti">PT Tini Wini Biti</a> | All Rights Reserved
             </div>
             <div class="uk-visible@m">
                 @include('frontend.includes.nav')
