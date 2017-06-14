@@ -73,9 +73,10 @@ class TemplateController extends Controller
     public function edit($id)
     {
         $data['id'] = $id;
-        $data['templateFile'] = getMedia($id, 'template_file');
+        // $data['templateFile'] = getMedia($id, 'template_file');
         $data['post'] = $this->template->getById($id);
         $data['pageTitle'] = 'Edit Template';
+        //dd($data);
         return view('admin.templates.edit', $data);
     }
 
@@ -110,11 +111,11 @@ class TemplateController extends Controller
 
     public function templatePaginated(Request $request)
     {
-        $newsQuery = $this->template->getList();
-        $newsQuery = $newsQuery->orderBy('publish_at', 'desc');
+        $templateQuery = $this->template->getList();
+        $templateQuery = $templateQuery->orderBy('publish_at', 'desc');
             //->where('p.id', '<', '200');
-        $news = $newsQuery->paginate(4);
-        $news->withPath('template-paginated');
-        return $news->toJson();
+        $templates = $templateQuery->paginate(4);
+        $templates->withPath('template-paginated');
+        return $templates->toJson();
     }
 }

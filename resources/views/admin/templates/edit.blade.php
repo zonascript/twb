@@ -32,7 +32,7 @@
                     <label class="uk-form-label" for="">Title</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" type="text" name="title"
-                               value="@if(old('title') != '') {!! old('title') !!} @else {!! $post->title !!} @endif" autofocus/>
+                           @if(old('title') != '') value="{!! old('title') !!}" @else value="{!! $post->title !!}" @endif autofocus/>
                     </div>
                 </div>
             </div>
@@ -73,8 +73,8 @@
                 <div class="uk-form-row uk-margin">
                     <label class="uk-form-label" for="">Template File</label>
                     <div class="uk-form-controls">
-                        <input type="hidden" name="template_file_old" value="{!! $templateFile->id !!}" />
-                        <label class="uk-label">{!! $templateFile->path !!}</label>
+                        <input type="hidden" name="template_file_old" @if($post->template_id != '') value="{!! $post->template_id !!}" @endif />
+                        <label class="uk-label">@if($post->template_path != '') {!! $post->template_path !!} @endif</label>
                         <input type="file" class="uk-input uk-margin-top" name="template_file" />
                     </div>
                 </div>

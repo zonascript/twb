@@ -101,7 +101,7 @@ function zoomColoring($this) {
     '<div class="uk-padding-small uk-flex uk-flex-middle uk-flex-between">' +
         '<div class="uk-width-expand">'+ txt +'</div>' +
         '<ul class="uk-subnav uk-subnav-divider uk-margin-remove uk-width-auto">' +
-            '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
+            // '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
             '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
         '</ul>' +
     '</div>';

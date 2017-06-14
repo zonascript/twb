@@ -4,6 +4,7 @@ namespace App\Service;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class Template
@@ -57,6 +58,10 @@ class Template
             'post_type_id' => $this->postTypeId
         ];
         $news = $this->post->getPostQuery($params)
+            ->addSelect(DB::raw('(SELECT medias.id FROM post_has_medias phm LEFT JOIN medias ON medias.id = phm.media_id 
+	WHERE phm.post_id = p.id AND medias.type = "template_file") AS template_id'))
+            ->addSelect(DB::raw('(SELECT medias.path FROM post_has_medias phm LEFT JOIN medias ON medias.id = phm.media_id 
+	WHERE phm.post_id = p.id AND medias.type = "template_file") AS template_path'))
             ->where('medias.type', 'featured');
         return $news;
     }
@@ -66,6 +71,10 @@ class Template
         return $this->post->getPostQuery(['id' => $id])
             ->where('medias.type', 'featured')
             ->addSelect('medias.id AS media_id')
+            ->addSelect(DB::raw('(SELECT medias.id FROM post_has_medias phm LEFT JOIN medias ON medias.id = phm.media_id 
+	WHERE phm.post_id = p.id AND medias.type = "template_file") AS template_id'))
+            ->addSelect(DB::raw('(SELECT medias.path FROM post_has_medias phm LEFT JOIN medias ON medias.id = phm.media_id 
+	WHERE phm.post_id = p.id AND medias.type = "template_file") AS template_path'))
             ->first();
     }
 
@@ -131,9 +140,8 @@ class Template
                 File::makeDirectory(public_path($folder), 0775, true, true);
             }
             $imageName = $this->media->getUniqueFileName($file, $folder);
-            $publicPath = public_path($folder);
             $imagePath = $folder . $imageName;
-            $file->storeAs($publicPath, $imageName);
+            $file->storeAs($folder, $imageName);
             $filename = pathinfo($imageName, PATHINFO_FILENAME);
             $media = $this->media->saveMedia($filename, $imageName, $imagePath, 'template_file');
             return $media->id;

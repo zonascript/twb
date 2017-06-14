@@ -21,6 +21,7 @@ function loadTemplate(url, ajaxBaseUrl) {
 }
 
 function generateTemplate($res, url) {
+    console.log($res.data);
     generateNav($res, url, 'template');
     generateTemplateContent($res.data);
 }
@@ -37,6 +38,7 @@ function generateEmptyTemplate() {
 function generateTemplateContent($data) {
     let templateContent = '';
     $.each($data, function (index, template) {
+        console.log(template);
         templateContent += '<div>' +
             '<div class="twb-color-bw">' +
                 '<a class="thumb zoom" title="zoom" onclick="zoomColoring(this)">' +
@@ -46,8 +48,8 @@ function generateTemplateContent($data) {
                     '<h6 class="twb-blue-text uk-text-truncate uk-margin-remove" title="'+template.title+'" uk-tooltip>'+template.title+'</h6>' +
                     '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
                         '<li><a class="uk-text-capitalize zoom" title="Zoom" onclick="zoomColoring(this)">Zoom +</a></li>' +
-                        '<li><a href="" class="uk-text-capitalize" title="">Print</a></li>' +
-                        '<li><a href="" class="uk-text-capitalize" title="">Download</a></li>' +
+                        // '<li><a href="" class="uk-text-capitalize" title="">Print</a></li>' +
+                        '<li><a href="'+baseUrl + '/uploads/templates/' + template.template_path + '" class="uk-text-capitalize" title="">Download</a></li>' +
                     '</ul>' +
                 '</div>' +
             '</div>' +
