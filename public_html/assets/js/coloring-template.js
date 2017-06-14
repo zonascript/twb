@@ -49,7 +49,7 @@ function generateTemplateContent($data) {
                     '<ul class="uk-subnav uk-subnav-divider uk-margin-remove">' +
                         '<li><a class="uk-text-capitalize zoom" title="Zoom" onclick="zoomColoring(this)">Zoom +</a></li>' +
                         // '<li><a href="" class="uk-text-capitalize" title="">Print</a></li>' +
-                        '<li><a href="'+baseUrl + '/uploads/templates/' + template.template_path + '" class="uk-text-capitalize" title="">Download</a></li>' +
+                        '<li><a href="'+baseUrl + '/uploads/templates/' + template.template_path + '" class="uk-text-capitalize template-file" title="">Download</a></li>' +
                     '</ul>' +
                 '</div>' +
             '</div>' +

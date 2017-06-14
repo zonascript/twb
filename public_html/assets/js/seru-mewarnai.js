@@ -95,6 +95,7 @@ function clearUploadForm() {
 
 function zoomColoring($this) {
     var img = $($this).closest('div.twb-color-bw').find('img').prop('src');
+    var pdf = $($this).closest('div.twb-color-bw').find('.template-file').prop('href');
     var txt = $($this).closest('div.twb-color-bw').find('h6').text();
     var modal = '<button class="uk-modal-close-outside" type="button" uk-close></button>' +
     '<img src="'+img+'" class="twb-popimg">' +
@@ -102,7 +103,7 @@ function zoomColoring($this) {
         '<div class="uk-width-expand">'+ txt +'</div>' +
         '<ul class="uk-subnav uk-subnav-divider uk-margin-remove uk-width-auto">' +
             // '<li><a href="" class="uk-text-capitalize" title="Print"><i class="fa fa-print"></i> Print</a></li>' +
-            '<li><a href="'+img+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
+            '<li><a href="'+pdf+'" class="uk-text-capitalize" title="Download" target="_blank"><i class="fa fa-download"></i> Download</a></li>' +
         '</ul>' +
     '</div>';
     var uikitModal = UIkit.modal.dialog(modal);
