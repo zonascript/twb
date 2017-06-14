@@ -11,14 +11,14 @@
         <div class="uk-container uk-container-small">
             @include('frontend.includes.coloring-template')
 
-            <h4 class="uk-text-uppercase">Step 2: Upload Karya Mewarnai</h4>
+            <h4 class="uk-text-uppercase">Step 2: Unggah Karya Mewarnai</h4>
             <div class="uk-flex uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">Scan atau foto dan upload hasil karya si kecil di website Tini Wini Biti beserta data diri, untuk dipajang dan juga mendapat kesempatan untuk mendapat hadiah dari Tini Wini Biti.</div>
+                <div class="uk-width-expand">Scan atau foto dan unggah hasil karya si kecil di website Tini Wini Biti beserta data diri, untuk dipajang dan juga mendapat kesempatan untuk mendapat hadiah dari Tini Wini Biti.</div>
                 <div class="uk-width-auto">
                     @if (auth()->check())
-                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round upload"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
+                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round upload"><span uk-icon="icon: cloud-upload"></span> Unggah</a>
                     @else
-                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round login"><span uk-icon="icon: cloud-upload"></span> UPLOAD</a>
+                        <a class="uk-button uk-button-small uk-button-primary green uk-width-small twb-round login"><span uk-icon="icon: cloud-upload"></span> Unggah</a>
                     @endif
                 </div>
             </div>

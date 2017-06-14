@@ -11,11 +11,11 @@
         </li>
         @if (auth()->check())
         <li @if(isset($navActiveProfile)) {!! $navActiveProfile !!} @endif>
-            <a href="{!! url('/account') !!}" title="Profile">My Account</a>
+            <a href="{!! url('/account') !!}" title="Akun Saya">Akun Saya</a>
             <div uk-dropdown>
                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li><a href="{!! url('/account') !!}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> My Account</a></li>
-                    <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
+                    <li><a href="{!! url('/account') !!}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Akun Saya</a></li>
+                    <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Keluar</a></li>
                 </ul>
             </div>
         </li>
@@ -47,11 +47,11 @@
             </li>
             @if (auth()->check())
             <li @if(isset($navActiveProfile)) {!! $navActiveProfile !!} @endif>
-                <a href="{!! url('/account') !!}" title="Profile">My Account</a>
+                <a href="{!! url('/account') !!}" title="Akun Saya">Akun Saya</a>
                 <div uk-dropdown>
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="{!! url('/account') !!}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> My Account</a></li>
-                        <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
+                        <li><a href="{!! url('/account') !!}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Akun Saya</a></li>
+                        <li><a href="{!! url('/logout') !!}"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Keluar</a></li>
                     </ul>
                 </div>
             </li>

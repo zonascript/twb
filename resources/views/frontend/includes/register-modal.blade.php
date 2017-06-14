@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="uk-margin">
-                <label class="uk-form-label" for="email">Buat Password *</label>
+                <label class="uk-form-label" for="email">Ulang Password *</label>
                 <div class="uk-form-controls">
                     <input class="uk-input uk-form-small twb-round" id="reg_password_confirmation" type="password" placeholder="Konfirmasi Password" name="password_confirmation">
                 </div>

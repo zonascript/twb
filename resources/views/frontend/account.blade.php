@@ -13,7 +13,7 @@
             <div class="uk-position-relative">
                 <ul uk-tab>
                     <li><a href="#">Profil</a></li>
-                    <li><a href="#">Upload Galeri</a></li>
+                    <li><a href="#">Galeri</a></li>
                 </ul>
 
                 <ul class="uk-switcher uk-margin">

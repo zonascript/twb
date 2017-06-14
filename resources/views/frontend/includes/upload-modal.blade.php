@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="uk-margin-small-bottom">
-                    <label class="uk-form-label" for="judul">Upload File *</label>
+                    <label class="uk-form-label" for="judul">Unggah File *</label>
                     <div class="uk-form-controls">
                         <div uk-form-custom="target: true" class="uk-width-1-1">
                             <input type="file" name="file" id="file">

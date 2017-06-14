@@ -130,7 +130,7 @@ class FrontEndController extends Controller
     public function account()
     {
         $data['user'] = auth()->user();
-        $data['pageTitle'] = 'My Account';
+        $data['pageTitle'] = 'Akun Saya';
         $data['pageClass'] = 'class="account"';
         $data['navActiveProfile'] = 'class="uk-active"';
         return view('frontend.account', $data);
