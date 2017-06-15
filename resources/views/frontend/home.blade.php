@@ -83,7 +83,7 @@
             <div class="uk-slidenav-position" data-uk-slider="{center:true}">
 
                 <div class="uk-slider-container">
-                    <ul class="uk-slider uk-width-1-1" uk-grid>
+                    <ul class="uk-slider uk-width-1-1 uk-grid-medium" uk-grid>
                         <li class="uk-width-1-3">
                             <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
                         </li>
