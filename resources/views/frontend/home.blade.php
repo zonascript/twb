@@ -1,7 +1,8 @@
 @extends('frontend.layouts.default')
 
 @section('page-level-styles')
-    {{-- <link rel="stylesheet" href="{!! asset('assets/css/flexslider.css') !!}" /> --}}
+    <link rel="stylesheet" href="{!! asset('assets/css/slider.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/slidenav.css') !!}" />
     <link rel="stylesheet" href="{!! asset('assets/css/homeslider.css') !!}" />
 @endsection
 
@@ -68,7 +69,7 @@
         <div class="uk-container uk-container-small uk-text-center">
             <h2 class="twb-blue-text">PROMO SPESIAL KAMI</h2>
             <p class="uk-margin-large-bottom">Dapatkan promo terbaru kami.</p>
-            <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
+            {{-- <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
                 <div class="uk-width-1-1 uk-width-1-3@m">
                     <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
                 </div>
@@ -78,6 +79,35 @@
                 <div class="uk-width-1-1 uk-width-1-3@m">
                     <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner3.png') !!}" alt="Tini Wini Biti"></a>
                 </div>
+            </div> --}}
+            <div class="uk-slidenav-position" data-uk-slider="{center:true}">
+
+                <div class="uk-slider-container">
+                    <ul class="uk-slider uk-width-1-1" uk-grid>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner2.png') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner3.png') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner2.png') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                        <li class="uk-width-1-3">
+                            <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner3.png') !!}" alt="Tini Wini Biti"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slider-item="previous" draggable="false"></a>
+                <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slider-item="next" draggable="false"></a>
+
             </div>
         </div>
     </section>
@@ -119,7 +149,8 @@
 
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/jquery.scrollify.min.js') !!}"></script>
-    {{-- <script src="{!! asset('assets/js/jquery.flexslider-min.js') !!}"></script> --}}
+    <script src="{!! asset('assets/js/uikit.2.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/slider.min.js') !!}"></script>
     <script>
         $(document).ready(function() {
 
