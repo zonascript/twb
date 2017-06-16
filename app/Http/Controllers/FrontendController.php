@@ -8,6 +8,7 @@ use App\Service\Event;
 use App\Service\Media;
 use App\Service\News;
 use App\Service\Product;
+use App\Service\Promo;
 use App\Service\Template;
 use App\Service\Video;
 use Illuminate\Http\Request;
@@ -37,6 +38,10 @@ class FrontEndController extends Controller
      * @var Product
      */
     private $product;
+    /**
+     * @var Promo
+     */
+    private $promo;
 
     /**
      * FrontEndController constructor.
@@ -51,7 +56,8 @@ class FrontEndController extends Controller
         Event $event,
         Video $video,
         Template $template,
-        Product $product
+        Product $product,
+        Promo $promo
     )
     {
         $this->news = $news;
@@ -59,12 +65,14 @@ class FrontEndController extends Controller
         $this->video = $video;
         $this->template = $template;
         $this->product = $product;
+        $this->promo = $promo;
         $this->middleware('frontendAuth')->only(['account']);
     }
 
     public function home()
     {
         $data['news'] = $this->news->getList()->limit(3)->get();
+        $data['promos'] = $this->promo->getList()->get();
         $data['pageTitle'] = 'Home';
         $data['metaDescription'] = config('misc.home-meta');
         $data['pageClass'] = 'class="home"';

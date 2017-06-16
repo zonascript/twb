@@ -68,17 +68,15 @@
         <div class="uk-container uk-container-small uk-text-center">
             <h2 class="twb-blue-text">PROMO SPESIAL KAMI</h2>
             <p class="uk-margin-large-bottom">Dapatkan promo terbaru kami.</p>
+            @if(count($promos) > 0)
             <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
+                @foreach($promos as $promo)
                 <div class="uk-width-1-1 uk-width-1-3@m">
-                    <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner1.jpg') !!}" alt="Tini Wini Biti"></a>
+                    <a href="" class="twb-homebanner" title=""><img src="{!! asset($promo->fullpath) !!}" alt="{{ $promo->title }}"></a>
                 </div>
-                <div class="uk-width-1-1 uk-width-1-3@m">
-                    <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner2.png') !!}" alt="Tini Wini Biti"></a>
-                </div>
-                <div class="uk-width-1-1 uk-width-1-3@m">
-                    <a href="" class="twb-homebanner" title=""><img src="{!! asset('images/sample-content/homebanner3.png') !!}" alt="Tini Wini Biti"></a>
-                </div>
+                @endforeach
             </div>
+            @endif
         </div>
     </section>
     <section id="home4" class="twb-home-section uk-flex uk-flex-middle">

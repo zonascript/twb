@@ -110,7 +110,12 @@ Route::group([
     Route::post('/template/{id}/update', 'TemplateController@update')->name('template.edit');
     Route::get('/template/{id}/destroy', 'TemplateController@destroy')->name('template.delete');
 
-
+    Route::get('/promo', 'PromoController@index')->name('promo');
+    Route::get('/promo/create', 'PromoController@create')->name('promo.add');
+    Route::post('/promo/store', 'PromoController@store')->name('promo.add');
+    Route::get('/promo/{id}/edit', 'PromoController@edit')->name('promo.edit');
+    Route::post('/promo/{id}/update', 'PromoController@update')->name('promo.edit');
+    Route::get('/promo/{id}/destroy', 'PromoController@destroy')->name('promo.delete');
 
     Route::get('/participant', 'CampaignController@participantIndex')->name('campaign.participant');
     Route::get('/participant-images', 'CampaignController@participantImages')->name('campaign.images');
@@ -128,6 +133,7 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/product-datatable-list', 'ProductController@datatableList')->name('product');
     Route::get('/video-datatable-list', 'VideoController@datatableList')->name('video');
     Route::get('/template-datatable-list', 'TemplateController@datatableList')->name('template');
+    Route::get('/promo-datatable-list', 'PromoController@datatableList')->name('promo');
     Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('campaign.participant');
     Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('campaign.images');
 });

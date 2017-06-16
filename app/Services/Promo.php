@@ -2,19 +2,17 @@
 
 namespace App\Service;
 
-
-use App\Http\Requests\StoreNews;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class News
+class Promo
 {
     use DatatableParameters;
 
-    // News Post Type
-    protected $postTypeId = 1;
+    // Promo Post Type
+    protected $postTypeId = 6;
 
-    protected $baseUrl = 'news';
+    protected $baseUrl = 'promo';
 
     /**
      * @var Post
@@ -22,7 +20,7 @@ class News
     private $post;
 
     /**
-     * News constructor.
+     * Promo constructor.
      */
     public function __construct(Post $post)
     {
@@ -33,8 +31,8 @@ class News
     {
         $data = $this->getList()->get();
         $actions = $this->actionParameters([
-            'news.edit' => 'edit',
-            'news.delete' => 'delete'
+            'promo.edit' => 'edit',
+            'promo.delete' => 'delete'
         ]);
 
         return (new DatatableGenerator($data))
@@ -42,9 +40,9 @@ class News
             ->generate();
     }
 
-    public function getNewsById($newsId)
+    public function getPromoById($promoId)
     {
-        return $this->post->getPostById($newsId);
+        return $this->post->getPostById($promoId);
     }
 
     public function getList($params = [])
@@ -55,8 +53,8 @@ class News
         if (isset($params['slug'])) {
             $listParams['slug'] = $params['slug'];
         }
-        $news = $this->post->getPostQuery($listParams);
-        return $news;
+        $promo = $this->post->getPostQuery($listParams);
+        return $promo;
     }
 
     public function getById($id)
@@ -64,7 +62,7 @@ class News
         return $this->post->getPostQuery(['id' => $id])->first();
     }
 
-    public function store(StoreNews $request)
+    public function store($request)
     {
         $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
@@ -82,7 +80,7 @@ class News
         }
     }
 
-    public function update(StoreNews $request, $id)
+    public function update($request, $id)
     {
         $publishDate = Carbon::createFromFormat('d/m/Y', $request->input('publish_date'))->format('Y-m-d');
         $status = $request->input('status');
@@ -103,13 +101,6 @@ class News
     public function destroy($id)
     {
         return $this->post->destroy($id);
-    }
-
-    public function viewed($id)
-    {
-        $news = $this->post->getPostById($id);
-        $news->views = $news->views + 1;
-        $news->save();
     }
 
 }
