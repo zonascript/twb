@@ -16,7 +16,7 @@
   height: 60px;
   /* 3 */
   line-height: 60px;
-  color: rgba(50, 50, 50, 0.4);
+  color: rgba(50, 50, 50, 0.6);
   font-size: 60px;
   text-align: center;
 }
@@ -74,10 +74,12 @@
   display: block;
 }
 .uk-slidenav-position .uk-slidenav-previous {
-  left: 20px;
+  left: 0;
+  margin-left: -60px;
 }
 .uk-slidenav-position .uk-slidenav-next {
-  right: 20px;
+  right: 0;
+  margin-left: 60px;
 }
 /* Modifier: `uk-slidenav-contrast`
  ========================================================================== */
