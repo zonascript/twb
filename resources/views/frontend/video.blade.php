@@ -21,11 +21,11 @@
                         <h3>{!! $video->title !!}</h3>
                         <p class="uk-article-meta">{!! \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $video->publish_at)->diffForHumans() !!}</p>
                         <p>{!! $video->content !!}</p>
-                        <div>
-                            <a class="uk-button uk-button-default uk-button-small uk-text-capitalize" href="#">
-                                Follow &amp; Comment <span uk-icon="icon: arrow-right"></span>
-                            </a>
-                        </div>
+                        {{--<div>--}}
+                            {{--<a class="uk-button uk-button-default uk-button-small uk-text-capitalize" href="#">--}}
+                                {{--Follow &amp; Comment <span uk-icon="icon: arrow-right"></span>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
                         @else
                             <div class="">Tidak ada data.</div>
                         @endif
