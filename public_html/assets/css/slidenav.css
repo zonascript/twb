@@ -79,7 +79,7 @@
 }
 .uk-slidenav-position .uk-slidenav-next {
   right: 0;
-  margin-left: 60px;
+  margin-right: -60px;
 }
 /* Modifier: `uk-slidenav-contrast`
  ========================================================================== */
