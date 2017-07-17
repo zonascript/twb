@@ -31,11 +31,15 @@ $(document).ready(function() {
         beforeSubmit: function (data) {
             clearUploadForm();
         },
+        beforeSend: function( xhr ) {
+            $('#upload-form').prepend(UIkit.modal.dialog('Loading..'));
+        },
         success: function(data) {
             UIkit.modal('#upload-modal').hide();
             location.reload();
         },
         error: function(data) {
+            UIkit.modal('#upload-modal').show();
             var obj = $.parseJSON(data.responseText);
             printErrorMsg(obj);
         }

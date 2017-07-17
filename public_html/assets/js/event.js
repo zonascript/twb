@@ -80,6 +80,8 @@ function generateEmptyEvent() {
     blankContent = '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
         '<p>Tidak ada data.</p>' +
         '</div>';
+    $('.events-prev-button').addClass('uk-disabled');
+    $('.events-next-button').addClass('uk-disabled');
     $('.events-container').empty();
     $('.events-container').append(blankContent);
 }
