@@ -35,6 +35,7 @@ $(document).ready(function() {
             $('body').prepend(pageLoader);
         },
         success: function(data) {
+            $('.twb-page-loader').remove();
             UIkit.modal('#upload-modal').hide();
             location.reload();
         },

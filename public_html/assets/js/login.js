@@ -40,7 +40,7 @@ $('#login-form').on('submit', function(e) {
             } else {
                 showUploadModal();
             }
-            $('.loader').remove();
+            $('.twb-page-loader').remove();
         },
         error: function(data) {
             console.log(data);
@@ -79,7 +79,7 @@ $('#reset-form').on('submit', function(e) {
             $('body').prepend(pageLoader);
         },
         success: function(data) {
-            $('.loader').remove();
+            $('.twb-page-loader').remove();
             $('#reset-form').empty();
             $('#reset-form').append('<p class="uk-alert uk-alert-success">Email telah dikirim.</p>');
         },
@@ -115,6 +115,7 @@ $('#register-form').on('submit', function(e) {
             $('body').prepend(pageLoader);
         },
         success: function(data) {
+            $('.twb-page-loader').remove();
             let regType = $('.btn-register').attr('data-type');
             if (regType == 'login') {
                 location.reload();
