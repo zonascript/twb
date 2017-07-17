@@ -32,7 +32,7 @@ $(document).ready(function() {
             clearUploadForm();
         },
         beforeSend: function( xhr ) {
-            $('#upload-form').prepend(UIkit.modal.dialog('Loading..'));
+            $('body').prepend(pageLoader);
         },
         success: function(data) {
             UIkit.modal('#upload-modal').hide();
@@ -112,5 +112,3 @@ function zoomColoring($this) {
     '</div>';
     var uikitModal = UIkit.modal.dialog(modal);
 }
-
-

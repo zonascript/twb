@@ -32,7 +32,7 @@ $('#login-form').on('submit', function(e) {
         type: 'POST',
         data: formData,
         beforeSend: function( xhr ) {
-            $('#login-form').prepend(UIkit.modal.dialog('Loading..'));
+            $('body').prepend(pageLoader);
         },
         success: function(data) {
             if (loginType == 'login') {
@@ -76,7 +76,7 @@ $('#reset-form').on('submit', function(e) {
         type: 'POST',
         data: $('#reset-form').serialize(),
         beforeSend: function( xhr ) {
-            $('#reset-form').prepend(UIkit.modal.dialog('Loading..'));
+            $('body').prepend(pageLoader);
         },
         success: function(data) {
             $('.loader').remove();
@@ -112,7 +112,7 @@ $('#register-form').on('submit', function(e) {
         type: 'POST',
         data: $('#register-form').serialize(),
         beforeSend: function( xhr ) {
-            $('#register-form').prepend(UIkit.modal.dialog('Loading..'));
+            $('body').prepend(pageLoader);
         },
         success: function(data) {
             let regType = $('.btn-register').attr('data-type');
