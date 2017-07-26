@@ -36,16 +36,10 @@
             <img src="{!! asset('images/homeslide/bird.png') !!}" class="gwd-img-bird3right gwd-gen-bird3right">
             <div class="slides-text uk-position-center">
                 Selamat Datang di Dunia<br>
-                <img src="assets/img/tiniwinibiti.png" alt="Tini Wini Biti" class="uk-margin-small-top">
+                <img src="{!! asset('assets/img/tiniwinibiti.png') !!}" alt="Tini Wini Biti" class="uk-margin-small-top">
             </div>
         </div>
-        {{-- <div class="flexslider">
-            <ul class="slides">
-                <li>
-
-                </li>
-            </ul>
-        </div> --}}
+        <a href="{!! url('/dunia-main') !!}" title="Dunia Main" class="twb-banner-dm uk-position-center-right" style="z-index:999"><img src="{!! asset('images/twb/banner-duniamain.svg') !!}" alt="Tini Wini Biti" style="width:500px;height:auto;"></a>
     </section>
     <section id="home2" class="twb-home-section uk-background-cover uk-background-top uk-flex uk-flex-middle" style="background-image: url({!! asset('assets/img/bg-home-2.png') !!});">
         <div class="uk-width-1-1">

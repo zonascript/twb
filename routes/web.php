@@ -143,3 +143,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/form', 'TestController@form');
 Route::post('/upload-image-handler', 'TestController@uploadImageHandler');
 Route::post('/get-images-for-uploader', 'TestController@getImageForUploader');
+
+Route::get('/dunia-main', 'DuniaMainController@home');
+Route::get('/dunia-main/album', 'DuniaMainController@album');
