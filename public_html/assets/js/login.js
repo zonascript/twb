@@ -35,16 +35,16 @@ $('#login-form').on('submit', function(e) {
             $('body').prepend(pageLoader);
         },
         success: function(data) {
+            $('.twb-page-loader').remove();
             if (loginType == 'login') {
                 location.reload();
             } else {
                 showUploadModal();
             }
-            $('.twb-page-loader').remove();
         },
         error: function(data) {
             console.log(data);
-            UIkit.modal('#login-modal').show();
+            $('.twb-page-loader').remove();
             var obj = $.parseJSON(data.responseText);
             if (obj.password) {
                 $("#login_password").addClass("uk-form-danger");
@@ -63,7 +63,6 @@ $('#login-form').on('submit', function(e) {
                 $("#login-errors").addClass("uk-form-danger");
                 $('#form-login-errors').html(obj.error);
             }
-            $('.loader').remove();
         }
     });
 });
@@ -84,7 +83,7 @@ $('#reset-form').on('submit', function(e) {
             $('#reset-form').append('<p class="uk-alert uk-alert-success">Email telah dikirim.</p>');
         },
         error: function(data) {
-            UIkit.modal('#reset-modal').show();
+            $('.twb-page-loader').remove();
             var obj = $.parseJSON(data.responseText);
             var errors = '';
             if (obj.email) {
@@ -124,7 +123,7 @@ $('#register-form').on('submit', function(e) {
             }
         },
         error: function(data) {
-            UIkit.modal('#register-modal').show();
+            $('.twb-page-loader').remove();
             var obj = $.parseJSON(data.responseText);
             var errors = '';
             if (obj.password) {

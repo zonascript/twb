@@ -40,7 +40,7 @@ $(document).ready(function() {
             location.reload();
         },
         error: function(data) {
-            UIkit.modal('#upload-modal').show();
+            $('.twb-page-loader').remove();
             var obj = $.parseJSON(data.responseText);
             printErrorMsg(obj);
         }

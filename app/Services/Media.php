@@ -22,6 +22,7 @@ class Media
     public function getUniqueFileName($file, $folder)
     {
         $imageName = $file->getClientOriginalName();
+        $imageName = str_replace(' ', '-', $imageName);
         $filename = pathinfo($imageName, PATHINFO_FILENAME);
         $extension = pathinfo($imageName, PATHINFO_EXTENSION);
         $sluggedFilename = str_slug($filename) . '.' . $extension;
