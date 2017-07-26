@@ -52,8 +52,6 @@
                         <div class="">1. Bebek</div>
                         <div class="dm-album-img">
                             <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
-                                <img src="{!! asset('images/duniamain/overlay.png') !!}" alt="Bebek">
-                                <div class="dm-poin">42532</div>
                             </div>
                         </div>
                         <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
@@ -64,8 +62,6 @@
                         <div class="">2. Ayam</div>
                         <div class="dm-album-img">
                             <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
-                                <img src="{!! asset('images/duniamain/overlay.png') !!}" alt="Ayam">
-                                <div class="dm-poin">42532</div>
                             </div>
                         </div>
                         <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
@@ -76,8 +72,6 @@
                         <div class="">3. Gajah</div>
                         <div class="dm-album-img">
                             <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
-                                <img src="{!! asset('images/duniamain/overlay.png') !!}" alt="Gajah">
-                                <div class="dm-poin">42532</div>
                             </div>
                         </div>
                         <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
