@@ -13,8 +13,8 @@
             <img src="{{ asset($image->file_path) }}" />
         </div>
         <div>
-            <form method="post" action="{{ action('CampaignController@updateStatus', $image->id) }}">
-            {{ csrf_field() }}
+            {{--<form method="post" action="{{ action('CampaignController@updateStatus', $image->id) }}">--}}
+{{--            {{ csrf_field() }}--}}
             <table class="uk-table uk-width-1-1">
                 <tr>
                     <td width="25%">Judul</td>
@@ -44,12 +44,18 @@
                     <td colspan="2" class="uk-text-right">
                         <a class="uk-button uk-button-primary twb-round green" href="{{ action('CampaignController@participantImages') }}">BACK</a>
                         @if ($image->status == 0 && userCan('campaign.approve'))
-                        <button class="uk-button uk-button-primary twb-round green" title="Daftar" type="submit">APPROVE</button>
+                        <a class="uk-button uk-button-primary twb-round green"
+                           href="{{ action('CampaignController@updateStatus', ['id' => $image->id, 'status' => 1]) }}">APPROVE</a>
+                        @endif
+
+                        @if ($image->status == 1 && userCan('campaign.approve'))
+                        <a class="uk-button uk-button-primary twb-round red"
+                           href="{{ action('CampaignController@updateStatus', ['id' => $image->id, 'status' => 0]) }}">OPEN</a>
                         @endif
                     </td>
                 </tr>
             </table>
-            </form>
+            {{--</form>--}}
         </div>
     </div>
 

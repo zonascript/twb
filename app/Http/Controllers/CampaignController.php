@@ -54,9 +54,9 @@ class CampaignController extends Controller
         return view('admin.campaigns.image-detail', $data);
     }
 
-    public function updateStatus($id)
+    public function updateStatus($id, $status)
     {
-        if ($this->campaign->updateStatus($id, 1)) {
+        if ($this->campaign->updateStatus($id, $status)) {
             return redirect(action('CampaignController@participantImages'));
         }
         return redirect(action('CampaignController@participantImages'));
