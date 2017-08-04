@@ -41,6 +41,8 @@
                             <div class="uk-width-1-4">Alamat :</div>
                             <div class="uk-width-3-4">{!! isset($detail->address) ? $detail->address : '' !!}</div>
                         </div>
+
+                        <div><a href="javascript:;" class="uk-link update-profile">Lengkapi Data</a></div>
                     </div>
                 </div>
 
@@ -57,7 +59,7 @@
                             <div class="">{!! $loop->iteration !!}. {!! $character !!}</div>
                             <div class="dm-album-img">
                                 @if (isset($images[$key]))
-                                    <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
+                                    <div class="uk-background-cover" style="background-image:url({!! asset($images[$key][0]->file_path) !!})">
                                 </div>
                                 @else
                                     <div class="uk-background-cover">?</div>
@@ -73,9 +75,7 @@
         </div>
     </section>
 
-    {{--@if ($uncompleteProfile)--}}
-        {{--@include('duniamain.includes.profile-detail')--}}
-    {{--@endif--}}
+    @include('duniamain.includes.profile-detail')
 
     @if($isMyPage)
         @include('duniamain.includes.upload-coin')
@@ -86,12 +86,12 @@
     <script src="{!! asset('assets/js/jquery.form.min.js') !!}"></script>
     <script>
         $(document).ready(function() {
-            {{--@if ($uncompleteProfile)--}}
-                {{--$(this).blur();--}}
-                {{--UIkit.modal('#register-modal').show();--}}
-                {{--cleanRegisterForm();--}}
-                {{--$('#mother_name').focus();--}}
-            {{--@endif--}}
+            $('.update-profile').on('click', function() {
+                $(this).blur();
+                UIkit.modal('#register-modal').show();
+                cleanRegisterForm();
+                $('#mother_name').focus();
+            });
 
             $('.dm-upload').on('click', function() {
                 $(this).blur();

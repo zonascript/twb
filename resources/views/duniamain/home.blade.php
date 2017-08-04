@@ -26,89 +26,21 @@
                 <p>Ayo cek sudah lengkapkah koleksimu disini!<br>
                     Klik karakter dengan wajahmu untuk melihat album fotomu!</p>
 
-                <ul class="uk-child-width-1-4 uk-flex uk-flex-center uk-margin-large-top" uk-grid>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dm-user-gallery">
-                            <a href="{{ url('/dunia-main/album') }}" class="dm-thumb-user" title="Zaky0078">
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="100" height="100" alt="Zaky0078">
-                            </a>
-                            <div>Zaky0078</div>
-                            <div>2/16</div>
-                        </div>
-                    </li>
+                <ul class="uk-child-width-1-4 uk-flex uk-flex-center uk-margin-large-top gallery-container" uk-grid>
+
                 </ul>
+                <ul class="uk-pagination twb-pagination gallery-nav-container" uk-margin></ul>
             </div>
         </div>
     </section>
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/moment.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/coins.js') !!}"></script>
     <script>
         $(document).ready(function() {
-
+            loadGallery('coins-paginated', 'coins-paginated');
         });
     </script>
 @endsection

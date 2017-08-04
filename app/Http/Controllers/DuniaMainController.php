@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CompleteProfile;
 use App\Http\Requests\UploadCoinImage;
+use App\Model\Coin;
 use App\Model\User;
 use App\Service\Media;
 use Illuminate\Http\Request;
@@ -172,5 +173,15 @@ class DuniaMainController extends Controller
     public function coinDatatable()
     {
         return $this->campaign->participantsDatatable();
+    }
+
+    public function coinsPaginated()
+    {
+        $q = Coin::with('user.detail')
+            ->where('status', 1);
+        $q = $q->orderBy('created_at', 'desc');
+        $result = $q->paginate(3);
+        $result->withPath('coins-paginated');
+        return $result->toJson();
     }
 }

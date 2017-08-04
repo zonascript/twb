@@ -142,8 +142,8 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/promo-datatable-list', 'PromoController@datatableList')->name('promo');
     Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('campaign.participant');
     Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('campaign.images');
-    Route::get('/participant-datatable', 'CoinController@coinDatatable')->name('campaign.participant');
-    Route::get('/participant-images-datatable', 'CoinController@imageDatatable')->name('campaign.images');
+    Route::get('/coin-datatable', 'CoinController@coinDatatable')->name('campaign.participant');
+    Route::get('/coin-images-datatable', 'CoinController@imageDatatable')->name('campaign.images');
 });
 
 
@@ -153,6 +153,7 @@ Route::post('/upload-image-handler', 'TestController@uploadImageHandler');
 Route::post('/get-images-for-uploader', 'TestController@getImageForUploader');
 
 Route::get('/dunia-main', 'DuniaMainController@home');
+Route::get('/coins-paginated', 'DuniaMainController@coinsPaginated');
 Route::get('/dunia-main/album/{userId}', 'DuniaMainController@album');
 Route::post('/dunia-main/register', 'Auth\DuniaMainRegisterController@register');
 Route::post('/dunia-main/complete-profile/{userId}', 'DuniaMainController@completeProfile');
