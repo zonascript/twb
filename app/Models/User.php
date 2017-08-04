@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Models\ColoringImage;
 use App\Models\Post;
+use App\Models\SocialAccount;
 use App\Models\UserDetail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,5 +45,10 @@ class User extends Authenticatable
     public function coloringImages()
     {
         return $this->hasMany(ColoringImage::class);
+    }
+
+    public function coins()
+    {
+        return $this->hasMany(Coin::class);
     }
 }

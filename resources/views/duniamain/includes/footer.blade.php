@@ -10,12 +10,23 @@
             </div>
         </div>
     </footer>
+
+    @include('frontend.includes.login-modal')
+    @include('duniamain.includes.register-modal')
+    @include('frontend.includes.reset-modal')
+
     @section('page-level-js-variables')
         <script type="text/javascript">
+            var loader = '<div class="uk-position-center"><div uk-spinner></div></div>';
+            var pageLoader = '<div class="uk-overlay-primary uk-position-cover twb-page-loader"><div class="uk-position-center uk-flex uk-flex-center uk-text-center"><div uk-spinner></div><div class="white-text">Loading...</div></div></div>';
             var baseUrl = '{!! url('/') !!}';
             var token = '{!! csrf_token() !!}';
             UIkit.tooltip('a','show');
         </script>
+        <script src="{!! asset('assets/js/uikit.2.min.js') !!}"></script>
+        <script src="{!! asset('assets/js/datepicker.min.js') !!}"></script>
+        <script src="{!! asset('assets/js/jquery.date-dropdown.js') !!}"></script>
+        <script src="{!! asset('assets/js/login.js') !!}"></script>
     @show
     @section('page-level-scripts')
     @show

@@ -17,25 +17,29 @@
                 <div class="uk-flex uk-flex-middle" uk-grid>
                     <div class="uk-width-auto dm-user">
                         <div class="dm-img-user">
-                            <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="175" height="175" alt="Zaky0078">
+                            @if (isset($detail->avatar) && $detail->avatar != '')
+                                <img class="uk-border-circle" src="{!! $detail->avatar !!}" width="175" height="175" alt="{!! $user->name !!}">
+                            @else
+                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="175" height="175" alt="{!! $user->name !!}">
+                            @endif
                         </div>
                     </div>
                     <div class="uk-width-expand uk-text-left">
-                        <h5 class="white-text">Username</h5>
+                        <h5 class="white-text">{{ $user->name }}</h5>
 
                         <div class="uk-grid-collapse" uk-grid>
-                            <div class="uk-width-1-4">Nama Anak :</div>
-                            <div class="uk-width-3-4">John Doe Jr.</div>
+                            {{--<div class="uk-width-1-4">Nama Anak :</div>--}}
+                            {{--<div class="uk-width-3-4">{{ $user->name }}</div>--}}
                             <div class="uk-width-1-4 uk-margin-small-bottom">Nama Ibu :</div>
-                            <div class="uk-width-3-4 uk-margin-small-bottom">Mrs. Jane Doe</div>
+                            <div class="uk-width-3-4 uk-margin-small-bottom">{!! isset($detail->mother_name) ? $detail->mother_name : '' !!}</div>
                             <div class="uk-width-1-4">Umur :</div>
                             <div class="uk-width-3-4">27</div>
                             <div class="uk-width-1-4">Kelas :</div>
-                            <div class="uk-width-3-4">6 SD</div>
+                            <div class="uk-width-3-4">{!! isset($detail->class_name) ? $detail->class_name : '' !!}</div>
                             <div class="uk-width-1-4 uk-margin-small-bottom">Sekolah :</div>
-                            <div class="uk-width-3-4 uk-margin-small-bottom">SD Bina Cendekia</div>
+                            <div class="uk-width-3-4 uk-margin-small-bottom">{!! isset($detail->school_name) ? $detail->school_name : '' !!}</div>
                             <div class="uk-width-1-4">Alamat :</div>
-                            <div class="uk-width-3-4">Jl. Haji Thaif</div>
+                            <div class="uk-width-3-4">{!! isset($detail->address) ? $detail->address : '' !!}</div>
                         </div>
                     </div>
                 </div>
@@ -44,70 +48,125 @@
             <h2 class="dm-badge">Album Foto</h2>
             <div class="uk-margin uk-text-center white-text">
                 Koin Dunia Main TWB yang sudah kamu kumpulkan :
-                <h3 class="uk-margin-remove white-text">3/15 koin</h3>
+                <h3 class="uk-margin-remove white-text">{!! count($images) !!}/15 koin</h3>
             </div>
             <ul class="uk-child-width-1-5 uk-flex uk-flex-center" uk-grid>
-                <li>
-                    <div class="dm-album uk-text-center ">
-                        <div class="">1. Bebek</div>
-                        <div class="dm-album-img">
-                            <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
+                @foreach($characters as $key => $character)
+                    <li>
+                        <div class="dm-album uk-text-center ">
+                            <div class="">{!! $loop->iteration !!}. {!! $character !!}</div>
+                            <div class="dm-album-img">
+                                @if (isset($images[$key]))
+                                    <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
+                                </div>
+                                @else
+                                    <div class="uk-background-cover">?</div>
+                                @endif
                             </div>
+                            @if($isMyPage)
+                            <button class="uk-button uk-button-small dm-upload" data-type="{!! $key !!}"><span>Upload</span></button>
+                            @endif
                         </div>
-                        <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="dm-album uk-text-center ">
-                        <div class="">2. Ayam</div>
-                        <div class="dm-album-img">
-                            <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
-                            </div>
-                        </div>
-                        <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="dm-album uk-text-center ">
-                        <div class="">3. Gajah</div>
-                        <div class="dm-album-img">
-                            <div class="uk-background-cover" style="background-image:url(https://i.cbc.ca/1.1476199.1379028180!/httpImage/image.jpg_gen/derivatives/16x9_620/hi-good-mother-852-8col.jpg)">
-                            </div>
-                        </div>
-                        <button class="uk-button uk-button-small dm-upload" disabled><span>Upload</span></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="dm-album uk-text-center ">
-                        <div class="">4. Kupu-kupu</div>
-                        <div class="dm-album-img">
-                            <div class="uk-background-cover">
-                                ?
-                            </div>
-                        </div>
-                        <button class="uk-button uk-button-small dm-upload"><span>Upload</span></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="dm-album uk-text-center ">
-                        <div class="">5. Kura-kura</div>
-                        <div class="dm-album-img">
-                            <div class="uk-background-cover">
-                                ?
-                            </div>
-                        </div>
-                        <button class="uk-button uk-button-small dm-upload"><span>Upload</span></button>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </section>
+
+    {{--@if ($uncompleteProfile)--}}
+        {{--@include('duniamain.includes.profile-detail')--}}
+    {{--@endif--}}
+
+    @if($isMyPage)
+        @include('duniamain.includes.upload-coin')
+    @endif
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/jquery.form.min.js') !!}"></script>
     <script>
         $(document).ready(function() {
+            {{--@if ($uncompleteProfile)--}}
+                {{--$(this).blur();--}}
+                {{--UIkit.modal('#register-modal').show();--}}
+                {{--cleanRegisterForm();--}}
+                {{--$('#mother_name').focus();--}}
+            {{--@endif--}}
 
+            $('.dm-upload').on('click', function() {
+                $(this).blur();
+                coinType = $(this).attr('data-type');
+                $('#coin_type').val(coinType);
+                UIkit.modal('#upload-coin-modal').show();
+            });
+
+            $("#file").change(function () {
+                filePreview(this);
+            });
+
+            $('#upload-form').ajaxForm({
+                beforeSubmit: function (data) {
+                    clearUploadForm();
+                },
+                beforeSend: function( xhr ) {
+                    $('body').prepend(pageLoader);
+                },
+                success: function(data) {
+                    $('.twb-page-loader').remove();
+                    UIkit.modal('#upload-coin-modal').hide();
+                    location.reload();
+                },
+                error: function(data) {
+                    $('.twb-page-loader').remove();
+                    var obj = $.parseJSON(data.responseText);
+                    printErrorMsg(obj);
+                }
+            });
         });
+
+        function clearUploadForm() {
+            $("#score").removeClass("uk-form-danger");
+            $("#file").removeClass("uk-form-danger");
+            $('#upload-errors').empty();
+        }
+
+        function filePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image-preview').empty();
+                    $('#image-preview').append('<img src="'+e.target.result+'" style="height:40vh;">');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function printErrorMsg(obj) {
+            console.log(obj);
+            var errors = '';
+            if (obj.file) {
+                if (obj.file.length > 0) {
+                    $.each( obj.file, function( key, value ) {
+                        errors += value + '<br/>';
+                    })
+                } else {
+                    errors += obj.file + '<br/>';
+                }
+                $("#file").addClass("uk-form-danger");
+                $('#file').focus();
+            }
+            if (obj.score) {
+                $("#score").addClass("uk-form-danger");
+                errors += obj.score + '<br/>';
+                $('#score').focus();
+            }
+            if (errors != '') {
+                $('#upload-errors').append('<div class="uk-alert-danger" uk-alert>' +
+                    '<a class="uk-alert-close" uk-close></a>' +
+                    '<p>'+errors+'</p>' +
+                '</div>')
+            }
+        }
+
     </script>
 @endsection

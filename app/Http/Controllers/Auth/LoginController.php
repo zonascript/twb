@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         $adminUrl = config('misc.admin-prefix');
         $this->redirectTo = url($adminUrl);
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'duniaMainLogout']);
     }
 
     protected function validateLogin(Request $request)
@@ -46,5 +46,16 @@ class LoginController extends Controller
             $this->username() => 'required|email',
             'password' => 'required|string',
         ]);
+    }
+
+    public function duniaMainLogout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/dunia-main');
     }
 }

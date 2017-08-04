@@ -28,6 +28,7 @@ Route::get('/news-paginated/{type?}', 'NewsController@newsPaginated');
 Route::get('/event-paginated', 'EventController@eventPaginated');
 Route::get('/account', 'FrontendController@account');
 Route::post('/ajaxImageUpload', 'ColoringController@ajaxImageUploadPost')->name('ajaxImageUpload');
+Route::post('/ajaxCoinUpload', 'DuniaMainController@ajaxCoinUpload')->name('ajaxCoinUpload');
 Route::get('/coloring-paginated', 'ColoringController@coloringPaginated');
 
 // Auth::routes();
@@ -121,6 +122,11 @@ Route::group([
     Route::get('/participant-images', 'CampaignController@participantImages')->name('campaign.images');
     Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('campaign.detail');
     Route::get('/participant-images/update-status/{id}/{status}', 'CampaignController@updateStatus')->name('campaign.approve');
+
+    Route::get('/coins/participant', 'CoinController@coinIndex')->name('coins');
+    Route::get('/coins/images', 'CoinController@coinImages')->name('coins');
+    Route::get('/coins/{id}/detail', 'CoinController@imageDetail')->name('coins');
+    Route::get('/coins/update-status/{id}/{status}', 'CoinController@updateStatus')->name('coins');
 });
 
 // without menu generator
@@ -136,6 +142,8 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/promo-datatable-list', 'PromoController@datatableList')->name('promo');
     Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('campaign.participant');
     Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('campaign.images');
+    Route::get('/participant-datatable', 'CoinController@coinDatatable')->name('campaign.participant');
+    Route::get('/participant-images-datatable', 'CoinController@imageDatatable')->name('campaign.images');
 });
 
 
@@ -145,4 +153,10 @@ Route::post('/upload-image-handler', 'TestController@uploadImageHandler');
 Route::post('/get-images-for-uploader', 'TestController@getImageForUploader');
 
 Route::get('/dunia-main', 'DuniaMainController@home');
-Route::get('/dunia-main/album', 'DuniaMainController@album');
+Route::get('/dunia-main/album/{userId}', 'DuniaMainController@album');
+Route::post('/dunia-main/register', 'Auth\DuniaMainRegisterController@register');
+Route::post('/dunia-main/complete-profile/{userId}', 'DuniaMainController@completeProfile');
+Route::get('/dunia-main/logout', 'Auth\LoginController@duniaMainLogout')->name('dm_logout');
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');

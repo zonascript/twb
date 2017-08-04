@@ -10,6 +10,7 @@
         "intervention/imagecache": "^2.3",
         "jildertmiedema/laravel-plupload": "^0.4.1",
         "laravel/framework": "5.4.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "lavary/laravel-menu": "^1.6",

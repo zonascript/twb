@@ -2,7 +2,7 @@
     <div class="uk-modal-dialog">
         <a class="uk-modal-close-outside" uk-close></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">DAFTAR</h5></div>
-        <form action="{!! url('register') !!}" id="register-form" class="uk-padding-small">
+        <form action="{!! url('dunia-main/register') !!}" id="register-form" class="uk-padding-small">
             <div class="uk-margin-small-bottom form-group" id="reg-errors"></div>
             {!! csrf_field() !!}
             <div class="uk-margin" uk-overflow-auto>
@@ -33,6 +33,24 @@
                     <label class="uk-form-label" for="email">Email *</label>
                     <div class="uk-form-controls">
                         <input class="uk-input uk-form-small twb-round" id="reg_email" type="email" placeholder="alamat@email.com" name="email">
+                    </div>
+                </div>
+                <div class="uk-margin-small-bottom">
+                    <label class="uk-form-label" for="kota">Nama Ibu *</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-small twb-round" id="mother_name" type="text" placeholder="" name="mother_name">
+                    </div>
+                </div>
+                <div class="uk-margin-small-bottom">
+                    <label class="uk-form-label" for="kota">Sekolah *</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-small twb-round" id="school_name" type="text" placeholder="" name="school_name">
+                    </div>
+                </div>
+                <div class="uk-margin-small-bottom">
+                    <label class="uk-form-label" for="kota">Kelas *</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-small twb-round" id="class_name" type="text" placeholder="" name="class_name">
                     </div>
                 </div>
                 <div class="uk-margin">

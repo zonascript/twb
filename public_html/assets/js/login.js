@@ -57,7 +57,10 @@ $('#login-form').on('submit', function(e) {
                 $('#login_email').focus();
             }
             if (loginErrors != '') {
-                $('#login-errors').append('<p class="uk-alert uk-alert-danger">'+loginErrors+'</p>');
+                $('#login-errors').append('<div class="uk-alert-danger" uk-alert>' +
+                    '<a class="uk-alert-close" uk-close></a>' +
+                    '<p>'+loginErrors+'</p>' +
+                    '</div>');
             }
             if (obj.error) {
                 $("#login-errors").addClass("uk-form-danger");
@@ -93,7 +96,10 @@ $('#reset-form').on('submit', function(e) {
             }
 
             if (errors != '') {
-                $('#reset-errors').append('<p class="uk-alert uk-alert-danger">'+errors+'</p>')
+                $('#reset-errors').append('<div class="uk-alert-danger" uk-alert>' +
+                    '<a class="uk-alert-close" uk-close></a>' +
+                    '<p>'+errors+'</p>' +
+                    '</div>')
             }
 
             if (obj.error) {
@@ -104,10 +110,11 @@ $('#reset-form').on('submit', function(e) {
 });
 
 $('#register-form').on('submit', function(e) {
+    var $postUrl = $(this).attr("action");
     e.preventDefault();
     cleanRegisterForm();
     $.ajax({
-        url: baseUrl + '/register',
+        url: $postUrl,
         type: 'POST',
         data: $('#register-form').serialize(),
         beforeSend: function( xhr ) {
@@ -156,9 +163,27 @@ $('#register-form').on('submit', function(e) {
                 errors += obj.name + '<br/>';
                 $('#reg_name').focus();
             }
+            if (obj.class_name) {
+                $("#class_name").addClass("uk-form-danger");
+                errors += obj.class_name + '<br/>';
+                $('#class_name').focus();
+            }
+            if (obj.school_name) {
+                $("#school_name").addClass("uk-form-danger");
+                errors += obj.school_name + '<br/>';
+                $('#school_name').focus();
+            }
+            if (obj.mother_name) {
+                $("#mother_name").addClass("uk-form-danger");
+                errors += obj.mother_name + '<br/>';
+                $('#mother_name').focus();
+            }
 
             if (errors != '') {
-                $('#reg-errors').append('<p class="uk-alert uk-alert-danger">'+errors+'</p>')
+                $('#reg-errors').append('<div class="uk-alert-danger" uk-alert>' +
+                    '<a class="uk-alert-close" uk-close></a>' +
+                    '<p>'+errors+'</p>' +
+                '</div>');
             }
 
             if (obj.error) {

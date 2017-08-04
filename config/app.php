@@ -184,7 +184,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         JildertMiedema\LaravelPlupload\LaravelPluploadServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
     ],
@@ -242,6 +242,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Plupload' => JildertMiedema\LaravelPlupload\Facades\Plupload::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

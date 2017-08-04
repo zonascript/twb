@@ -31,12 +31,16 @@
                 <a href="{{ url('/dunia-main') }}" title="Tini Wini Biti" class="dm-logo">
                     <img src="{!! asset('assets/img/logo.svg') !!}" alt="Tini Wini Biti">
                 </a>
-                <div class="dm-topnav">
-                    <span class="twb-userinfo">Hi, username</span>
-                    <a href="" class="dm-keluar" title="Keluar">Keluar</a>
-
-                    <a href="" class="dm-daftar" title="Daftar">Daftar</a>
-                    <a href="" class="dm-masuk" title="Masuk">Masuk</a>
-                </div>
+                @if (auth()->check())
+                    <div class="dm-topnav">
+                        <span class="twb-userinfo"><a title="Album" href="{!! url('dunia-main/album/' . auth()->id()) !!}">Hi, {{ auth()->user()->name }}</a></span>
+                        <a href="{!! url('dunia-main/logout') !!}" class="dm-keluar" title="Keluar">Keluar</a>
+                    </div>
+                @else
+                    <div class="dm-topnav">
+                        {{--<a href="javascript:;" class="dm-daftar register-link" title="Daftar">Daftar</a>--}}
+                        <a href="{{ url('redirect') }}" title="Masuk" class="dm-masuk">Masuk</a>
+                    </div>
+                @endif
             </div>
         </header>
