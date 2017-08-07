@@ -2,7 +2,7 @@
 @import "fonts/FontAwesome/font-awesome.css";
 @import "color.css";
 body{
-    font-size:14px;
+    font-size:12px;
     font-family:'Asap', Helvetica, Arial, sans-serif;
     background:#F7F8F7;
     color:#333;
@@ -179,15 +179,23 @@ a.dm-masuk:before {
 }
 .dm-icon-2 {
     right: -50px;
-    top: 150px;
+    top: 0px;
 }
 .dm-icon-3 {
     left: -70px;
-    top: 350px;
+    top: 550px;
 }
 .dm-icon-4 {
     right: -40px;
-    top: 500px;
+    top: 700px;
+}
+.dm-icon-5 {
+    left: 0px;
+    top: -60px;
+}
+.dm-icon-6 {
+    right: 0px;
+    bottom: 0px;
 }
 footer > div {
     border-top: 1px solid #fff;
@@ -371,7 +379,7 @@ footer .uk-icon {
     left: 50%;
     top: 50%;
     text-align: center;
-    transform: translate3d(20%, -60%, 0px);
+    transform: translate3d(0%, -75%, 0px);
 }
 .dm-home-info * {
     text-align: center;
@@ -448,6 +456,9 @@ footer .uk-icon {
 .dm-pagination>.uk-active>* {
     color: #E91C24;
 }
+.dm-round {
+    border-radius: 50px;
+}
 @media (max-width:959px){
     #mainhome {
         width: 100%;
@@ -476,11 +487,16 @@ footer .uk-icon {
              -o-transform: scale(0.5); /* Opera 10.5+ */
                 transform: scale(0.5);
     }
-    .dm-icon-1 {
+    .dm-icon-1,
+    .dm-icon-5 {
         left: -70px;
     }
     .dm-icon-2,
-    .dm-icon-4 {
+    .dm-icon-4,
+    .dm-icon-6 {
         right: -80px;
+    }
+    .dm-icon-6 {
+        bottom: -50px;
     }
 }

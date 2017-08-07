@@ -30,19 +30,20 @@
                         <div class="uk-grid-collapse" uk-grid>
                             {{--<div class="uk-width-1-4">Nama Anak :</div>--}}
                             {{--<div class="uk-width-3-4">{{ $user->name }}</div>--}}
-                            <div class="uk-width-1-4 uk-margin-small-bottom">Nama Ibu :</div>
-                            <div class="uk-width-3-4 uk-margin-small-bottom">{!! isset($detail->mother_name) ? $detail->mother_name : '' !!}</div>
-                            <div class="uk-width-1-4">Umur :</div>
-                            <div class="uk-width-3-4">27</div>
-                            <div class="uk-width-1-4">Kelas :</div>
-                            <div class="uk-width-3-4">{!! isset($detail->class_name) ? $detail->class_name : '' !!}</div>
-                            <div class="uk-width-1-4 uk-margin-small-bottom">Sekolah :</div>
-                            <div class="uk-width-3-4 uk-margin-small-bottom">{!! isset($detail->school_name) ? $detail->school_name : '' !!}</div>
-                            <div class="uk-width-1-4">Alamat :</div>
-                            <div class="uk-width-3-4">{!! isset($detail->address) ? $detail->address : '' !!}</div>
+                            <div class="uk-width-1-4 uk-margin-small-bottom">Nama Ibu</div>
+                            <div class="uk-width-3-4 uk-margin-small-bottom">: {!! isset($detail->mother_name) ? $detail->mother_name : '' !!}</div>
+                            <div class="uk-width-1-4">Umur</div>
+                            <div class="uk-width-3-4">: 27</div>
+                            <div class="uk-width-1-4">Kelas</div>
+                            <div class="uk-width-3-4">: {!! isset($detail->class_name) ? $detail->class_name : '' !!}</div>
+                            <div class="uk-width-1-4 uk-margin-small-bottom">Sekolah</div>
+                            <div class="uk-width-3-4 uk-margin-small-bottom">: {!! isset($detail->school_name) ? $detail->school_name : '' !!}</div>
+                            <div class="uk-width-1-4">Alamat</div>
+                            <div class="uk-width-3-4">: {!! isset($detail->address) ? $detail->address : '' !!}</div>
+                            <div class="uk-width-1-1 uk-margin-small-top"><a href="javascript:;" class="uk-link update-profile dm-red-text" title="Lengkapi Data">Lengkapi Data</a></div>
                         </div>
 
-                        <div><a href="javascript:;" class="uk-link update-profile">Lengkapi Data</a></div>
+
                     </div>
                 </div>
 
@@ -52,7 +53,7 @@
                 Koin Dunia Main TWB yang sudah kamu kumpulkan :
                 <h3 class="uk-margin-remove white-text">{!! count($images) !!}/15 koin</h3>
             </div>
-            <ul class="uk-child-width-1-5 uk-flex uk-flex-center" uk-grid>
+            <ul class="uk-child-width-1-5 uk-flex uk-flex-center uk-margin-large-bottom" uk-grid>
                 @foreach($characters as $key => $character)
                     <li>
                         <div class="dm-album uk-text-center ">
@@ -72,6 +73,7 @@
                     </li>
                 @endforeach
             </ul>
+            <p class="uk-text-center"><a href="" class="dm-round uk-button uk-button-primary dm-blue" title="Kembali"><span>Kembali</span></a></p>
         </div>
     </section>
 

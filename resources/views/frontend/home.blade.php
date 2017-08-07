@@ -39,7 +39,7 @@
                 <img src="{!! asset('assets/img/tiniwinibiti.png') !!}" alt="Tini Wini Biti" class="uk-margin-small-top">
             </div>
         </div>
-        <a href="{!! url('/dunia-main') !!}" title="Dunia Main" class="twb-banner-dm uk-position-center-right" style="z-index:999"><img src="{!! asset('images/twb/banner-duniamain.svg') !!}" alt="Tini Wini Biti" style="width:500px;height:auto;"></a>
+        <a href="{!! url('/dunia-main') !!}" title="Dunia Main" class="twb-banner-dm uk-position-center-right" style="z-index:999"><img src="{!! asset('images/duniamain/banner-duniamain.svg') !!}" alt="Tini Wini Biti" style="width:500px;height:auto;"></a>
     </section>
     <section id="home2" class="twb-home-section uk-background-cover uk-background-top uk-flex uk-flex-middle" style="background-image: url({!! asset('assets/img/bg-home-2.png') !!});">
         <div class="uk-width-1-1">

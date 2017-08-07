@@ -184,4 +184,10 @@ class DuniaMainController extends Controller
         $result->withPath('coins-paginated');
         return $result->toJson();
     }
+
+    public function term()
+    {
+        $data['pageTitle'] = 'Term &amp; Conditions';
+        return view('duniamain.term', $data);
+    }
 }

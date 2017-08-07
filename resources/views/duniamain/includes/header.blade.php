@@ -33,7 +33,7 @@
                 </a>
                 @if (auth()->check())
                     <div class="dm-topnav">
-                        <span class="twb-userinfo"><a title="Album" href="{!! url('dunia-main/album/' . auth()->id()) !!}">Hi, {{ auth()->user()->name }}</a></span>
+                        <a title="Album" href="{!! url('dunia-main/album/' . auth()->id()) !!}">Hi, {{ auth()->user()->name }}</a>
                         <a href="{!! url('dunia-main/logout') !!}" class="dm-keluar" title="Keluar">Keluar</a>
                     </div>
                 @else
