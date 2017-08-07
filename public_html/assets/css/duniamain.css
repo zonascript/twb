@@ -43,6 +43,12 @@ a.dm-logo img {
 .dm-blue {
     background: #1E4499;
 }
+.dm-red-text {
+    color: #E91C24;
+}
+.dm-blue-text {
+    color: #1E4499;
+}
 .dm-topnav {
     position: relative;
 }
@@ -88,7 +94,7 @@ a.dm-masuk:before {
     background: -moz-linear-gradient(top,#facc8d,#f79b22); /*Fx 3.6-15*/
     background: linear-gradient(to bottom, #facc8d, #f79b22); /*Standard*/
 }
-a.dm-masuk:after {
+/*a.dm-masuk:after {
     content: "";
     display: block;
     position: absolute;
@@ -98,13 +104,12 @@ a.dm-masuk:after {
     height: 100%;
     z-index: -2;
     background: #E91C24;
-}
+}*/
 #mainhome {
     height: 540px;
-    width: 100%;
+    width: 960px;
     position: relative;
-    z-index: 0;
-    margin-top: -120px;
+    margin: -120px auto 0;
 }
 #mainhome:after {
     position: absolute;
@@ -354,4 +359,128 @@ footer .uk-icon {
     position: absolute;
     width: 100%;
     bottom: 27px;
+}
+.dm-hadiah {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate3d(-25%, -5%, 0px);
+}
+.dm-home-info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate3d(20%, -60%, 0px);
+}
+.dm-home-info * {
+    text-align: center;
+    font-weight: bold;
+}
+.dm-btn {
+    position: relative;
+    display: inline-block;
+}
+.dm-btn:hover {
+    text-decoration: none;
+    color: #C65509;
+}
+.dm-btn span {
+    background: #1E4499;
+    position: relative;
+    display: block;
+    color: #fff;
+    padding: 0 25px;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 25px;
+    border: 3px solid #C65509;
+    -webkit-box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
+    box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.dm-btn:hover span {
+    text-decoration: none;
+    color: #C65509;
+}
+.dm-btn:before {
+    content: "";
+    display: block;
+    position: absolute;
+    padding:6px;
+    top:-6px;
+    left:-6px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: #facc8d; /* Old Browsers */
+    background: -webkit-linear-gradient(top,#facc8d,#f79b22); /*Safari 5.1-6*/
+    background: -o-linear-gradient(top,#facc8d,#f79b22); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(top,#facc8d,#f79b22); /*Fx 3.6-15*/
+    background: linear-gradient(to bottom, #facc8d, #f79b22); /*Standard*/
+}
+.dm-videowrap {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.dm-videowrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.dm-pagination {
+    margin-left: -10px;
+}
+.dm-pagination>* {
+    padding-left: 10px;
+}
+.dm-pagination>*>* {
+    background: #fff;
+    color: #1E4499;
+    width: 24px;
+    line-height: 24px;
+    text-align: center ;
+    border-radius: 12px;
+}
+.dm-pagination>.uk-active>* {
+    color: #E91C24;
+}
+@media (max-width:959px){
+    #mainhome {
+        width: 100%;
+        margin: 100px auto 0;
+        position: relative;
+    }
+    #mainhome:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 220px;
+        background: #3BCEF0;
+        position: absolute;
+        top: -220px;
+    }
+    .dm-home-info {
+        left: 0%;
+        top: 0%;
+        width: 100%;
+        transform: translate3d(0%, -60%, 0px);
+    }
+    .dm-icon {
+        -webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+           -moz-transform: scale(0.5); /* FF3.5+ */
+            -ms-transform: scale(0.5); /* IE9 */
+             -o-transform: scale(0.5); /* Opera 10.5+ */
+                transform: scale(0.5);
+    }
+    .dm-icon-1 {
+        left: -70px;
+    }
+    .dm-icon-2,
+    .dm-icon-4 {
+        right: -80px;
+    }
 }

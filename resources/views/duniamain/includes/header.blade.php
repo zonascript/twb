@@ -27,7 +27,7 @@
     </head>
     <body @if(isset($pageClass)) {!! $pageClass !!} @endif>
         <header>
-            <div class="uk-container uk-flex uk-flex-bottom uk-flex-between uk-position-bottom">
+            <div class="uk-container uk-flex uk-flex-middle uk-flex-between uk-position-bottom">
                 <a href="{{ url('/dunia-main') }}" title="Tini Wini Biti" class="dm-logo">
                     <img src="{!! asset('assets/img/logo.svg') !!}" alt="Tini Wini Biti">
                 </a>

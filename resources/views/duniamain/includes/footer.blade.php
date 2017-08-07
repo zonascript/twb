@@ -1,6 +1,6 @@
     <footer class="uk-container">
         <div class="uk-flex uk-flex-middle uk-flex-between">
-            <div>
+            <div class="uk-width-1-2">
                 Copyright © 2017 PT Tini Wini Biti | All Rights Reserved
             </div>
             <div class="dm-socmed">
