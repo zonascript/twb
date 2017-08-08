@@ -16,7 +16,8 @@ class SocialAuthController extends Controller
 
     public function callback()
     {
-        $user = $this->createOrGetUser(Socialite::driver('facebook')->user());
+        $fbUser = Socialite::driver('facebook')->user();
+        $user = $this->createOrGetUser($fbUser);
 
         auth()->login($user);
         return redirect()->to('/dunia-main');
@@ -27,7 +28,6 @@ class SocialAuthController extends Controller
         $account = SocialAccount::whereProvider('facebook')
             ->whereProviderUserId($providerUser->getId())
             ->first();
-
         if ($account) {
             return $account->user;
         } else {

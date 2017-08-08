@@ -70,7 +70,7 @@ function generateNewsContent($data) {
         if (news.fullpath != '' && news.fullpath != null) {
             newsImage = baseUrl + '/' + news.fullpath;
         }
-        console.log(news.publish_at);
+        //console.log(news.publish_at);
         publishDate = moment(news.publish_at, "YYYY-MM-DD HH:mm:ss").fromNow();
         newsContent += '<div class="uk-panel uk-padding-small white twb-border-bottom">' +
             ' <div class="uk-grid-medium" uk-grid> ' +

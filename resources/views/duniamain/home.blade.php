@@ -41,8 +41,8 @@
                     sesuai dengan nama Moms yang terdaftar untuk melihat album foto Si Kecil dan Moms!</p>
 
                 <div class="dm-seacrh uk-inline uk-width-1-2@m uk-align-center">
-                    <button class="uk-button uk-form-icon uk-form-small uk-form-icon-flip uk-width-auto dm-red dm-round" type="submit" name="button">Cari</button>
-                    <input class="uk-input uk-width-1-1 uk-form-small dm-round" type="text" name="" value="" placeholder="Cari nama kamu di sini...">
+                    <button class="uk-button uk-form-icon uk-form-small uk-form-icon-flip uk-width-auto dm-red dm-round searchbutton" type="submit" name="button">Cari</button>
+                    <input class="uk-input uk-width-1-1 uk-form-small dm-round searchtext" type="text" name="searchtext" value="" placeholder="Cari nama kamu di sini...">
                 </div>
 
                 <ul class="uk-child-width-1-4 uk-flex uk-flex-center uk-margin-large-top gallery-container" uk-grid>
@@ -50,12 +50,12 @@
                 </ul>
                 {{-- <ul class="uk-pagination twb-pagination gallery-nav-container" uk-margin></ul> --}}
 
-                <ul class="uk-pagination uk-flex-center dm-pagination" uk-margin>
-                    <li><a href="#" title="Previous"><span uk-pagination-previous></span></a></li>
-                    <li><a href="#" title="Page 1">1</a></li>
-                    <li><a href="#" title="Page 2">2</a></li>
-                    <li class="uk-active"><span>3</span></li>
-                    <li><a href="#" title="Next"><span uk-pagination-next></span></a></li>
+                <ul class="uk-pagination uk-flex-center dm-pagination gallery-nav-container" uk-margin>
+                    {{--<li><a href="#" title="Previous"><span uk-pagination-previous></span></a></li>--}}
+                    {{--<li><a href="#" title="Page 1">1</a></li>--}}
+                    {{--<li><a href="#" title="Page 2">2</a></li>--}}
+                    {{--<li class="uk-active"><span>3</span></li>--}}
+                    {{--<li><a href="#" title="Next"><span uk-pagination-next></span></a></li>--}}
                 </ul>
                 <p>Pastikan kamu membaca Syarat &amp; Ketentuannya ya, <a class="dm-red-text" href="{{ url('/dunia-main/term') }}" title="baca disini">baca disini</a>.</p>
                 <img src="{!! asset('images/duniamain/icon-1.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-1">
@@ -74,7 +74,21 @@
         $(document).ready(function() {
             var h = (54 / 96) * $('#mainhome').width();
             $('#mainhome').height(h)
-            loadGallery('coins-paginated', 'coins-paginated');
+            loadGallery('coins-paginated', 'coins-paginated', '');
+
+            $('.searchtext').on('keypress', function(e) {
+                if(e.which == 13) {
+                    $searchText = $('.searchtext').val();
+                    loadGallery('coins-paginated', 'coins-paginated', $searchText);
+                }
+            });
+
+            $('.searchbutton').on('click', function() {
+                $searchText = $('.searchtext').val();
+                if ($searchText != '') {
+                    loadGallery('coins-paginated', 'coins-paginated', $searchText);
+                }
+            });
         });
     </script>
 @endsection

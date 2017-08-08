@@ -9,6 +9,7 @@ use App\Model\User;
 use App\Service\Media;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Illuminate\Support\Facades\Log;
 
@@ -175,12 +176,19 @@ class DuniaMainController extends Controller
         return $this->campaign->participantsDatatable();
     }
 
-    public function coinsPaginated()
+    public function coinsPaginated(Request $request)
     {
-        $q = Coin::with('user.detail')
-            ->where('status', 1);
-        $q = $q->orderBy('created_at', 'desc');
-        $result = $q->paginate(3);
+        $q = Coin::with('user');
+        // Log::warning(\GuzzleHttp\json_encode($q->get()));
+        if ($request->has('searchtext') && $request->searchtext != '') {
+            $searchText = $request->input('searchtext');
+            $q = $q->whereHas('user', function ($query) use ($searchText) {
+                $query->where('name', 'like', '%'.$searchText.'%');
+            });
+        }
+        $result = $q->where('status', 1)
+            ->orderBy('created_at', 'desc')
+            ->paginate(3);
         $result->withPath('coins-paginated');
         return $result->toJson();
     }
