@@ -94,7 +94,7 @@
 
                 </div>
 
-                <p class="uk-text-center"><a href="" class="dm-round uk-button uk-button-danger dm-red" title="Kembali"><span>Kembali</span></a></p>
+                <p class="uk-text-center"><a href="{{ url('/dunia-main') }}" class="dm-round uk-button uk-button-danger dm-red" title="Kembali"><span>Kembali</span></a></p>
 
                 <img src="{!! asset('images/duniamain/icon-5.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-5">
                 <img src="{!! asset('images/duniamain/icon-6.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-6">

@@ -1,12 +1,12 @@
     <footer class="uk-container">
         <div class="uk-flex uk-flex-middle uk-flex-between">
             <div class="uk-width-1-2">
-                Copyright © 2017 PT Tini Wini Biti | All Rights Reserved
+                Copyright © 2017 PT Konimex | All Rights Reserved
             </div>
             <div class="dm-socmed">
-                <a href="#" class="uk-icon-button" uk-icon="icon: instagram" title="Follow us on Instagram"></a>
-                <a href="#" class="uk-icon-button" uk-icon="icon: facebook" title="Follow us on Facebook"></a>
-                <a href="#" class="uk-icon-button" uk-icon="icon: twitter" title="Follow us on Twitter"></a>
+                <a href="https://www.instagram.com/tiniwinibiti.id/" target="_blank" class="uk-icon-button" uk-icon="icon: instagram" title="Follow us on Instagram"></a>
+                <a href="https://www.facebook.com/tiniwinibiti.id/" target="_blank" class="uk-icon-button" uk-icon="icon: facebook" title="Follow us on Facebook"></a>
+                {{--<a href="#" class="uk-icon-button" uk-icon="icon: twitter" title="Follow us on Twitter"></a>--}}
             </div>
         </div>
     </footer>
