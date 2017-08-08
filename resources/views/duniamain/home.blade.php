@@ -13,7 +13,11 @@
             <h5 class="dm-blue-text">Ayo Moms, jangan sampai ketinggalan!<br>
                 Ikuti kompetisi #DuniaMainTiniWiniBiti bersama Si Kecil<br>
                 dan menangkan puluhan hadiah menarik!</h5>
-            <a href="" class="dm-btn" title="Ikutan Sekarang"><span>Ikutan Sekarang</span></a>
+            @if(auth()->check())
+                <a href="{!! url('dunia-main/album/' . auth()->id()) !!}" class="dm-btn" title="Ikutan Sekarang"><span>Ikutan Sekarang</span></a>
+            @else
+                <a href="{{ url('redirect') }}" class="dm-btn" title="Ikutan Sekarang"><span>Ikutan Sekarang</span></a>
+            @endif
         </div>
     </section>
     <section id="home" class="dm-home">
