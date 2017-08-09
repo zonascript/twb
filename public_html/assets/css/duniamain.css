@@ -111,7 +111,7 @@ a.dm-masuk:before {
     position: relative;
     margin: -120px auto 0;
 }
-#mainhome:after {
+/*#mainhome:after {
     position: absolute;
     top: 100%;
     height: 75px;
@@ -119,9 +119,9 @@ a.dm-masuk:before {
     content: "";
     display: block;
     background: url(../../images/duniamain/divider-smile.png) no-repeat center center;
-}
+}*/
 .dm-home {
-    padding: 100px 0 50px;
+    padding: 70px 0 50px;
     position: relative;
     z-index: 0;
 }
@@ -133,7 +133,6 @@ a.dm-masuk:before {
 .dm-box {
     background: #1E4499;
     position: relative;
-    padding: 50px;
     border-radius: 20px;
     border: 5px solid #C65509;
     color: #fff;
@@ -162,6 +161,9 @@ a.dm-masuk:before {
     -webkit-box-shadow: 0 10px 5px 0 rgba(0,0,0,0.5);
     box-shadow: 0 10px 5px 0 rgba(0,0,0,0.5);
 }
+.dm-overlay {
+    background: rgba(0,0,0,0.25);
+}
 .dm-badge {
     height: 70px;
     background: url(../../images/duniamain/badge.png) no-repeat center center;
@@ -175,19 +177,22 @@ a.dm-masuk:before {
 }
 .dm-icon-1 {
     left: 0;
-    top: -80px;
+    bottom: -10px;
 }
 .dm-icon-2 {
-    right: -50px;
+    right: 0px;
     top: 0px;
+    transform: translate3d(100%, -65%, 0px);
 }
 .dm-icon-3 {
-    left: -70px;
-    top: 550px;
+    left: 0px;
+    bottom: 0px;
+    transform: translate3d(-110%, 20%, 0px);
 }
 .dm-icon-4 {
-    right: -40px;
-    top: 700px;
+    right: 0px;
+    bottom: 0px;
+    transform: translate3d(100%, 0%, 0px);
 }
 .dm-icon-5 {
     left: 0px;
@@ -368,12 +373,12 @@ footer .uk-icon {
     width: 100%;
     bottom: 27px;
 }
-.dm-hadiah {
+/*.dm-hadiah {
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate3d(-25%, -5%, 0px);
-}
+}*/
 .dm-home-info {
     position: absolute;
     left: 50%;
@@ -459,6 +464,9 @@ footer .uk-icon {
 .dm-round {
     border-radius: 50px;
 }
+.dm-search input {
+    padding-left: 15px;
+}
 @media (max-width:959px){
     #mainhome {
         width: 100%;
@@ -487,16 +495,20 @@ footer .uk-icon {
              -o-transform: scale(0.5); /* Opera 10.5+ */
                 transform: scale(0.5);
     }
-    .dm-icon-1,
-    .dm-icon-5 {
-        left: -70px;
+    .dm-icon-1 {
+        transform: scale(0.5) translate3d(-80%, 0%, 0px);
     }
-    .dm-icon-2,
-    .dm-icon-4,
-    .dm-icon-6 {
-        right: -80px;
+    .dm-icon-2 {
+        transform: scale(0.5) translate3d(60%, -100%, 0px);
+    }
+    .dm-icon-3 {
+        transform: scale(0.5) translate3d(-90%, 80%, 0px);
+    }
+    .dm-icon-4 {
+        transform: scale(0.5) translate3d(60%, -40%, 0px);
     }
     .dm-icon-6 {
-        bottom: -50px;
+    }
+    .dm-icon-6 {
     }
 }
