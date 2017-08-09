@@ -198,4 +198,14 @@ class DuniaMainController extends Controller
         $data['pageTitle'] = 'Term &amp; Conditions';
         return view('duniamain.term', $data);
     }
+    public function hadiah()
+    {
+        $data['pageTitle'] = 'Hadiah';
+        return view('duniamain.hadiah', $data);
+    }
+    public function pemenang()
+    {
+        $data['pageTitle'] = 'Pemenang';
+        return view('duniamain.pemenang', $data);
+    }
 }

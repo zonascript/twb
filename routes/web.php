@@ -159,6 +159,8 @@ Route::post('/dunia-main/register', 'Auth\DuniaMainRegisterController@register')
 Route::post('/dunia-main/complete-profile/{userId}', 'DuniaMainController@completeProfile');
 Route::get('/dunia-main/logout', 'Auth\LoginController@duniaMainLogout')->name('dm_logout');
 Route::get('/dunia-main/term', 'DuniaMainController@term');
+Route::get('/dunia-main/hadiah', 'DuniaMainController@hadiah');
+Route::get('/dunia-main/pemenang', 'DuniaMainController@pemenang');
 
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');

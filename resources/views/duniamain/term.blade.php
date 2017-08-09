@@ -10,7 +10,7 @@
 @section('content')
     <section class="dm-main">
         <div class="uk-container">
-            <div class="dm-box uk-text-center uk-margin-large-bottom">
+            <div class="dm-box uk-text-center uk-margin-large-bottom uk-padding">
                 <h2 class="dm-badge">Syarat &amp; Ketentuan</h2>
                 <div class="uk-text-left uk-margin-large-top white-text">
                     <h5 class="white-text">Mekanisme Kompetisi  “DUNIA MAIN TINI WINI BITI”:</h5>

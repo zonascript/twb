@@ -10,10 +10,7 @@
 @section('content')
     <section class="dm-main">
         <div class="uk-container">
-            <div class="dm-box uk-text-center uk-margin-large-bottom">
-                <img src="{!! asset('images/duniamain/icon-2.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-2" style="top:180px;right:-20px;">
-                <img src="{!! asset('images/duniamain/icon-3.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-3" style="top: 250px;">
-
+            <div class="dm-box uk-text-center uk-margin-large-bottom uk-padding">
                 <div class="uk-flex uk-flex-middle" uk-grid>
                     <div class="uk-width-auto dm-user">
                         <div class="dm-img-user">
@@ -49,9 +46,11 @@
 
             </div>
             <h2 class="dm-badge">Album Foto</h2>
-            <div class="uk-margin uk-text-center white-text">
+            <div class="uk-margin uk-text-center white-text uk-position-relative">
                 Koin Dunia Main TWB yang sudah kamu kumpulkan :
                 <h3 class="uk-margin-remove white-text">{!! count($images) !!}/15 koin</h3>
+                <img src="{!! asset('images/duniamain/icon-2.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-2-album">
+                <img src="{!! asset('images/duniamain/icon-3.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-3-album">
             </div>
             <ul class="uk-child-width-1-5 uk-flex uk-flex-center uk-margin-large-bottom" uk-grid>
                 @foreach($characters as $key => $character)
@@ -73,7 +72,7 @@
                     </li>
                 @endforeach
             </ul>
-            <p class="uk-text-center"><a href="" class="dm-round uk-button uk-button-primary dm-blue" title="Kembali"><span>Kembali</span></a></p>
+            <p class="uk-text-center"><a href="{{ url('/dunia-main') }}" class="dm-round uk-button uk-button-primary dm-blue" title="Kembali"><span>Kembali</span></a></p>
         </div>
     </section>
 
