@@ -19,22 +19,25 @@
             <div class="uk-margin">
                 <div class="uk-form-controls">
                     <label class="uk-form-label">Upload Date</label>
-                    <input class="uk-input" name="start_date" data-uk-datepicker="{format:'YYYY-MM-DD'}"/> to <input class="uk-input" name="end_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" />
+                    <input class="uk-input" name="start_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $startDate !!}" /> to <input class="uk-input" name="end_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $endDate !!}" />
                 </div>
             </div>
+
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <label class="uk-form-label">Score</label>
+                    <input class="uk-input" name="score_min" placeholder="Min Score" value="{!! $scoreMin !!}" /> - <input class="uk-input" name="score_max" placeholder="Max Score" value="{!! $scoreMax !!}" />
+                </div>
+            </div>
+
             <div class="uk-margin">
                 <div class="uk-form-controls">
                     <input class="uk-checkbox" type="checkbox" value="1" name="is_completed"> Is Completed ?
                 </div>
             </div>
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <label class="uk-form-label">Name</label>
-                    <input class="uk-input" name="name" />
-                </div>
-            </div>
+
             <div class="uk-form-controls">
-                <button type="submit" class="uk-button-small" value="Search">Search</button>
+                <button type="submit" class="uk-button-small" value="Search">Filter</button>
             </div>
         </form>
     </div>
@@ -48,7 +51,7 @@
                 {{--<th>Address</th>--}}
                 <th>Images</th>
                 <th>Score</th>
-                <th>Mother Name</th>
+                {{--<th>Mother Name</th>--}}
                 <th class="uk-text-center">Action</th>
             </tr>
         </thead>
@@ -74,7 +77,10 @@
                 'data': {
                     '_token': $token,
                     'is_completed': '{!! $isCompleted !!}',
-                    'name': '{!! $name !!}',
+                    'start_date': '{!! $startDate !!}',
+                    'end_date': '{!! $endDate !!}',
+                    'score_min': '{!! $scoreMin !!}',
+                    'score_max': '{!! $scoreMax !!}'
                 }
             },
             columns: [
@@ -82,9 +88,9 @@
                 {data: 'name', name: 'name', width: '15%'},
                 {data: 'email', name: 'email', width: '20%'},
 //                {data: 'detail.address', name: 'detail.address', width: '25%'},
-                {data: 'coin_count', name: 'coin_count', width: '10%'},
-                {data: 'total_score', name: 'total_score', width: '10%'},
-                {data: 'detail.mother_name', name: 'detail.mother_name', width: '15%'},
+                {data: 'num_of_images', name: 'num_of_images', width: '10%'},
+                {data: 'score_sum', name: 'score_sum', width: '10%'},
+//                {data: 'detail.mother_name', name: 'detail.mother_name', width: '15%'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, width: '10%'}
             ]
         });

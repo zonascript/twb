@@ -54,9 +54,13 @@ class CoinController extends Controller
      */
     public function coinIndex(Request $request)
     {
+        $data['startDate'] = $request->has('start_date') ? $request->start_date : '';
+        $data['endDate'] = $request->has('end_date') ? $request->end_date : '';
+        $data['scoreMin'] = $request->has('score_min') ? $request->score_min : '';
+        $data['scoreMax'] = $request->has('score_max') ? $request->score_max : '';
         $data['isCompleted'] = $request->has('is_completed') ? $request->is_completed : '';
-        $data['name'] = $request->has('name') ? $request->name : '';
         $data['pageTitle'] = 'Coin List';
+
         return view('admin.coins.participant', $data);
     }
 

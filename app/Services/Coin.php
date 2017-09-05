@@ -6,6 +6,7 @@ namespace App\Service;
 use App\Model\Coin as CoinModel;
 use App\Model\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class Coin
@@ -17,6 +18,7 @@ class Coin
     public function coinDatatable($request)
     {
         $data = $this->getParticipants();
+        // Log::warning(\GuzzleHttp\json_encode($request->all()));
 
         if ($request->has('is_completed')) {
             $data->has('coins', '>=', 15)
@@ -25,9 +27,50 @@ class Coin
                 });
         }
 
-        if ($request->has('name')) {
-            $data->where('name', 'like', '%' . $request->name . '%');
+        $qStartDate = '';
+        $qEndDate = '';
+        $qStartBasic = '';
+        $qEndBasic = '';
+
+        if ($request->has('start_date')) {
+            $qStartDate = "AND c.created_at >= '" . $request->start_date  . "'";
+            $qStartBasic = "AND created_at >= '" . $request->start_date . "'";
         }
+
+        if ($request->has('end_date')) {
+            $qEndDate = "AND c.created_at <= '" . $request->end_date  . "'";
+            $qEndBasic = "AND created_at <= '" . $request->end_date . "'";
+        }
+
+        $baseQuery = 'SELECT DISTINCT u.id, u.name, u.email,
+                            (SELECT SUM(score) FROM coins WHERE user_id = u.id AND STATUS = 1 ' . $qStartBasic . $qEndBasic .') AS score_sum,
+                            (SELECT COUNT(id) FROM coins WHERE user_id = u.id AND STATUS = 1 ' . $qStartBasic . $qEndBasic .') AS num_of_images
+                        FROM users u JOIN coins c ON u.id = c.user_id
+                        WHERE c.status = 1';
+
+        // Log::warning($baseQuery);
+
+        $qScore = '';
+        if ($request->has('score_min')) {
+            $qScore = " where i.score_sum >= " . $request->score_min;
+        }
+
+        if ($request->has('score_max')) {
+            if ($qScore == '') {
+                $qScore .= ' where ';
+            } else {
+                $qScore .= ' and ';
+            }
+            $qScore .= " i.score_sum <= " . $request->score_max;
+        }
+
+        $data = DB::select( DB::raw("SELECT * FROM (
+                        " . $baseQuery . "
+                            " . $qStartDate . "
+                            " . $qEndDate . "
+                    ) i " . $qScore )
+                );
+
 
         // Log::warning(\GuzzleHttp\json_encode($data));
         $actions = [
@@ -38,7 +81,7 @@ class Coin
                 'icon' => 'fa fa-fw fa-eye'
             ]
         ];
-        return (new DatatableGenerator($data->get()))
+        return (new DatatableGenerator(collect($data)))
             ->addActions($actions)
             ->generate();
     }
