@@ -14,12 +14,14 @@ class SocialAuthController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function callback()
+    public function callback(Request $request)
     {
-        $fbUser = Socialite::driver('facebook')->user();
-        $user = $this->createOrGetUser($fbUser);
+        if (! $request->has('error')) {
+            $fbUser = Socialite::driver('facebook')->user();
+            $user = $this->createOrGetUser($fbUser);
 
-        auth()->login($user);
+            auth()->login($user);
+        }
         return redirect()->to('/dunia-main');
     }
 
