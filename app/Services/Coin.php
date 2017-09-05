@@ -17,15 +17,15 @@ class Coin
 
     public function coinDatatable($request)
     {
-        $data = $this->getParticipants();
-        // Log::warning(\GuzzleHttp\json_encode($request->all()));
-
-        if ($request->has('is_completed')) {
-            $data->has('coins', '>=', 15)
-                ->whereHas('coins', function($q) {
-                    $q->where('status', 1);
-                });
-        }
+//        $data = $this->getParticipants();
+//        // Log::warning(\GuzzleHttp\json_encode($request->all()));
+//
+//        if ($request->has('is_completed')) {
+//            $data->has('coins', '>=', 15)
+//                ->whereHas('coins', function($q) {
+//                    $q->where('status', 1);
+//                });
+//        }
 
         $qStartDate = '';
         $qEndDate = '';
