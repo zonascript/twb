@@ -24,14 +24,17 @@ class CompleteProfile extends FormRequest
     public function rules()
     {
         return [
-            'mother_name' => 'required'
+            'mother_name' => 'required',
+            'birthdate' => 'required|date_format:Y-m-d'
         ];
     }
 
     public function messages()
     {
         return [
-            'mother_name.required' => 'Nama Ibu wajib diisi'
+            'mother_name.required' => 'Nama Ibu wajib diisi',
+            'birthdate.required' => 'Tanggal Lahir wajib diisi',
+            'birthdate.date_format' => 'Format tanggal harus Y-m-d (1900-01-01)'
         ];
     }
 }

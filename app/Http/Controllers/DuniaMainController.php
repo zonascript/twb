@@ -98,11 +98,12 @@ class DuniaMainController extends Controller
 
     public function completeProfile(CompleteProfile $request, $id)
     {
-        //Log::warning(\GuzzleHttp\json_encode($request->all()));
+        // Log::warning(\GuzzleHttp\json_encode($request->all()));
         $user = User::find($id);
         $detail = $user->detail;
         $motherName = $request->has('mother_name') ? $request->input('mother_name') : '';
         $schoolName = $request->has('school_name') ? $request->input('school_name') : '';
+        $birthDate = $request->has('birthdate') ? $request->birthdate : '';
         $className = $request->has('class_name') ? $request->input('class_name') : '';
         $address = $request->has('address') ? $request->input('address') : '';
         if (isset($detail)) {
@@ -110,6 +111,7 @@ class DuniaMainController extends Controller
             $detail->school_name = $schoolName;
             $detail->class_name = $className;
             $detail->address = $address;
+            $detail->birth_date = $birthDate;
             $detail->save();
             return 'OK';
         } else {
@@ -117,7 +119,8 @@ class DuniaMainController extends Controller
                 'mother_name' => $motherName,
                 'school_name' => $schoolName,
                 'class_name' => $className,
-                'address' => $address
+                'address' => $address,
+                'birth_date' => $birthDate
             ]);
             return 'OK';
         }

@@ -1,6 +1,6 @@
 <div id="register-modal" class="uk-modal">
     <div class="uk-modal-dialog">
-        <a class="uk-modal-close-outside" uk-close></a>
+        <a class="uk-modal-close-outside" title="Close" uk-close></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">Lengkapi Data</h5></div>
         <form action="{!! url('dunia-main/complete-profile/' . (isset($loggedInUser->id) ? $loggedInUser->id : '')) !!}" id="register-form" class="uk-padding-small">
             <div class="uk-margin-small-bottom form-group" id="reg-errors"></div>
@@ -11,6 +11,12 @@
                     <div class="uk-form-controls">
                         <input class="uk-input uk-form-small twb-round" id="mother_name" type="text" placeholder="" name="mother_name"
                         @if(isset($loggedInUser->detail->mother_name)) value="{!! $loggedInUser->detail->mother_name !!}" @endif>
+                    </div>
+                </div>
+                <div class="uk-margin-small-bottom">
+                    <label class="uk-form-label" for="lahir">Tanggal Lahir *</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" name="birthdate" value="{!! $loggedInUser->detail->birth_date !!}">
                     </div>
                 </div>
                 <div class="uk-margin-small-bottom">

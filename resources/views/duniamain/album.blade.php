@@ -30,14 +30,16 @@
                             <div class="uk-width-1-4 uk-margin-small-bottom">Nama Ibu</div>
                             <div class="uk-width-3-4 uk-margin-small-bottom">: {!! isset($detail->mother_name) ? $detail->mother_name : '' !!}</div>
                             <div class="uk-width-1-4">Umur</div>
-                            <div class="uk-width-3-4">: 27</div>
+                            <div class="uk-width-3-4">: {!! $detail->birth_date != '' ? getAge($detail->birth_date) : '' !!}</div>
                             <div class="uk-width-1-4">Kelas</div>
                             <div class="uk-width-3-4">: {!! isset($detail->class_name) ? $detail->class_name : '' !!}</div>
                             <div class="uk-width-1-4 uk-margin-small-bottom">Sekolah</div>
                             <div class="uk-width-3-4 uk-margin-small-bottom">: {!! isset($detail->school_name) ? $detail->school_name : '' !!}</div>
                             <div class="uk-width-1-4">Alamat</div>
                             <div class="uk-width-3-4">: {!! isset($detail->address) ? $detail->address : '' !!}</div>
-                            <div class="uk-width-1-1 uk-margin-small-top"><a href="javascript:;" class="uk-link update-profile dm-red-text" title="Lengkapi Data">Lengkapi Data</a></div>
+                            @if ($user->id == auth()->id())
+                                <div class="uk-width-1-1 uk-margin-small-top"><a href="javascript:;" class="uk-link update-profile dm-red-text" title="Ubah Data">Ubah Data</a></div>
+                            @endif
                         </div>
 
 
@@ -87,6 +89,13 @@
     <script src="{!! asset('assets/js/jquery.form.min.js') !!}"></script>
     <script>
         $(document).ready(function() {
+            // var check = moment('{!! $detail->birth_date !!}', 'YYYY/MM/DD');
+            $('#reg_birthdate').dateDropdowns({
+                daySuffixes: false,
+                defaultDateFormat: 'dd/mm/yyyy',
+                dropdownClass: 'uk-select uk-width-small uk-form-small twb-round'
+            });
+
             $('.update-profile').on('click', function() {
                 $(this).blur();
                 UIkit.modal('#register-modal').show();
