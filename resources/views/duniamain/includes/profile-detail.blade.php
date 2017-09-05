@@ -16,7 +16,7 @@
                 <div class="uk-margin-small-bottom">
                     <label class="uk-form-label" for="lahir">Tanggal Lahir *</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" name="birthdate" value="{!! $loggedInUser->detail->birth_date !!}">
+                        <input class="uk-input uk-form-small twb-round" id="reg_birthdate" type="text" name="birthdate" >
                     </div>
                 </div>
                 <div class="uk-margin-small-bottom">
