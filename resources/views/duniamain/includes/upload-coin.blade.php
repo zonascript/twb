@@ -1,6 +1,6 @@
 <div id="upload-coin-modal" class="uk-modal">
-    <div class="uk-modal-dialog">
-        <a class="uk-modal-close-outside" uk-close></a>
+    <div class="uk-modal-dialog uk-position-relative">
+        <a class="uk-modal-close uk-position-top-right uk-margin-small-top uk-margin-small-right" uk-close></a>
         <div class="uk-modal-header uk-padding-small twb-popimg twb-blue"><h5 class="uk-modal-title white-text twb-pop-title">MENGUNGGAH HASIL MEWARNAI</h5></div>
         <form class="" method="post" action="{!! route('ajaxCoinUpload') !!}" enctype="multipart/form-data" id="upload-form">
             {!! csrf_field() !!}
