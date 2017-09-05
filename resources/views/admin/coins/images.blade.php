@@ -20,7 +20,7 @@
                 <th>Type</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Address</th>
+                <th>Score</th>
                 <th>Mother Name</th>
                 <th class="uk-text-center">Action</th>
             </tr>
@@ -54,7 +54,7 @@
                 {data: 'type', name: 'type', width: '20%'},
                 {data: 'user.name', name: 'user.name', width: '15%'},
                 {data: 'user.email', name: 'user.email', width: '15%'},
-                {data: 'user.detail.address', name: 'user.detail.address', width: '15%'},
+                {data: 'score', name: 'score', width: '15%'},
                 {data: 'user.detail.mother_name', name: 'user.detail.mother_name', width: '15%'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, width: '5%'}
             ]

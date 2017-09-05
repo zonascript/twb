@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\User;
 use App\Service\Coin;
 use Illuminate\Http\Request;
+use Log;
 
 class CoinController extends Controller
 {
@@ -20,20 +22,47 @@ class CoinController extends Controller
         $this->coin = $coin;
     }
 
+    public function dashboard()
+    {
+        $data['participants'] = $this->coin->getParticipants()->count();
+        $data['allCoins'] = $this->coin->getAllCoins()->count();
+        $data['open'] = $this->coin->getOpenCoins()->count();
+        $data['approved'] = $this->coin->getApprovedCoins()->count();
+        $data['rejected'] = $this->coin->getRejectedCoins()->count();
+        $data['pageTitle'] = 'Dashboard Dunia Main';
+        return view('admin.coins.dashboard', $data);
+    }
+
+    public function participantImages($userId)
+    {
+        $user = User::find($userId);
+        $data['user'] = $user;
+        $data['pageTitle'] = $user->name . ' Images';
+        return view('admin.coins.participant-images', $data);
+    }
+
+
+    public function participantImagesDatatable($userId)
+    {
+        return $this->coin->participantImagesDatatable($userId);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function coinIndex()
+    public function coinIndex(Request $request)
     {
+        $data['isCompleted'] = $request->has('is_completed') ? $request->is_completed : '';
+        $data['name'] = $request->has('name') ? $request->name : '';
         $data['pageTitle'] = 'Coin List';
         return view('admin.coins.participant', $data);
     }
 
-    public function coinDatatable()
+    public function coinDatatable(Request $request)
     {
-        return $this->coin->coinDatatable();
+        return $this->coin->coinDatatable($request);
     }
 
     public function coinImages()

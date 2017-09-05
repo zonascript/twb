@@ -123,10 +123,12 @@ Route::group([
     Route::get('/participant-images/{id}/detail', 'CampaignController@imageDetail')->name('campaign.detail');
     Route::get('/participant-images/update-status/{id}/{status}', 'CampaignController@updateStatus')->name('campaign.approve');
 
-    Route::get('/coins/participant', 'CoinController@coinIndex')->name('coins');
+    Route::any('/coins/participant', 'CoinController@coinIndex')->name('coins');
+    Route::get('/coins/dashboard', 'CoinController@dashboard')->name('coins');
     Route::get('/coins/images', 'CoinController@coinImages')->name('coins');
     Route::get('/coins/{id}/detail', 'CoinController@imageDetail')->name('coins');
     Route::get('/coins/update-status/{id}/{status}', 'CoinController@updateStatus')->name('coins');
+    Route::get('/participant-images/{userId}', 'CoinController@participantImages')->name('coins');
 });
 
 // without menu generator
@@ -142,8 +144,9 @@ Route::group(['middleware' => ['auth', 'authorize']], function() {
     Route::get('/promo-datatable-list', 'PromoController@datatableList')->name('promo');
     Route::get('/participant-datatable', 'CampaignController@participantDatatable')->name('campaign.participant');
     Route::get('/participant-images-datatable', 'CampaignController@imageDatatable')->name('campaign.images');
-    Route::get('/coin-datatable', 'CoinController@coinDatatable')->name('campaign.participant');
+    Route::post('/coin-datatable', 'CoinController@coinDatatable')->name('campaign.participant');
     Route::get('/coin-images-datatable', 'CoinController@imageDatatable')->name('campaign.images');
+    Route::get('/participant-img-datatable/{id}', 'CoinController@participantImagesDatatable')->name('coins');
 });
 
 
