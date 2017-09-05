@@ -1,7 +1,17 @@
 @extends('duniamain.layout')
 
 @section('page-level-styles')
-
+<style>
+.dm-icon-6 {
+    margin-right: -80px;
+    margin-bottom: -60px;
+}
+@media (max-width:959px){
+    .dm-icon-5 {
+        margin-left: -100px;
+    }
+}
+</style>
 @endsection
 
 @section('page-level-nav')
