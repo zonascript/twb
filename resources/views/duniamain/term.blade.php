@@ -1,24 +1,13 @@
 @extends('duniamain.layout')
 
 @section('page-level-styles')
-<style>
-.dm-icon-6 {
-    margin-right: -80px;
-    margin-bottom: -60px;
-}
-@media (max-width:959px){
-    .dm-icon-5 {
-        margin-left: -100px;
-    }
-}
-</style>
 @endsection
 
 @section('page-level-nav')
 @endsection
 
 @section('content')
-    <section class="dm-main">
+    <section class="dm-main dm-tnc">
         <div class="uk-container">
             <div class="dm-box uk-text-center uk-margin-large-bottom uk-padding">
                 <h2 class="dm-badge">Syarat &amp; Ketentuan</h2>
