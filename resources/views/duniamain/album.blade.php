@@ -52,7 +52,7 @@
                 <img src="{!! asset('images/duniamain/icon-2.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-2-album">
                 <img src="{!! asset('images/duniamain/icon-3.png') !!}" alt="Tini Wini Biti" class="dm-icon dm-icon-3-album">
             </div>
-            <ul class="uk-child-width-1-5 uk-flex uk-flex-center uk-margin-large-bottom" uk-grid>
+            <ul class="uk-child-width-1-2 uk-child-width-1-5@m uk-flex uk-flex-center uk-margin-large-bottom" uk-grid>
                 @foreach($characters as $key => $character)
                     <li>
                         <div class="dm-album uk-text-center ">
