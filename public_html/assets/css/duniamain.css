@@ -536,7 +536,8 @@ footer .uk-icon {
     body * {
         font-size: .7rem;
     }
-    a.dm-thumb-user {
+    a.dm-thumb-user
+    a.dm-thumb-user img {
         max-width: 64px;
         max-height: 64px;
     }
