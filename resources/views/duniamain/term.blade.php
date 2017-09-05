@@ -28,7 +28,8 @@
                         <li>“Like” Facebook page Tini Wini Biti Indonesia dan “follow” Instagram-nya di @tiniwinibiti.id;</li>
                         <li>Masuk dan daftarkan info lengkap data diri Moms di www.tiniwinibiti.id/duniamain  menggunakan Facebook Connect;</li>
                         <li>Koleksi ke-15 koin Tini Wini Biti pada kemasan bertanda khusus yang bisa didapatkan di supermarket terdekat;</li>
-                        <li>Download Aplikasi “Dunia Main Tini Wini Biti” di Google Play <a title="Mobile Apps" href="http://bit.ly/DUNIATWBApps">http://bit.ly/DUNIATWBApps</a> (Khusus Android);</li>
+                        <li>Download Aplikasi “Dunia Main Tini Wini Biti” di Google Play <a href="http://bit.ly/DUNIATWBApps" class="dm-red-text" title="http://bit.ly/DUNIATWBApps">http://bit.ly/DUNIATWBApps</a> (Khusus Android);</li>
+
                         <li>Buka aplikasinya, lalu ajak Si Kecil memainkan permainan “Dunia Main Tini Wini Biti” dengan men-scan
                             koin Tini Wini Biti terlebih dahulu;</li>
                         <li>Mainkan hingga mendapat skor tertinggi, lalu ambil foto seru Moms bersama Si Kecil sesuai karakter koin yang dimiliki;</li>
