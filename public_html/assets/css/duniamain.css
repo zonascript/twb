@@ -478,6 +478,9 @@ footer .uk-icon {
     padding-left: 15px;
 }
 @media (max-width:959px){
+    header {
+        height: 100px;
+    }
     #mainhome {
         width: 100%;
         margin: 100px auto 0;
@@ -505,17 +508,17 @@ footer .uk-icon {
              -o-transform: scale(0.5); /* Opera 10.5+ */
                 transform: scale(0.5);
     }
-    .dm-icon-1 {
-        transform: scale(0.5) translate3d(-80%, 0%, 0px);
+    .dm-home .dm-icon-1 {
+        transform: scale(0.35) translate3d(-100%, 50%, 0px);
     }
-    .dm-icon-2 {
-        transform: scale(0.5) translate3d(60%, -100%, 0px);
+    .dm-home .dm-icon-2 {
+        transform: scale(0.35) translate3d(120%, -150%, 0px);
     }
-    .dm-icon-3 {
-        transform: scale(0.5) translate3d(-90%, 80%, 0px);
+    .dm-home .dm-icon-3 {
+        transform: scale(0.35) translate3d(-150%, 170%, 0px);
     }
-    .dm-icon-4 {
-        transform: scale(0.5) translate3d(60%, -40%, 0px);
+    .dm-home .dm-icon-4 {
+        transform: scale(0.35) translate3d(120%, -80%, 0px);
     }
     .dm-img-user img {
         width: 64px;
@@ -523,5 +526,24 @@ footer .uk-icon {
     }
     .dm-icon-3-album {
         margin-left: -100px;
+    }
+
+    .dm-box {
+        padding: 0 10px;
+    }
+    .dm-box .dm-overlay {
+    }
+    body * {
+        font-size: .7rem;
+    }
+    a.dm-thumb-user {
+        max-width: 64px;
+        max-height: 64px;
+    }
+    .dm-badge {
+        height: 50px;
+        font-size: 18px;
+        line-height: 35px;
+        background-size: contain;
     }
 }

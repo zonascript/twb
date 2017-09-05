@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="uk-width-1-1 uk-margin uk-padding uk-inline uk-text-center dm-overlay">
-                    <ul class="uk-child-width-1-4 uk-flex uk-flex-center uk-margin-large-top gallery-container" uk-grid></ul>
+                    <ul class="uk-child-width-1-2 uk-child-width-1-4@m uk-flex uk-flex-center uk-margin-large-top gallery-container" uk-grid></ul>
                     <ul class="uk-pagination uk-flex-center dm-pagination gallery-nav-container" uk-margin>
                         {{--<li><a href="#" title="Previous"><span uk-pagination-previous></span></a></li>--}}
                         {{--<li><a href="#" title="Page 1">1</a></li>--}}
@@ -101,7 +101,7 @@
     <script>
         $(document).ready(function() {
             var h = (54 / 96) * $('#mainhome').width();
-            $('#mainhome').height(h)
+            $('#mainhome').height(h);
             loadGallery('coins-paginated', 'coins-paginated', '');
 
             $('.searchtext').on('keypress', function(e) {
