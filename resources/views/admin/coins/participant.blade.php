@@ -13,31 +13,20 @@
         @if(isset($pageTitle)) {!! $pageTitle !!}@endif
         {{--<a href="{!! action('UserController@create') !!}" class="uk-button uk-button-primary uk-button-small uk-margin-left">Add New</a>--}}
     </h3>
-    <div>
-        <form class="" method="post">
+    <div class="uk-margin-bottom">
+        <form class="uk-card uk-card-body uk-card-small uk-card-default uk-width-auto" method="post">
             {!! csrf_field() !!}
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <label class="uk-form-label">Upload Date</label>
-                    <input class="uk-input" name="start_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $startDate !!}" /> to <input class="uk-input" name="end_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $endDate !!}" />
-                </div>
+            <div class="uk-flex uk-flex-middle uk-margin">
+                <label class="uk-form-label uk-width-small">Upload Date</label>
+                <input class="uk-input uk-form-small uk-width-small uk-margin-small-right" name="start_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $startDate !!}" /> - <input class="uk-input uk-form-small uk-width-small uk-margin-small-left" name="end_date" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="{!! $endDate !!}" />
             </div>
-
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <label class="uk-form-label">Score</label>
-                    <input class="uk-input" name="score_min" placeholder="Min Score" value="{!! $scoreMin !!}" /> - <input class="uk-input" name="score_max" placeholder="Max Score" value="{!! $scoreMax !!}" />
-                </div>
+            <div class="uk-flex uk-flex-middle uk-margin">
+                <label class="uk-form-label uk-width-small">Score</label>
+                <input class="uk-input uk-form-small uk-width-small uk-margin-small-right" name="score_min" placeholder="Min Score" value="{!! $scoreMin !!}" /> - <input class="uk-input uk-form-small uk-width-small uk-margin-small-left" name="score_max" placeholder="Max Score" value="{!! $scoreMax !!}" />
             </div>
-
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-checkbox" type="checkbox" value="1" name="is_completed"> Is Completed ?
-                </div>
-            </div>
-
-            <div class="uk-form-controls">
-                <button type="submit" class="uk-button-small" value="Search">Filter</button>
+            <div class="uk-form-controls uk-margin uk-flex uk-flex-middle uk-flex-between">
+                <div class="uk-inline"><input class="uk-checkbox" type="checkbox" value="1" name="is_completed"> Is Completed ?</div>
+                <button type="submit" class="uk-button uk-button-primary uk-button-small" value="Search">Filter</button>
             </div>
         </form>
     </div>
