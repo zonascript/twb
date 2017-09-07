@@ -232,10 +232,18 @@ footer .uk-icon {
     display: inline-block;
     -webkit-box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
     box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
-}
-.dm-thumb-user img {
     width: 100px;
     height: 100px;
+}
+.dm-thumb-user-img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+.dm-thumb-user img {
+    width: 100%;
+    height: auto;
 }
 .dm-thumb-user:before {
     content: "";
@@ -544,8 +552,8 @@ footer .uk-icon {
     body * {
         font-size: .7rem;
     }
-    a.dm-thumb-user,
-    a.dm-thumb-user img {
+    .dm-thumb-user,
+    .dm-thumb-user-img {
         max-width: 64px;
         max-height: 64px;
     }

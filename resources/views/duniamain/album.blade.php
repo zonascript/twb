@@ -14,11 +14,11 @@
                 <div class="uk-flex uk-flex-middle" uk-grid>
                     <div class="uk-width-auto dm-user">
                         <div class="dm-img-user">
-                            @if (isset($detail->avatar) && $detail->avatar != '')
+                            {{-- @if (isset($detail->avatar) && $detail->avatar != '')
                                 <img class="uk-border-circle" src="{!! $detail->avatar !!}" width="175" height="175" alt="{!! $user->name !!}">
-                            @else
+                            @else --}}
                                 <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="175" height="175" alt="{!! $user->name !!}">
-                            @endif
+                            {{-- @endif --}}
                         </div>
                     </div>
                     <div class="uk-width-expand uk-text-left">

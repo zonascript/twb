@@ -44,7 +44,7 @@ function generateGalleryContent($data) {
         galleryContent += '<li>' +
             '<div class="dm-user-gallery">' +
                 '<a href="'+baseUrl+'/dunia-main/album/'+userId+'" class="dm-thumb-user" title="'+gallery.user.name+'">' +
-                    '<img class="uk-border-circle" src="'+baseUrl+'/'+gallery.file_path+'" width="100" height="100" alt="'+gallery.user.name+'">' +
+                    '<span class="dm-thumb-user-img uk-border-circle uk-background-cover" style="background-image: url('+baseUrl+'/'+gallery.file_path+')"></span>' +
                 '</a>' +
                 '<div>'+gallery.user.name+'</div>' +
                 '<div>'+gallery.total_score+'/15</div>' +
