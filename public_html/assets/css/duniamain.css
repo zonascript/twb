@@ -280,9 +280,11 @@ footer .uk-icon {
     -webkit-box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
     box-shadow:inset 0 0 10px 0 rgba(0,0,0,0.5);
 }
+.dm-img-user-wrap,
 .dm-img-user img {
     width: 175px;
     height: 175px;
+    border-radius: 50%;
 }
 .dm-img-user:before {
     content: "";
@@ -534,6 +536,7 @@ footer .uk-icon {
     .dm-tnc .dm-icon-6 {
         transform: scale(0.35) translate3d(120%, 100%, 0px);
     }
+    .dm-img-user-wrap,
     .dm-img-user img {
         width: 64px;
         height: 64px;

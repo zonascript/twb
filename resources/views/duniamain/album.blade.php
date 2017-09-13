@@ -17,7 +17,8 @@
                             {{-- @if (isset($detail->avatar) && $detail->avatar != '')
                                 <img class="uk-border-circle" src="{!! $detail->avatar !!}" width="175" height="175" alt="{!! $user->name !!}">
                             @else --}}
-                                <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="175" height="175" alt="{!! $user->name !!}">
+                            <div class="dm-img-user-wrap uk-background-cover" style="background-image: url(https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg)"></div>
+                                {{-- <img class="uk-border-circle" src="https://s-media-cache-ak0.pinimg.com/736x/56/63/ba/5663ba440ee28f9bb5735972f1ef61fc--watermelon-baby-water-melon.jpg" width="175" height="175" alt="{!! $user->name !!}"> --}}
                             {{-- @endif --}}
                         </div>
                     </div>
