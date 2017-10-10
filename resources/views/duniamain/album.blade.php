@@ -120,6 +120,7 @@
                     clearUploadForm();
                 },
                 beforeSend: function( xhr ) {
+                    window.scrollTo(0, 0);
                     $('body').append(pageLoader);
                 },
                 success: function(data) {
