@@ -120,7 +120,7 @@
                     clearUploadForm();
                 },
                 beforeSend: function( xhr ) {
-                    $('body').prepend(pageLoader);
+                    $('body').append(pageLoader);
                 },
                 success: function(data) {
                     $('.twb-page-loader').remove();
